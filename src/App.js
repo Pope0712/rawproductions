@@ -14,7 +14,7 @@ import MajoratVideo from './Components/PortofoliuRawProductionsFOTO/MajoratVideo
 import StudioVideo from './Components/PortofoliuRawProductionsFOTO/StudioVideo';
 import emailjs from '@emailjs/browser';
 
-// Inițializați EmailJS cu cheia publică
+// Inițializați EmailJS cu cheia publicădad
 emailjs.init("YOUR_PUBLIC_KEY"); // Înlocuiți cu Public Key-ul vostru
 
 function App() {
