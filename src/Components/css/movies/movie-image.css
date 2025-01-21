@@ -1,0 +1,74 @@
+.movie:nth-child(1) { 
+  background-image: url('../../images/Nunta/Nunta (56).jpg'); 
+  background-position: 30%;
+  transition: all 0.3s ease;
+} 
+
+.movie:nth-child(2) { 
+  background-image: url('../../images/Botez/Botez (42).jpg');
+  transition: all 0.3s ease;
+} 
+
+.movie:nth-child(3) { 
+  background-image: url('../../images/Majorat/Majorat (44).jpg');
+  transition: all 0.3s ease;
+} 
+
+.movie:nth-child(4) { 
+  background-image: url('../../images/Studio/Studio (52).jpg');
+  transition: all 0.3s ease;
+} 
+
+/* Stiluri before pentru laptopuri și dispozitive mai mari */ 
+.movie:nth-child(1)::before { 
+  background-image: url('../../images/Nunta/Nunta (56).jpg'); 
+  background-position: 30%;
+  transition: all 0.3s ease;
+} 
+
+.movie:nth-child(2)::before { 
+  background-image: url('../../images/Botez/Botez (42).jpg');
+  transition: all 0.3s ease;
+} 
+
+.movie:nth-child(3)::before { 
+  background-image: url('../../images/Majorat/Majorat (44).jpg');
+  transition: all 0.3s ease;
+} 
+
+.movie:nth-child(4)::before { 
+  background-image: url('../../images/Studio/Studio (52).jpg');
+  transition: all 0.3s ease;
+} 
+
+/* Efecte pentru starea activă */
+.movie.active {
+  filter: brightness(0.7) grayscale(0.3);
+}
+
+/* Resetare stil before pentru telefoane și tablete */ 
+@media (max-width: 1024px) { 
+  .movie:nth-child(1)::before, 
+  .movie:nth-child(2)::before, 
+  .movie:nth-child(3)::before, 
+  .movie:nth-child(4)::before { 
+      background-image: none; 
+  } 
+
+}
+
+@media screen and (max-width: 768px) { 
+  .movie:nth-child(1) { 
+    background-position: 30% !important;
+    background-size: cover !important;
+  } 
+  .movie:nth-child(4) { 
+    background-position: 45% !important;
+    background-size: cover !important;
+  } 
+  .movie:nth-child(2) { 
+    background-position: 35% !important;
+    background-size: cover !important;
+  } 
+ 
+}

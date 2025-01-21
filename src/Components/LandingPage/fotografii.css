@@ -1,0 +1,370 @@
+html, body {
+  overflow-x: hidden; /* Previne scroll-ul orizontal */
+}
+
+
+
+
+.second-section-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.second-section-i {
+  opacity: 0;
+  font-size: 18px;
+  color: #fff;
+  transform: scale(0.1);
+  transition: all 0.2s ease;
+}
+
+.second-section-h2 {
+  pointer-events: none;
+}
+
+
+
+.second-section-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 120px;
+  padding: 40px;
+}
+
+.second-section-row {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+}
+
+.second-section-card {
+  width: 600px;
+  height: 350px;
+  background-color: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+.second-section-card h2 {
+  z-index: 99;
+  font-family: "Poppins", sans-serif;
+  position: absolute;
+  bottom: 0;
+  right: 130px;
+  font-size: 60px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.second-section-card .fa-arrow-right {
+  z-index: 100;
+  position: absolute;
+  right: 75px;
+  bottom: 25px;
+  font-size: 40px;
+  cursor: pointer;
+  opacity: 0; /* Ascuns implicit */
+  visibility: hidden; /* Ascuns din punct de vedere vizual */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.second-section-card:hover .fa-arrow-right {
+  opacity: 1; /* Vizibil la hover */
+  visibility: visible; /* Permite afișarea */
+}
+
+.second-section-card p {
+  z-index: 99;
+  position: absolute;
+  top: 20px;
+  right: 70px;
+  color: #333;
+  opacity: 0.7;
+  font-size: 12px;
+  letter-spacing: 1px;
+  writing-mode: vertical-lr;
+  transition: all 0.2s ease;
+}
+
+.second-section-pic {
+  z-index: 100;
+  width: 500px;
+  height: 350px;
+  background-image: url("../images/Nunta/Nunta (40).jpg");
+  background-size: 100% 100%;
+  filter: grayscale(100%);
+  
+}
+
+.second-section-card:hover .second-section-i {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.second-section-card button {
+  position: absolute;
+  right: 14px;
+  bottom: 14px;
+  width: 30px;
+  height: 30px;
+  background-color: #FFD700;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+  mix-blend-mode: hard-light;
+}
+
+.second-section-card button i {
+  font-size: 3rem;
+}
+
+.second-section-card:hover button {
+  transform: scale(16.5);
+}
+
+.second-section-card:hover p {
+  color: #fff;
+}
+
+.second-section-card:hover .second-section-pic {
+  filter: grayscale(0);
+}
+
+.second-section-card2 .second-section-pic {
+  background-image: url("../images/Botez/Botez (69).jpg");
+}
+
+.second-section-card3 .second-section-pic {
+  background-image: url("../images/11.jpg");
+}
+
+.second-section-card4 .second-section-pic {
+  background-image: url("../images/Studio/Studio (66).jpg");
+}
+
+
+
+.second-section-card2 button {
+  background-color: #24c1dd;
+}
+.second-section-card3 button {
+  background-color: #8A2BE2;
+}
+
+.second-section-card4 button {
+  background-color: #ff1e1e;
+}
+
+@media only screen and (max-width: 986px) {
+  .second-section-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .second-section-card {
+    width: 90%;
+    max-width: 500px;
+  }
+}
+
+.second-section-wrapper {
+  width: 90%;
+  padding: 30px 0;
+  text-align: center;
+  overflow: hidden;
+}
+
+.second-section-header {
+  text-transform: uppercase;
+  line-height: 50px;
+  padding-bottom: 50px;
+  font-size: 50px;
+  color: #ffffff;
+  letter-spacing: 5px;
+}
+
+.second-section-content1 {
+  padding: 10%;
+}
+
+.second-section-content1 h2 {
+  font-size: 30px;
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+.second-section-content1 p {
+  line-height: 1.5;
+}
+
+.second-section-main-content1 {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  -ms-content-zoom-snap: 25px;
+  grid-column-gap: 15px;
+}
+
+.second-section-main-content1 .second-section-box {
+  position: relative;
+  cursor: pointer;
+  margin-bottom: 15px;
+  box-shadow: 15px 15px 40px rgba(0, 0, 0, 0.15);
+  height: 350px;
+  overflow: hidden;
+}
+
+.second-section-main-content1 .second-section-box::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 5px;
+  height: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.second-section-main-content1 .second-section-box:hover::before {
+  top: 0;
+  right: calc(100% - 5px);
+  z-index: 10;
+}
+
+.second-section-main-content1 .second-section-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.second-section-main-content1 .second-section-box .second-section-img-text {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.9);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  right: 100%;
+  transition: all 0.5s ease-in-out;
+}
+
+.second-section-main-content1 .second-section-box:hover .second-section-img-text {
+  top: 0;
+  right: 0;
+}
+
+@media only screen and (min-width: 1400px) {
+  .second-section-card {
+    width: 700px;
+    height: 400px;
+  }
+
+  .second-section-pic {
+    width: 600px;
+    height: 400px;
+  }
+}
+
+/* Tablete și laptopuri mici */
+@media only screen and (max-width: 1200px) {
+  .second-section-content {
+    gap: 80px;
+    padding: 20px;
+  }
+
+  .second-section-row {
+    gap: 30px;
+  }
+
+  .second-section-card {
+    width: 450px;
+    height: 300px;
+  }
+
+  .second-section-pic {
+    width: 400px;
+    height: 300px;
+  }
+
+  .second-section-card h2 {
+    font-size: 48px;
+    right: 100px;
+  }
+}
+
+/* Tablete și telefoane mari */
+@media only screen and (max-width: 986px) {
+  .second-section-row {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .second-section-card {
+    max-width: 90%;
+    height: 300px;
+    margin: 0 auto;
+  }
+
+  .second-section-card h2 {
+    font-size: 30px;
+  }
+
+  .second-section-card .fa-arrow-right {
+    font-size: 25px;
+  }
+
+  .second-section-card p {
+    font-size: 12px;
+  }
+}
+
+/* Telefoane mici */
+/* Telefoane mici */
+@media only screen and (max-width: 480px) {
+  .second-section-content {
+    gap: 25px; /* Spațiere mai mică */
+  }
+
+  .second-section-card {
+    height: 190px; /* Compact pe telefoane mici */
+  }
+
+  .second-section-pic {
+    width: 100%; /* Lățime completă */
+    height: 100%; /* Înălțime completă */
+    object-fit: cover; /* Păstrează proporțiile imaginii */
+    object-position: center; /* Centrează imaginea */
+    background-size: cover; /* Asigură că imaginea umple containerul */
+    background-position: center; /* Centrează fundalul imaginii */
+  }
+
+  .second-section-card h2 {
+    font-size: 18px;
+    bottom: 15px;
+    left: 140px;
+  }
+
+  .second-section-card .fa-arrow-right {
+    font-size: 25px;
+    bottom: 20px;
+    right: 22px;
+  }
+
+  .second-section-card button {
+    position: absolute;
+    right: 14px;
+    bottom: 14px;
+    width: 15px;
+    height: 12px;
+  }
+
+  .second-section-card p {
+    z-index: -99999; /* Ascunde textul pentru telefoane mici, dacă nu este necesar */
+  }
+}

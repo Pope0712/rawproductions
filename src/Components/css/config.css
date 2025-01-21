@@ -1,0 +1,24 @@
+:root {
+  --white: #ffffff;
+  --yellow: #ffd000;
+  --grey: #808080;
+  --font: #7b7b7b;
+}
+
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  background-color: transparent;
+  
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+}

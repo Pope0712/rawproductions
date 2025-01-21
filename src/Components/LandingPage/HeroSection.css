@@ -1,0 +1,432 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap');
+
+/* Reset de bază */
+html, body {
+  overflow-x: hidden;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Header section */
+header {
+  width: 100%;
+  height: 100px;
+  position: relative;
+}
+
+/* Carousel principal */
+.carousel {
+  width: 100%;
+  height: 100vh;
+  margin-top: 0;
+  overflow: hidden;
+  position: relative;
+  z-index: 10;
+}
+
+.carousel .list {
+  position: relative;
+  height: 100%;
+}
+
+/* Setări pentru fiecare item din carousel */
+.carousel .list .item {
+  width: 180px;
+  height: 250px;
+  position: absolute;
+  top: 70%;
+  transform: translateY(-70%);
+  left: 70%;
+  border-radius: 20px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  background-position: 50% 50%;
+  background-size: cover;
+  z-index: 100;
+  transition: 1s;
+}
+
+.carousel .list .item:nth-child(1),
+.carousel .list .item:nth-child(2) {
+  top: 0;
+  left: 0;
+  transform: translate(0, 0);
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel .list .item:nth-child(3) { left: 67%; }
+.carousel .list .item:nth-child(4) { left: calc(67% + 200px); }
+.carousel .list .item:nth-child(5) { left: calc(67% + 400px); }
+.carousel .list .item:nth-child(6) { left: calc(67% + 600px); }
+.carousel .list .item:nth-child(n+7) {
+  left: calc(67% + 800px);
+  opacity: 0;
+}
+
+/* Stilizare pentru conținutul text */
+.list .item .content {
+  position: absolute;
+  top: 50%;
+  left: 100px;
+  transform: translateY(-50%);
+  width: 400px;
+  text-align: left;
+  color: #fff;
+  display: none;
+}
+
+.list .item:nth-child(2) .content {
+  display: block;
+}
+
+/* Stilizare titlu */
+.content .title {
+  font-size: 100px;
+  text-transform: uppercase;
+  color: #ffffffcb;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: bold;
+  line-height: 0.8;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
+  opacity: 0;
+  animation: animate 1s ease-in-out 0.3s 1 forwards;
+}
+
+/* Stilizare butoane */
+.content .btn {
+  margin-left: 5px;
+  opacity: 0;
+  animation: animate 1s ease-in-out 1.2s 1 forwards;
+  display: flex;
+  gap: 20px; /* Adăugăm spațiu între butoane */
+  flex-direction: row; /* Asigurăm că butoanele sunt pe aceeași linie */
+  align-items: center;
+}
+
+.content .btn button {
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border: 2px solid #fff;
+  white-space: nowrap; /* Previne împărțirea textului pe mai multe linii */
+}
+
+.content .btn button:first-child {
+  margin-right: 0; /* Eliminăm margin-right deoarece folosim gap */
+  background: rgba(255, 255, 255, 0.575);
+}
+
+.content .btn button:nth-child(2) {
+  background: rgba(138, 138, 138, 0.457);
+  color: #e63946;
+  border: 2px solid #fff;
+  transition: 0.3s;
+}
+
+.content .btn button:nth-child(2):hover {
+  background-color: #e63946;
+  color: #fff;
+  border-color: #e63946;
+}
+
+/* Animație pentru conținut */
+@keyframes animate {
+  from {
+    opacity: 0;
+    transform: translate(0, 100px);
+    filter: blur(33px);
+  }
+  to {
+    opacity: 1;
+    transform: translate(0);
+    filter: blur(0);
+  }
+}
+
+/* Stilizare săgeți navigare */
+.arrows {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  z-index: 100;
+  width: 300px;
+  max-width: 30%;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  display: none;
+}
+
+.arrows button {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #e63946;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 16px;
+  font-family: monospace;
+  font-weight: bold;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.arrows button:hover {
+  background: #fff;
+  color: #000;
+}
+
+/* Bară de progres */
+.carousel .timeRunning {
+  position: absolute;
+  z-index: 1000;
+  width: 0%;
+  height: 6px;
+  background-color: #e63946;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+  left: 0;
+  top: 0;
+  animation: runningTime 7s linear 1 forwards;
+  transition: width 0.3s ease;
+}
+
+@keyframes runningTime {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* Poziționări specifice pentru imagini */
+.carousel .list .item-8 {
+  background-position: 75% 27% !important;
+}
+
+/* Media Queries */
+/* Laptopuri și tablete mari (max-width: 1024px) */
+@media screen and (max-width: 1024px) {
+  .carousel .list .item:nth-child(n+3) {
+    width: 160px;
+    height: 220px;
+  }
+
+  .list .item .content {
+    left: 50px;
+    width: 300px;
+  }
+
+  .content .title {
+    font-size: 70px;
+  }
+
+  .content .btn button {
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+
+  .carousel .list .item:nth-child(3) { left: 70%; }
+  .carousel .list .item:nth-child(4) { left: calc(70% + 170px); }
+  .carousel .list .item:nth-child(5) { left: calc(70% + 340px); }
+  .carousel .list .item:nth-child(6) { left: calc(70% + 510px); }
+
+  .carousel .list .item-1 { background-position: 55% 50% !important; }
+  .carousel .list .item-2 { background-position: 50% 40% !important; }
+  .carousel .list .item-3 { background-position: 65% 50% !important; }
+}
+
+/* Tablete (max-width: 768px) */
+@media screen and (max-width: 768px) {
+  .carousel .list .item:nth-child(n+3) {
+    width: 140px;
+    height: 200px;
+  }
+
+  .list .item .content {
+    left: 30px;
+    width: 250px;
+  }
+
+  .content .title {
+    font-size: 50px;
+    -webkit-text-stroke-width: 0.3px;
+  }
+
+  .content .btn button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+
+  .carousel .list .item:nth-child(3) { left: 72%; }
+  .carousel .list .item:nth-child(4) { left: calc(72% + 150px); }
+  .carousel .list .item:nth-child(5) { left: calc(72% + 300px); }
+  .carousel .list .item:nth-child(6) { left: calc(72% + 450px); }
+
+  .carousel .list .item-1 { background-position: 55% 40% !important; }
+  .carousel .list .item-2 { background-position: 50% 35% !important; }
+  .carousel .list .item-3 { background-position: 65% 45% !important; }
+}
+
+/* Telefoane (max-width: 480px) */
+@media screen and (max-width: 480px) {
+  .carousel .list .item:nth-child(n+3) {
+    width: 120px;
+    height: 180px;
+  }
+
+  .list .item .content {
+    left: 20px;
+    width: 200px;
+    top: 40%;
+  }
+
+  .content .title {
+    font-size: 35px;
+    -webkit-text-stroke-width: 0.2px;
+  }
+
+  .content .btn {
+    margin-top: 10px;
+    
+  }
+  
+  .content .btn button {
+    padding: 5px 12px;
+    font-size: 10px;
+    margin-right: 5px;
+  }
+
+  .carousel .list .item:nth-child(3) { left: 74%; }
+  .carousel .list .item:nth-child(4) { left: calc(75% + 130px); }
+  .carousel .list .item:nth-child(5) { left: calc(75% + 260px); }
+  .carousel .list .item:nth-child(6) { left: calc(75% + 390px); }
+
+  .carousel .list .item-1 { background-position: 30% 60% !important; }
+  .carousel .list .item-2 { background-position: 50% 50% !important; }
+  .carousel .list .item-3 { background-position: 50% 50% !important; }
+  .carousel .list .item-4 { background-position: 45% 50% !important; }
+  .carousel .list .item-5 { background-position: 85% 50% !important; }
+  .carousel .list .item-6 { background-position: 35% 50% !important; }
+  .carousel .list .item-7 { background-position: 75% 50% !important; }
+  .carousel .list .item-8 { background-position: 50% 50% !important; }
+
+  .content .title {
+    font-size: 55px; /* Font mai mic */
+    -webkit-text-stroke-width: 0.2px;
+    margin-bottom: 15px; /* Spațiu mai mare între titlu și butoane */
+    line-height: 1; /* Ajustare line-height pentru titlu */
+  }
+
+
+  .content .btn {
+    display: flex; /* Aranjează butoanele pe un rând */
+    gap: 10px; /* Spațiere uniformă între butoane */
+    justify-content: flex-start; /* Aliniere la stânga */
+  }
+
+  .content .btn button {
+    padding: 8px 12px; /* Padding mai mic pentru mobile */
+    font-size: 11px; /* Font mai mic */
+    margin-right: 0; /* Eliminăm margin-right deoarece folosim gap */
+    white-space: nowrap; /* Previne ruperea textului pe mai multe rânduri */
+  }
+}
+
+/* Telefoane foarte mici (max-width: 320px) */
+@media screen and (max-width: 320px) {
+  .carousel .list .item:nth-child(n+3) {
+    width: 100px;
+    height: 150px;
+  }
+
+  .list .item .content {
+    left: 15px;
+    width: 150px;
+    top: 35%;
+  }
+
+  .content .title {
+    font-size: 25px;
+  }
+
+  .content .btn button {
+    padding: 4px 8px;
+    font-size: 9px;
+  }
+
+  .carousel .list .item:nth-child(3) { left: 78%; }
+  .carousel .list .item:nth-child(4) { left: calc(78% + 110px); }
+  .carousel .list .item:nth-child(5) { left: calc(78% + 220px); }
+  .carousel .list .item:nth-child(6) { left: calc(78% + 330px); }
+
+  .carousel .list .item-1 { background-position: 55% 25% !important; }
+  .carousel .list .item-2 { background-position: 50% 20% !important; }
+  .carousel .list .item-3 { background-position: 65% 35% !important; }
+
+  .content .btn {
+    gap: 8px; /* Spațiere mai mică pentru ecrane foarte mici */
+  }
+
+  .content .btn button {
+    padding: 6px 12px; /* Padding și mai mic */
+    font-size: 11px; /* Font și mai mic */
+  }
+}
+
+/* Buton de scroll - stilizare de bază */
+.mouse-poz {
+  position: absolute;
+  top: 88%;
+  right: 50%;
+  transform: translateX(50%);
+  z-index: 999999999999;
+  width: 50px;
+  max-width: 30%;
+  scale: 90%;
+}
+
+/* Ajustare poziție doar pentru mobile */
+@media screen and (max-width: 480px) {
+  .mouse-poz {
+    top: 75%;
+  }
+}
+
+.mouse {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 80px;
+  border-radius: 30px;
+  border: 5px solid rgba(255, 255, 255, 0.8);
+  background-color: transparent;
+}
+
+.mouse:after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #fff;
+  animation: scroll 1s infinite alternate;
+}
+
+@keyframes scroll {
+  100% {
+    transform: translate(-50%, 15px);
+  }
+}

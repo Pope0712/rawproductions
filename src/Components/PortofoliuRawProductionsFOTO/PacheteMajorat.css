@@ -1,0 +1,281 @@
+/* Pachete.css */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .packages-container {
+    background-color: #1a1a1a;
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+  }
+  
+  .hero-section {
+    position: relative;
+    height: 80vh;
+    min-height: 300px;
+    max-height: 500px;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .hero-image {
+    
+    height: 100%;
+    margin-top: 10%;
+    object-fit: cover;
+    filter: brightness(0.7);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    
+  }
+  
+  .hero-content {
+    position: absolute;
+    top: 67%;
+    left: 5%;
+    transform: translateY(-50%);
+    color: white;
+    z-index: 2;
+    width: 90%;
+    padding-right: 20px;
+  }
+  
+  .hero-title {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: bold;
+    margin-bottom: clamp(10px, 2vh, 20px);
+    line-height: 1.2;
+  }
+  
+  .hero-title span {
+    color: #811515;
+  }
+  
+  .pricing-section {
+    padding: clamp(30px, 5vh, 60px) clamp(15px, 3vw, 30px);
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+  }
+  
+  .pricing-header {
+    text-align: center;
+    margin-bottom: clamp(30px, 6vh, 60px);
+  }
+  
+  .pricing-subtitle {
+    color: #ff3333;
+    text-transform: uppercase;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  
+  .pricing-title {
+    color: white;
+    font-size: clamp(1.8rem, 4vw, 2.2rem);
+    font-weight: bold;
+  }
+  
+  .pricing-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+    gap: clamp(20px, 4vw, 30px);
+    padding: clamp(10px, 2vw, 20px);
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .pricing-card {
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    padding: clamp(20px, 4vw, 30px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  }
+  
+  .pricing-card::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 100px;
+    height: 100px;
+    background: #ff3333;
+    transform: rotate(45deg);
+  }
+  
+  .card-title {
+    color: #333;
+    font-size: clamp(1.2rem, 3vw, 1.5rem);
+    font-weight: bold;
+    margin-bottom: clamp(15px, 3vh, 20px);
+  }
+  
+  .card-price {
+    color: #ff3333;
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    font-weight: bold;
+    margin-bottom: clamp(20px, 4vh, 30px);
+  }
+  
+  .card-price span {
+    font-size: clamp(0.9rem, 2vw, 1rem);
+  }
+  
+  .features-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: clamp(20px, 4vh, 30px);
+    flex-grow: 1;
+  }
+  
+  .feature-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: clamp(10px, 2vh, 15px);
+    color: #666;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+  }
+  
+  .feature-icon {
+    color: #ff3333;
+    margin-right: 10px;
+    min-width: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .feature-icon::before {
+    content: '✓';
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .book-button {
+    width: 100%;
+    padding: clamp(10px, 2vh, 12px);
+    background: #ff3333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: clamp(0.9rem, 2vw, 1rem);
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;  /* Adăugat pentru centrarea textului */
+    display: block;      /* Asigură că Link se comportă ca un element block */
+    text-decoration: none; /* Elimină sublinierea default a link-ului */
+  }
+  .book-button:hover {
+    background: #cc0000;
+    transform: translateY(-2px);
+  }
+  
+  /* Extra Small Devices (phones, 320px and up) */
+  @media screen and (min-width: 320px) {
+    .pricing-cards {
+      grid-template-columns: 1fr;
+    }
+  
+    .pricing-card {
+      max-width: 400px;
+      margin: 0 auto;
+      width: 100%;
+    }
+  }
+  
+  /* Small Devices (phones, 576px and up) */
+  @media screen and (min-width: 576px) {
+    .hero-content {
+      left: 8%;
+      width: 84%;
+    }
+  }
+  
+  /* Medium Devices (tablets, 768px and up) */
+  @media screen and (min-width: 768px) {
+    .pricing-cards {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  
+    .pricing-card {
+      max-width: none;
+    }
+  }
+  
+  /* Large Devices (desktops, 992px and up) */
+  @media screen and (min-width: 992px) {
+    .pricing-cards {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  
+    .hero-content {
+      left: 10%;
+      width: 80%;
+    }
+  }
+  
+  /* Extra Large Devices (large desktops, 1200px and up) */
+  @media screen and (min-width: 1200px) {
+    .hero-content {
+      left: 15%;
+      width: 70%;
+    }
+  }
+  
+  /* For devices with hover capability */
+  @media (hover: hover) {
+    .book-button:hover {
+      background: #cc0000;
+      transform: translateY(-2px);
+    }
+  
+    .pricing-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    }
+  }
+  
+  /* For devices without hover capability (touch devices) */
+  @media (hover: none) {
+    .book-button:active {
+      background: #cc0000;
+      transform: translateY(1px);
+    }
+  }
+  
+  /* Fix for ultra-wide screens */
+  @media screen and (min-width: 2000px) {
+    .pricing-section {
+      max-width: 1800px;
+    }
+    
+    .hero-section {
+      max-height: 600px;
+    }
+  }
+  
+  /* Support for Dark Mode */
+  @media (prefers-color-scheme: dark) {
+    .pricing-card {
+      background: #ffffff;
+    }
+  }

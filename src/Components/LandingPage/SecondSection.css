@@ -1,0 +1,117 @@
+/* Secțiunea principală */
+.services-section {
+  background-color: #1f1f1f;
+  padding: 110px 50px;
+  color: #fff;
+  text-align: center;
+  position: relative;
+}
+
+/* Titlu și subtitlu */
+.services-header {
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.section-subtitle {
+  font-size: 14px;
+  color: #e63946;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 10px;
+  display: inline-block;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 10; /* Pentru a fi deasupra barei */
+}
+
+/* Bara roșie */
+.red-bar {
+  position: absolute;
+  top: 150%;
+  left: 20%; /* Poziționare spre dreapta */
+  width: 80%; /* Lățime mai mare */
+  height: 3px;
+  background: linear-gradient(to left, rgba(230, 57, 70, 1), rgba(230, 57, 70, 0)); /* Gradient de opacitate */
+  transform: translateY(-50%);
+  z-index: 5; /* Sub titlu, deasupra altor elemente */
+}
+
+.red-bar2 {
+  position: absolute;
+  top: -152%;
+  left: -10%; /* Poziționare spre dreapta */
+  width: 100%; /* Lățime mai mare */
+  height: 6px;
+  background: linear-gradient(to right, rgba(230, 57, 70, 1), rgba(230, 57, 70, 0)); /* Gradient de opacitate */
+  transform: translateY(-50%);
+  z-index: 5; /* Sub titlu, deasupra altor elemente */
+}
+
+
+
+
+/* Container pentru carduri */
+.services-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+/* Cardurile */
+.service-card {
+  background-color: #2c2c2c;
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 20px;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Iconițe */
+.icon-container {
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.icon-container i {
+  font-size: 45px;
+  color: #e63946; /* Roșu pentru icon */
+}
+
+/* Detalii card */
+.service-details {
+  margin-top: 20px;
+}
+
+.service-number {
+  font-size: 18px;
+  font-weight: bold;
+  color: #e63946;
+}
+
+.service-title {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+.service-description {
+  font-size: 14px;
+  color: #d1d5db; /* Gri deschis pentru descriere */
+  margin-top: 10px;
+  line-height: 1.6;
+}

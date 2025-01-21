@@ -1,0 +1,265 @@
+/* Global Styling */
+.background-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover; /* Asigură că video-ul acoperă complet ecranul */
+    z-index: -1; /* Trimite video-ul în spate */
+  }
+    .video-page {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Umple toată înălțimea ecranului */
+      background-color: #00000000; /* Fundal complet negru */
+      padding: 20px;
+    }
+    
+    /* First Section: Grid with 2 rows of 4 videos */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 videoclipuri pe un rând */
+      gap: 20px; /* Spațiu între videoclipuri */
+      width: 100%;
+      padding: 30px;
+    }
+    
+    /* Second Section: One large video and 4 smaller ones in a 2x2 grid */
+    .video-special-layout {
+      display: flex;
+      gap: 20px;
+      padding: 30px;
+      padding-top: 0px;
+      margin-top: 0px;
+      align-items: flex-start; /* Asigură alinierea de sus */
+    }
+    
+    .video-large {
+      flex: 1.5; /* Videoclipul mare ocupă mai puțin spațiu orizontal */
+      position: relative;
+      background-color: #00000000;
+      overflow: hidden;
+      border-radius: 5px;
+      height: calc(100% + 20px); /* Extinde marginea de jos cu 20px */
+    }
+    
+    .video-large .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 61%; /* Ajustare pentru raportul de aspect al videoclipului mare */
+    }
+    
+    .video-small-grid {
+      flex: 1.5; /* Grilă de videoclipuri mici */
+      display: grid;
+      grid-template-columns: repeat(2, 1fr); /* 2 videoclipuri pe un rând */
+      gap: 20px;
+    }
+    
+    /* Shared video wrapper to ensure 16:9 aspect ratio */
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%; /* Raport 16:9 */
+      background-color: #000;
+      overflow: hidden;
+      border-radius: 5px;
+    }
+    
+    .video-element {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Asigură că video-ul acoperă complet spațiul disponibil */
+      transition: transform 0.3s ease-in-out;
+    }
+    
+    .video-card:hover .video-element,
+    .video-large:hover .video-element {
+      transform: scale(1.05); /* Zoom ușor pe video la hover */
+    }
+    
+    /* Video Info */
+    .video-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      font-size: 14px;
+    }
+    
+    .video-id {
+      font-size: 1rem;
+      font-weight: bold;
+      color: #666;
+    }
+    
+    .video-title {
+      font-size: 1rem;
+      text-align: right;
+      color: #fff;
+    }
+    .video-page.blurred {
+      filter: blur(8px); /* Aplica blur doar pe fundal */
+      pointer-events: none; /* Dezactivează interacțiunea cu fundalul */
+    }
+    
+    /* Overlay pentru player-ul video */
+    .video-player-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8); /* Fundal semi-transparent */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000; /* Asigură că overlay-ul este deasupra */
+    }
+    
+    /* Player-ul video */
+    .video-player {
+      width: 80%;
+      max-width: 800px;
+      background: #000; /* Asigură fundal negru */
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6); /* Adaugă umbră */
+    }
+    
+    .video-player video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px; /* Rotunjirea colțurilor */
+    }
+    
+    /* Videoclipurile din grilă */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 videoclipuri pe un rând */
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    .video-card {
+      cursor: pointer;
+    }
+    
+    .video-player-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    
+    .video-player {
+      width: 80%;
+      max-width: 800px;
+      background: #000;
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.6);
+    }
+    
+    .video-player video {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    
+    .video-info {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #fff;
+    }
+    
+    /* Pentru ecrane mari (max-width: 1024px) */
+    @media (max-width: 1024px) {
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr); /* 3 videoclipuri pe un rând */
+        gap: 15px;
+      }
+    
+      .video-special-layout {
+        flex-direction: column; /* Schimbă layout-ul în coloană */
+      }
+      .video-title {
+          font-size: 15px;
+        }
+    
+      .video-large {
+        width: 100%;
+        height: auto; /* Ajustează înălțimea automată */
+      }
+    
+      .video-small-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 videoclipuri pe un rând */
+        width: 100%;
+      }
+    }
+    
+    /* Pentru telefoane (max-width: 768px) */
+    @media (max-width: 768px) {
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 videoclipuri pe un rând */
+        gap: 15px;
+      }
+    
+      .video-special-layout {
+        flex-direction: column; /* Toate elementele devin verticale */
+        gap: 20px;
+      }
+    
+      .video-large {
+        flex: none;
+        width: 100%; /* Videoclipul mare ocupă întregul rând */
+        margin-bottom: 20px; /* Adaugă spațiu sub videoclip */
+      }
+    
+      .video-small-grid {
+        grid-template-columns: repeat(2, 1.5fr); /* 2 videoclipuri pe un rând */
+        gap: 15px;
+        width: 100%;
+  
+      }
+    }
+    
+    /* Pentru telefoane foarte mici (max-width: 480px) */
+    @media (max-width: 480px) {
+      .video-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 videoclipuri pe un rând */
+        gap: 10px;
+      }
+    
+      .video-special-layout {
+        flex-direction: column; /* Toate videoclipurile devin verticale */
+        gap: 15px;
+      }
+      .video-title {
+          font-size: 8px;
+        }
+  
+      .video-large {
+        margin-bottom: 15px;
+      }
+    
+      .video-small-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 videoclipuri pe un rând */
+        gap: 10px;
+        width: 100%;
+        
+      }
+    }
+    

@@ -1,0 +1,186 @@
+/* Structura generală */
+.navbar-raw {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #000000;
+    color: white;
+    padding: 0px 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+/* Logo-ul din stânga */
+.navbar-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0 6%;
+}
+
+.navbar-logo a {
+    text-decoration: none;
+    color: white;
+}
+
+.navbar-logo a:hover {
+    color: #999;
+}
+
+/* Link-urile de navigație */
+.navbar-links {
+    display: flex;
+    align-items: center;
+    left: 0%;
+    position: relative;
+}
+
+.navbar-links ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-links ul li {
+    margin: 0 30px;
+}
+
+.navbar-links ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+.navbar-links ul li a:hover {
+    color: #999;
+}
+
+/* Social media */
+.navbar-social {
+    display: flex;
+    margin: 0 60px;
+}
+
+.navbar-social a {
+    margin: 0 20px;
+    color: white;
+    font-size: 1.2rem;
+    text-decoration: none;
+}
+
+.navbar-social a:hover {
+    color: #999;
+}
+
+/* Meniu hamburger */
+.hamburger {
+    display: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* Responsivitate pentru telefoane */
+@media (max-width: 768px) {
+    .navbar-raw {
+        padding: 10px 15px;
+    }
+
+    .navbar-logo {
+        margin: 0;
+        font-size: 1.5rem;
+    }
+
+    .navbar-links {
+        display: none;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 50%; /* Jumătate din lățimea ecranului */
+        height: 100%;
+        background-color: rgba(105, 51, 51, 0.2); /* Transparent 20% */
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        backdrop-filter: blur(10px); /* Efect de blur */
+        
+        /* Animație de sus în jos doar pentru container */
+        animation: slideFromTop 0.5s ease-in-out;
+        transform-origin: top center;
+    }
+
+    /* Animație de la vârf la centru */
+    @keyframes slideFromTop {
+        0% {
+            opacity: 0;
+            transform: translateY(-100%);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .navbar-links.active {
+        display: flex;
+    }
+
+    .navbar-links ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+    }
+
+    .navbar-links ul li {
+        margin: 15px 0;
+    }
+
+    .navbar-links ul li a {
+        font-size: 1.5rem;
+    }
+
+    .navbar-social {
+        justify-content: center;
+        width: 100%;
+        margin-top: 20px;
+        margin-right: 0;
+        margin-left: 0;
+    }
+
+    .navbar-social a {
+        margin: 0 15px;
+    }
+
+    .hamburger {
+        display: block;
+        z-index: 1001;
+    }
+}
+
+/* Pentru dispozitive foarte mici */
+@media (max-width: 480px) {
+    .navbar-links {
+        width: 100%; /* Mai puțin decât întregul ecran */
+    }
+
+    .navbar-logo {
+        font-size: 1.5rem;
+    }
+
+    .navbar-links ul li a {
+        font-size: 1.3rem;
+    }
+
+    .navbar-social a {
+        font-size: 1.1rem;
+        margin: 0 10px;
+    }
+}
+
+/* Pentru dispozitive foarte mari */
+@media (min-width: 1200px) {
+    .navbar-links ul li {
+        margin: 0 40px;
+    }
+}

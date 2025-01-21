@@ -1,0 +1,73 @@
+.movie__action {   
+  position: absolute;   
+  top: 0;   
+  right: 0;   
+  left: 0;   
+  bottom: 0;   
+  z-index: 10; 
+} 
+
+.movie__action i {   
+  color: var(--white);   
+  position: absolute;     
+  top: 25px;   
+  font-size: 38px;   
+  line-height: 38px;   
+  font-weight: 300;   
+  transition: transform 0.5s ease-in-out, right 0.3s ease-in-out;   
+  transform: rotate(360deg);   
+  right: -100px; 
+  /* Adăugăm acestea pentru a mări aria de click */
+  padding: 10px;
+  cursor: pointer;
+  z-index: 15; /* Z-index mai mare decât părintele */
+}  
+
+.movie.open .movie__action i {   
+  right: 130px;   
+  transform: rotate(0deg); 
+}
+
+/* Pentru tablete */
+@media (max-width: 1024px) {
+  .movie__action i {   
+    font-size: 32px;   
+    line-height: 32px;
+    top: 20px;
+    padding: 15px; /* Arie de click mai mare pe mobile */
+  }
+  
+  .movie.open .movie__action i {   
+    right: 100px;   
+  }
+}
+
+/* Pentru telefoane mai mari */
+@media (max-width: 768px) {
+  .movie__action i {   
+    font-size: 38px;   
+    line-height: 28px;
+    top: 15px;
+    padding: 20px; /* Arie de click și mai mare pe telefoane */
+  }
+  
+  .movie.open .movie__action i {   
+    right: 80px;   
+  }
+}
+
+/* Pentru telefoane mici */
+@media (max-width: 480px) {
+  .movie__action i {   
+    font-size: 34px;   
+    line-height: 24px;
+    top: 60px;
+    padding: 20px;
+    /* Asigurăm că e deasupra altor elemente */
+    z-index: 20;
+  }
+  
+  .movie.open .movie__action i {   
+    right: 60px;   
+  }
+}
