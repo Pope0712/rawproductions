@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import './HeroSection.css';
 import { Link } from 'react-scroll';
 
@@ -11,15 +11,15 @@ function HeroSection() {
   const carouselRef = useRef(null);
   const listRef = useRef(null);
   const runningTimeRef = useRef(null);
-  const nextBtnRef = useRef(null);
-  const prevBtnRef = useRef(null);
+  
+  // Add state for tracking cooldown
+  const [isInCooldown, setIsInCooldown] = useState(false);
 
   const timeRunning = 3000;
   const timeAutoNext = 7000;
+  const COOLDOWN_TIME = 1000; // 1.5 seconds cooldown
 
   useEffect(() => {
-    const nextBtn = nextBtnRef.current;
-    const prevBtn = prevBtnRef.current;
     const list = listRef.current;
     const carousel = carouselRef.current;
     const runningTime = runningTimeRef.current;
@@ -27,27 +27,27 @@ function HeroSection() {
     let runTimeOut;
     let runNextAuto;
 
-    const showSlider = (type) => {
+    const showSlider = () => {
+      if (isInCooldown) return; // Prevent action if in cooldown
+
       const sliderItemsDom = list.querySelectorAll('.item');
-      if (type === 'next') {
-        list.appendChild(sliderItemsDom[0]);
-        carousel.classList.add('next');
-      } else {
-        list.prepend(sliderItemsDom[sliderItemsDom.length - 1]);
-        carousel.classList.add('prev');
-      }
+      list.appendChild(sliderItemsDom[0]);
+      carousel.classList.add('next');
+
+      // Set cooldown
+      setIsInCooldown(true);
+      setTimeout(() => {
+        setIsInCooldown(false);
+      }, COOLDOWN_TIME);
 
       clearTimeout(runTimeOut);
 
       runTimeOut = setTimeout(() => {
         carousel.classList.remove('next');
-        carousel.classList.remove('prev');
       }, timeRunning);
 
       clearTimeout(runNextAuto);
-      runNextAuto = setTimeout(() => {
-        nextBtn.click();
-      }, timeAutoNext);
+      runNextAuto = setTimeout(showSlider, timeAutoNext);
 
       resetTimeAnimation();
     };
@@ -58,20 +58,18 @@ function HeroSection() {
       runningTime.style.animation = 'runningTime 7s linear 1 forwards';
     };
 
-    nextBtn.onclick = () => showSlider('next');
-    prevBtn.onclick = () => showSlider('prev');
+    // Add click event listener to the carousel
+    carousel.addEventListener('click', showSlider);
 
-    runNextAuto = setTimeout(() => {
-      nextBtn.click();
-    }, timeAutoNext);
-
+    runNextAuto = setTimeout(showSlider, timeAutoNext);
     resetTimeAnimation();
 
     return () => {
       clearTimeout(runTimeOut);
       clearTimeout(runNextAuto);
+      carousel.removeEventListener('click', showSlider);
     };
-  }, []);
+  }, [isInCooldown]); // Add isInCooldown to dependencies
 
   return (
     <>
@@ -149,11 +147,6 @@ function HeroSection() {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="arrows">
-          <button className="prev" ref={prevBtnRef}>Prev</button>
-          <button className="next" ref={nextBtnRef}>Next</button>
         </div>
 
         <div className="timeRunning" ref={runningTimeRef}></div>
