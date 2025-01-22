@@ -15,8 +15,8 @@ const FourSection = () => {
     },
     {
       topText: "Clienți",
-      value: 150,
-      displayValue: "150",
+      value: 350,
+      displayValue: "350",
       bottomText: "Fericiți",
       isRed: false
     },

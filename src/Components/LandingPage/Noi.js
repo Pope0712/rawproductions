@@ -26,7 +26,7 @@ import LucaCover from "../images/Luca Fundal.jpg";
 import LucaTitlu from "../images/Luca Titlu.png"; 
 import Luca from "../images/Luca.png"; 
 
-import hellboyVideo from "../video/Studio/Reel orizontal revelion 2025.mp4";
+import hellboyVideo from "../video/Studio/Coming soon.mp4";
 
 // Card Component
 const Card = ({ coverImage, titleImage, characterImage, hoverText }) => {
@@ -116,7 +116,7 @@ const VideoPlayer = ({ src }) => {
 const Noi = () => {
   return (
     <div id="noi" className="react-app">
-      <h1 className="react-app__title">Cine suntem</h1>
+      <h1 className="react-app__title">Cine suntem?</h1>
       <div className="react-app__content">
         <div className="react-app__cards">
           <Card

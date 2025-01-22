@@ -8,81 +8,81 @@ import PacheteBotez from '../PortofoliuRawProductionsFOTO/PacheteBotez';
 import backgroundVideo from "../video/FundalPrtflVideo1.mp4";
 
 // Import thumbnails
-import thumb1 from "../images/Thumbnails-botez/Botez Georgia.jpg";
-import thumb2 from "../images/Thumbnails-botez/Botez Georgia.jpg";
-import thumb3 from "../images/Thumbnails-botez/Botez Georgia.jpg";
+import thumb1 from "../images/Thumbnails-botez/Dominic.jpg";
+import thumb2 from "../images/Thumbnails-botez/Noah.jpg";
+import thumb3 from "../images/Thumbnails-botez/Mara.jpg";
 import thumb4 from "../images/Thumbnails-botez/Mateo Elian.jpg";
 import thumb5 from "../images/Thumbnails-botez/Amalia Maria.jpeg";
 import thumb6 from "../images/Thumbnails-botez/Botez Georgia.jpg";
-import thumb7 from "../images/Thumbnails-botez/Botez Georgia.jpg";
+import thumb7 from "../images/Thumbnails-botez/Clara.jpg";
 import thumb8 from "../images/Thumbnails-botez/Botez Georgia.jpg";
-import thumb9 from "../images/Thumbnails-botez/Botez Georgia.jpg";
+import thumb9 from "../images/Thumbnails-botez/Ariana Caroline.jpg";
 
 const VideoBotez = () => {
   const videos = [
-    { 
-      id: "01", 
-      title: "Dominic", 
+    {
+      id: "01",
+      title: "Dominic",
       youtubeId: "77yBdUZLCco",
       thumbnail: thumb1,
-      previewUrl: "https://youtu.be/77yBdUZLCco"
+      previewUrl: "https://www.youtube.com/embed/77yBdUZLCco?autoplay=1&mute=1&controls=0&showinfo=0",
     },
-    { 
-      id: "02", 
-      title: "Noah", 
+    {
+      id: "02",
+      title: "Noah",
       youtubeId: "BmZhBXVZiU0",
       thumbnail: thumb2,
-      previewUrl: "https://youtu.be/BmZhBXVZiU0"
+      previewUrl: "https://www.youtube.com/embed/BmZhBXVZiU0?autoplay=1&mute=1&controls=0&showinfo=0",
     },
-    { 
-      id: "03", 
-      title: "Mara", 
+    {
+      id: "03",
+      title: "Mara",
       youtubeId: "0kJdh7NjRlc",
       thumbnail: thumb3,
-      previewUrl: "https://youtu.be/0kJdh7NjRlc"
+      previewUrl: "https://www.youtube.com/embed/0kJdh7NjRlc?autoplay=1&mute=1&controls=0&showinfo=0",
     },
-    { 
-      id: "04", 
-      title: "Mateo Elian", 
-      youtubeId: "YOUTUBE_ID_4",
+    {
+      id: "04",
+      title: "Mateo Elian",
+      youtubeId: "THVJ7bHQGEQ",
       thumbnail: thumb4,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_4?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/THVJ7bHQGEQ?autoplay=1&mute=1&controls=0&showinfo=0",
     },
-    { 
-      id: "05", 
-      title: "Amalia Maria", 
-      youtubeId: "YOUTUBE_ID_5",
+    {
+      id: "05",
+      title: "Amalia Maria",
+      youtubeId: "8taUlpvxw2M",
       thumbnail: thumb5,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_5?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/8taUlpvxw2M?autoplay=1&mute=1&controls=0&showinfo=0",
     },
-    { 
-      id: "06", 
-      title: "Georgia", 
-      youtubeId: "YOUTUBE_ID_6",
+    {
+      id: "06",
+      title: "Georgia",
+      youtubeId: "Qg2hzUCfnEs",
       thumbnail: thumb6,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_6?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/Qg2hzUCfnEs?autoplay=1&mute=1&controls=0&showinfo=0",
     },
-    { 
-      id: "07", 
-      title: "Clara", 
-      youtubeId: "YOUTUBE_ID_7",
+    {
+      id: "07",
+      title: "Clara",
+      youtubeId: "3iLMP01XseY",
       thumbnail: thumb7,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_7?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/3iLMP01XseY?autoplay=1&mute=1&controls=0&showinfo=0",
     },
-    { 
-      id: "08", 
-      title: "Darius", 
-      youtubeId: "YOUTUBE_ID_8",
+    {
+      id: "08",
+      title: "Darius",
+      youtubeId: "rEll_fhdzQ4",
       thumbnail: thumb8,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_8?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/rEll_fhdzQ4?autoplay=1&mute=1&controls=0&showinfo=0",
     },
-    { 
-      id: "09", 
-      title: "Ariana Caroline", 
-      youtubeId: "YOUTUBE_ID_9",
+    {
+      id: "09",
+      title: "Ariana Caroline",
+      youtubeId: "_M7U_Iux-iI",
       thumbnail: thumb9,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_9?autoplay=1&mute=1&controls=0&showinfo=0"
-    }
+      previewUrl: "https://www.youtube.com/embed/_M7U_Iux-iI?autoplay=1&mute=1&controls=0&showinfo=0",
+    },
   ];
 
   const [isPlayerVisible, setPlayerVisible] = useState(false);

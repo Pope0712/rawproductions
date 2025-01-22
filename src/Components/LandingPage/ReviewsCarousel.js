@@ -3,8 +3,6 @@ import './ReviewsCarousel.css';
 
 function ReviewsCarousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [testimonialFade, setTestimonialFade] = useState(false);
   const intervalRef = useRef(null);
 
   const reviews = [
@@ -30,134 +28,106 @@ function ReviewsCarousel() {
       image: "/images/13.jpg"
     },
     {
-      id: 3,
+      id: 4,
       name: "Andrei1",
       text: "Wow! 😍 Ma faci sa plang. Sunt superbe😍😍😍Ne-ai emotionat foarte tare. Multumim din suflt pentru rabdare si pentru aceste minunatii😍😍😍ARTA!!!❤️💙❤️",
       rating: 5,
       image: "/images/.jpg"
     },
     {
-      id: 3,
+      id: 5,
       name: "Luca1",
       text: "Noi deja ne gandim sa le scoatem pe toate intr-un album si sa le schimbam din cand in cand in rama😂😂",
       rating: 5,
       image: "/images/.jpg"
     },
     {
-      id: 3,
+      id: 6,
       name: "Andrei3",
       text: "Dupa nunta noastra, ne-au ramas o multime de amintiri minunate, datorita lui Andrei. Este o persoana extrem de creativa, cu cadre si idei extraordinare, care poarta amprenta lui artistica unica. Desi nu am avut nicio idee proprie, i-am oferit toata increderea noastra si l-am lasat sa-si faca treaba, stiind ca suntem pe maini bune. A fost punctual si foarte atent la fiecare detaliu.     Iti multumim din nou pentru tot! Speram ca talentul tau sa fie apreciat de cat mai multe persoane!",
       rating: 5,
       image: "/images/.jpg"
     },
     {
-      id: 3,
+      id: 7,
       name: "Andrei2",
       text: "O echipa tanara care aspira catre pogres constant. Sunt creativi, am observat ca mirii nasii si nuntasii sunt foarte relaxati si pozeaza in ipostaze naturale astfel ca pozele din album vor fi foarte frumoase. Recomand!",
       rating: 5,
       image: "/images/.jpg"
-    },
-
-    
-    
-    
+    }, 
+  
   ];
 
+  const totalReviews = reviews.length;
+
   const getVisibleReviews = () => {
-    const totalReviews = reviews.length;
     return [
-      reviews[(currentIndex - 1 + totalReviews) % totalReviews],
-      reviews[currentIndex],
-      reviews[(currentIndex + 1) % totalReviews]
+      reviews[(currentIndex - 1 + totalReviews) % totalReviews], // Left card
+      reviews[currentIndex], // Center card
+      reviews[(currentIndex + 1) % totalReviews], // Right card
     ];
   };
 
   const changeReview = (direction) => {
-    if (isAnimating) return;
-    
-    setIsAnimating(true);
-    setTestimonialFade(true);
-    
-    setTimeout(() => {
-      if (direction === 'next') {
-        setCurrentIndex((prevIndex) => 
-          (prevIndex + 1) % reviews.length
-        );
-      } else {
-        setCurrentIndex((prevIndex) => 
-          (prevIndex - 1 + reviews.length) % reviews.length
-        );
-      }
-      
-      setTimeout(() => {
-        setTestimonialFade(false);
-      }, 300);
-      
-      setTimeout(() => {
-        setIsAnimating(false);
-      }, 200);
-    }, 300);
-
+    if (direction === 'next') {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % totalReviews);
+    } else {
+      setCurrentIndex((prevIndex) => (prevIndex - 1 + totalReviews) % totalReviews);
+    }
     resetInterval();
   };
 
   const resetInterval = () => {
-    if (intervalRef.current) {
-      clearInterval(intervalRef.current);
-    }
-    intervalRef.current = setInterval(() => changeReview('next'), 5000);
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      changeReview('next');
+    }, 5000);
   };
 
   useEffect(() => {
-    intervalRef.current = setInterval(() => changeReview('next'), 5000);
-    return () => {
-      if (intervalRef.current) {
-        clearInterval(intervalRef.current);
-      }
-    };
+    intervalRef.current = setInterval(() => {
+      changeReview('next');
+    }, 5000);
+
+    return () => clearInterval(intervalRef.current);
   }, []);
 
-  const renderStars = () => {
-    return (
-      <div className="stars">
-        {[...Array(5)].map((_, index) => (
-          <span key={index} className="star">★</span>
-        ))}
-      </div>
-    );
-  };
+  const visibleReviews = getVisibleReviews();
 
   return (
     <div className="reviews-section">
       <div className="reviews-header">
         <h2 className="subtitle">RECENZII</h2>
-        <h1 className="title">Ce spun clientii nostrii</h1>
+        <h1 className="title">Ce spun clienții noștri</h1>
       </div>
-
       <div className="testimonial-content">
-        <p className={`main-testimonial ${testimonialFade ? 'fade' : ''}`}>
-          {reviews[currentIndex].text}
-        </p>
-        {renderStars()}
+        <p className="main-testimonial">{visibleReviews[1].text}</p>
+        <div className="stars">
+          {[...Array(5)].map((_, index) => (
+            <span key={index} className="star">★</span>
+          ))}
+        </div>
       </div>
-
-      <div className={`reviews-carousel ${isAnimating ? 'animating' : ''}`}>
+      <div className="reviews-carousel">
         <div className="reviews-container">
-          {getVisibleReviews().map((review, index) => (
-            <button
+          {visibleReviews.map((review, index) => (
+            <div
               key={review.id}
               className={`review-card position-${index}`}
-              onClick={() => index !== 1 && changeReview(index === 0 ? 'prev' : 'next')}
+              onClick={() => {
+                if (index === 0) changeReview('prev'); // Click pe cardul din stânga
+                if (index === 2) changeReview('next'); // Click pe cardul din dreapta
+              }}
             >
               <div className="review-content">
-                <img 
-                  src={review.image} 
+                <img
+                  src={review.image}
                   alt={review.name}
                   className="review-image"
                 />
                 <span className="review-name">{review.name}</span>
               </div>
-            </button>
+            </div>
           ))}
         </div>
       </div>

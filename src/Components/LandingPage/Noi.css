@@ -295,7 +295,7 @@ html, body {
   }
   
   .react-app__hover-text {
-    bottom: -70px;
+    bottom: -190px;
     font-size: 0.85rem;
   }
   
@@ -312,6 +312,12 @@ html, body {
     width: 28px;
     height: 28px;
   }
+  .react-app__info-icon {
+    top: -15px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
+  }
 }
 
 @media screen and (max-width: 1360px) {
@@ -327,17 +333,20 @@ html, body {
 
   .react-app__video {
     width: 90%;
-    margin: 40px auto;
+    margin: 170px auto;
+    
   }
   
   .react-app__cards {
     grid-template-columns: repeat(3, auto);
-    gap: 30px;
-    margin-top: 30px;
+    gap: 80px;
+    margin-top: 80px;
+    row-gap: 240px;
   }
 
+
   .react-app__hover-text {
-    bottom: -65px;
+    bottom: -145px;
   }
   
   .play-button {
@@ -353,6 +362,13 @@ html, body {
   .play-caption {
     font-size: 0.9rem;
     padding: 6px 12px;
+
+  }
+  .react-app__info-icon {
+    top: -45px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
   }
 }
 
@@ -363,14 +379,14 @@ html, body {
 
   .react-app__video {
     width: 95%;
-    margin: 40px auto;
+    margin: 200px auto;
   }
 
   .react-app__cards {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, auto);
     gap: 15px;
-    row-gap: 40px;
+    row-gap: 250px;
     padding: 0 10px;
   }
 
@@ -380,8 +396,14 @@ html, body {
   }
 
   .react-app__hover-text {
-    bottom: -60px;
+    bottom: -200px;
     font-size: 0.8rem;
+  }
+  .react-app__info-icon {
+    top: -25px;
+    right: 10px;
+    width: 25px;
+    height: 25px;
   }
 }
 
@@ -425,17 +447,38 @@ html, body {
 
 @media screen and (max-width: 360px) {
   .react-app__cards {
-    gap: 10px;
-    row-gap: 35px;
+    gap: 15px;
+    row-gap: 230px;
+    padding: 50px 10px;
   }
 
   .react-app__card {
-    --card-height: 120px;
-    --card-width: 120px;
+    --card-height: 140px;
+    --card-width: 140px;
   }
 
   .react-app__hover-text {
-    bottom: -55px;
+    bottom: -185px;
     font-size: 0.75rem;
+  }
+
+  .react-app__video {
+    width: 100%;
+    margin: 170px auto;
+  }
+
+  .play-button {
+    width: 50px;
+    height: 50px;
+  }
+
+  .play-button svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .play-caption {
+    font-size: 0.8rem;
+    padding: 5px 10px;
   }
 }

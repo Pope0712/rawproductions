@@ -98,7 +98,7 @@ const PacheteStudio = () => {
   duration={1500}
   className="book-button" // Mutăm clasa CSS pe Link
 >
-  Book Now
+  Alege
 </Link>
             </div>
           ))}

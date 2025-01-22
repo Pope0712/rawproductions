@@ -17,10 +17,10 @@
   transition: transform 0.5s ease-in-out, right 0.3s ease-in-out;   
   transform: rotate(360deg);   
   right: -100px; 
-  /* Adăugăm acestea pentru a mări aria de click */
-  padding: 10px;
   cursor: pointer;
-  z-index: 15; /* Z-index mai mare decât părintele */
+  z-index: 9999;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }  
 
 .movie.open .movie__action i {   
@@ -34,7 +34,6 @@
     font-size: 32px;   
     line-height: 32px;
     top: 20px;
-    padding: 15px; /* Arie de click mai mare pe mobile */
   }
   
   .movie.open .movie__action i {   
@@ -48,7 +47,6 @@
     font-size: 38px;   
     line-height: 28px;
     top: 15px;
-    padding: 20px; /* Arie de click și mai mare pe telefoane */
   }
   
   .movie.open .movie__action i {   
@@ -60,14 +58,84 @@
 @media (max-width: 480px) {
   .movie__action i {   
     font-size: 34px;   
-    line-height: 24px;
-    top: 60px;
-    padding: 20px;
-    /* Asigurăm că e deasupra altor elemente */
-    z-index: 20;
+    top: 50px;
+    width: 40px; /* Redus pentru a fi mai precis */
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000000;
+    position: absolute;
+    pointer-events: none; /* Dezactivează click-ul când nu e deschis */
   }
   
   .movie.open .movie__action i {   
-    right: 60px;   
+    right: 80px;   
+    pointer-events: auto; /* Activează click-ul doar când e deschis */
   }
+}
+
+html, body {
+  overflow-x: hidden;
+}
+
+.video__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+  
+.video__container.show_video {
+    display: flex;
+}
+  
+.video__wrapper {
+    position: relative;
+    width: 80%;
+    height: 80%;
+}
+  
+.react-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+  
+#close-video {
+    position: absolute;
+    top: 20px;
+    right: 10px;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.react-player:focus {
+    outline: none;
+}
+
+.titleFilm {
+    padding: 20px;
+}
+
+.titleFilm-poz {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    text-transform: uppercase;
+    width: 100%;
+    background-color: #242424;
+    font-size: 30px;
+    color: #ffffff;
+    letter-spacing: 5px;
 }

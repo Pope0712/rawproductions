@@ -257,11 +257,11 @@ body {
   }
 
   .position-0 {
-    transform: translateX(calc(50% - 130px));
+    transform: translateX(calc(50% - 160px));
   }
 
   .position-2 {
-    transform: translateX(calc(50% + 20px));
+    transform: translateX(calc(50% + 70px));
   }
 
   .review-card {

@@ -109,7 +109,7 @@ html, body {
   bottom: 14px;
   width: 30px;
   height: 30px;
-  background-color: #FFD700;
+  background-color: #ffd900be;
   border: none;
   border-radius: 30px;
   cursor: pointer;
@@ -149,14 +149,14 @@ html, body {
 
 
 .second-section-card2 button {
-  background-color: #24c1dd;
+  background-color: #24c1dda9;
 }
 .second-section-card3 button {
-  background-color: #8A2BE2;
+  background-color: #892be298;
 }
 
 .second-section-card4 button {
-  background-color: #ff1e1e;
+  background-color: #ff1e1eab;
 }
 
 @media only screen and (max-width: 986px) {

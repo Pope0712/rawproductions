@@ -263,7 +263,7 @@ function ContactForm({ selectedDate, setHasErrors, onSuccess }) {
             rows="4"
             value={formData.message}
             onChange={handleChange('message')}
-            placeholder="Mesaj"
+            placeholder="Mesaj. Adaugati si pachetul selectat!"
             className={errors.message ? 'error-field' : ''}
           />
           {errors.message && <div className="error-message">{errors.message}</div>}

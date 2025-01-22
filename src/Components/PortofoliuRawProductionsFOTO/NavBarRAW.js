@@ -45,14 +45,14 @@ function NavBarRAW() {
         </ul>
       </nav>
       <div className="navbar-social">
-        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.instagram.com/rawproductions.ro?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noopener noreferrer">
           <i className="fab fa-instagram"></i>
         </a>
-        <a href="https://vimeo.com" target="_blank" rel="noopener noreferrer">
-          <i className="fab fa-vimeo"></i>
+        <a href="https://www.facebook.com/profile.php?id=61564653154533" target="_blank" rel="noopener noreferrer">
+          <i className="fab fa-facebook"></i>
         </a>
         <a href="https://www.behance.net" target="_blank" rel="noopener noreferrer">
-          <i className="fab fa-behance"></i>
+          <i className="fab fa-google"></i>
         </a>
         <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
           <i className="fab fa-tiktok"></i>
