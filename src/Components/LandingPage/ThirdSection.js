@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './thirdsection.css';
 import ReactPlayer from 'react-player';
-import video1 from "../video/hellboy.mp4";
+import video1 from "../video/ShowReelNunta.mov";
 import video2 from "../video/john-wick.mp4";
 
 function ThirdSection() {
