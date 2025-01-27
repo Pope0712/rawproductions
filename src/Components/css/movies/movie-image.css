@@ -10,12 +10,12 @@
 } 
 
 .movie:nth-child(3) { 
-  background-image: url('../../images/Majorat/Majorat (44).jpg');
+  background-image: url('../../images/Majorat/Majorat (107).jpg');
   transition: all 0.3s ease;
 } 
 
 .movie:nth-child(4) { 
-  background-image: url('../../images/Studio/Studio (52).jpg');
+  background-image: url('../../images/Majorat/Majorat (88).jpg');
   transition: all 0.3s ease;
 } 
 
@@ -32,12 +32,12 @@
 } 
 
 .movie:nth-child(3)::before { 
-  background-image: url('../../images/Majorat/Majorat (44).jpg');
+  background-image: url('../../images/Majorat/Majorat (107).jpg');
   transition: all 0.3s ease;
 } 
 
 .movie:nth-child(4)::before { 
-  background-image: url('../../images/Studio/Studio (52).jpg');
+  background-image: url('../../images/Majorat/Majorat (88).jpg');
   transition: all 0.3s ease;
 } 
 

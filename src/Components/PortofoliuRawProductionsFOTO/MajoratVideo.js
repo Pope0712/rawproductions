@@ -21,51 +21,51 @@ const VideoMajorat = () => {
     { 
       id: "01", 
       title: "Stefania", 
-      youtubeId: "YOUTUBE_ID_1",
+      youtubeId: "SBMIIJ7lrTs",
       thumbnail: thumb1,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_1?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/SBMIIJ7lrTs?autoplay=1&mute=1&controls=0&showinfo=0"
     },
     { 
       id: "02", 
       title: "Bianca", 
-      youtubeId: "YOUTUBE_ID_2",
+      youtubeId: "bj5-1oQFDQ8",
       thumbnail: thumb2,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_2?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/bj5-1oQFDQ8?autoplay=1&mute=1&controls=0&showinfo=0"
     },
     { 
       id: "03", 
       title: "Gabriela", 
-      youtubeId: "YOUTUBE_ID_3",
+      youtubeId: "XkE-y4ouuds",
       thumbnail: thumb3,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_3?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/XkE-y4ouuds?autoplay=1&mute=1&controls=0&showinfo=0"
     },
     { 
       id: "04", 
       title: "Maia", 
-      youtubeId: "YOUTUBE_ID_4",
+      youtubeId: "1lRjdmdWYEQ",
       thumbnail: thumb4,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_4?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/1lRjdmdWYEQ?autoplay=1&mute=1&controls=0&showinfo=0"
     },
     { 
       id: "05", 
       title: "Patrick", 
-      youtubeId: "YOUTUBE_ID_5",
+      youtubeId: "0UR1N7YVFKE",
       thumbnail: thumb5,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_5?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/0UR1N7YVFKE?autoplay=1&mute=1&controls=0&showinfo=0"
     },
     { 
       id: "06", 
       title: "Sabina", 
-      youtubeId: "YOUTUBE_ID_6",
+      youtubeId: "MaEoTriLziQ",
       thumbnail: thumb6,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_6?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/MaEoTriLziQ?autoplay=1&mute=1&controls=0&showinfo=0"
     },
     { 
       id: "07", 
       title: "Andreea", 
-      youtubeId: "YOUTUBE_ID_7",
+      youtubeId: "JpNFblkFqsg",
       thumbnail: thumb7,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_7?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/JpNFblkFqsg?autoplay=1&mute=1&controls=0&showinfo=0"
     }
   ];
 

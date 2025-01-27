@@ -64,17 +64,18 @@
 
 .portfolio-item img {
   position: absolute;
-  top: 50%;
+  top: 40%;
   left: 50%;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: translate(-50%, -50%);
+  object-position: center 10%; /* Ajustează poziția verticală */
+  transform: translate(-50%, -40%);
   transition: transform 0.3s ease-in-out;
 }
 
 .portfolio-item:hover img {
-  transform: translate(-50%, -50%) scale(1.1); /* Zoom ușor la hover */
+  transform: translate(-50%, -40%) scale(1.1); /* Zoom ușor la hover */
 }
 
 .portfolio-item::after {

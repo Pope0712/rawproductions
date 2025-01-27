@@ -91,11 +91,19 @@ import img81 from "../images/Botez/Botez (81).jpg";
 import img82 from "../images/Botez/Botez (82).jpg";
 import img83 from "../images/Botez/Botez (83).jpg";
 import img84 from "../images/Botez/Botez (84).jpg";
+import img85 from "../images/Botez/Botez (85).jpg";
+import img86 from "../images/Botez/Botez (86).jpg";
+import img87 from "../images/Botez/Botez (87).jpg";
+import img88 from "../images/Botez/Botez (88).jpg";
+import img89 from "../images/Botez/Botez (89).jpg";
+import img90 from "../images/Botez/Botez (90).jpg";
+import img91 from "../images/Botez/Botez (91).jpg";
+import img92 from "../images/Botez/Botez (92).jpg";
 
 
 // Array with local images
 const images = [
-   img84, img83, img82, img81, img80, img79, img78,
+   img92, img91, img90, img89, img88, img87, img86, img85,  img84, img83, img82, img81, img80, img79, img78,
   img77, img76, img75, img74, img73, img72, img71, img70,
   img69, img68, img67, img66, img65, img64, img63, img62,
   img61, img60, img59, img58, img57, img56, img55, img54,

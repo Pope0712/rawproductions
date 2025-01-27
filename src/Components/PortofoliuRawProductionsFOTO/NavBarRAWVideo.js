@@ -54,10 +54,10 @@ function NavBarRAW() {
         <a href="https://www.facebook.com/profile.php?id=61564653154533" target="_blank" rel="noopener noreferrer">
           <i className="fab fa-facebook"></i>
         </a>
-        <a href="https://www.behance.net" target="_blank" rel="noopener noreferrer">
+        <a href="https://maps.app.goo.gl/ZCWxpjDEMsXhSMUL6?g_st=com.google.maps.preview.copy" target="_blank" rel="noopener noreferrer">
           <i className="fab fa-google"></i>
         </a>
-        <a href="https://www.tiktok.com" target="_blank" rel="noopener noreferrer">
+        <a href="https://www.tiktok.com/@rawproductions_ro?is_from_webapp=1&sender_device=pc" target="_blank" rel="noopener noreferrer">
           <i className="fab fa-tiktok"></i>
         </a>
       </div>

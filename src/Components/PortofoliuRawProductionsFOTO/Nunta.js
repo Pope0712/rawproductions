@@ -7,6 +7,7 @@ import Calendar from '../LandingPage/Calendar';
 import PacheteNunta from '../PortofoliuRawProductionsFOTO/PacheteNunta';
 
 // Import local images
+// Import local images
 import img1 from "../images/Nunta/Nunta (1).jpg";
 import img2 from "../images/Nunta/Nunta (2).jpg";
 import img3 from "../images/Nunta/Nunta (3).jpg";
@@ -102,10 +103,60 @@ import img92 from "../images/Nunta/Nunta (92).jpg";
 import img93 from "../images/Nunta/Nunta (93).jpg";
 import img94 from "../images/Nunta/Nunta (94).jpg";
 import img95 from "../images/Nunta/Nunta (95).jpg";
+import img96 from "../images/Nunta/Nunta (96).jpg";
+import img97 from "../images/Nunta/Nunta (97).jpg";
+import img98 from "../images/Nunta/Nunta (98).jpg";
+import img99 from "../images/Nunta/Nunta (99).jpg";
+import img100 from "../images/Nunta/Nunta (100).jpg";
+import img101 from "../images/Nunta/Nunta (101).jpg";
+import img102 from "../images/Nunta/Nunta (102).jpg";
+import img103 from "../images/Nunta/Nunta (103).jpg";
+import img104 from "../images/Nunta/Nunta (104).jpg";
+import img105 from "../images/Nunta/Nunta (105).jpg";
+import img106 from "../images/Nunta/Nunta (106).jpg";
+import img107 from "../images/Nunta/Nunta (107).jpg";
+import img108 from "../images/Nunta/Nunta (108).jpg";
+import img109 from "../images/Nunta/Nunta (109).jpg";
+import img110 from "../images/Nunta/Nunta (110).jpg";
+import img111 from "../images/Nunta/Nunta (111).jpg";
+import img112 from "../images/Nunta/Nunta (112).jpg";
+import img113 from "../images/Nunta/Nunta (113).jpg";
+import img114 from "../images/Nunta/Nunta (114).jpg";
+import img115 from "../images/Nunta/Nunta (115).jpg";
+import img116 from "../images/Nunta/Nunta (116).jpg";
+import img117 from "../images/Nunta/Nunta (117).jpg";
+import img118 from "../images/Nunta/Nunta (118).jpg";
+import img119 from "../images/Nunta/Nunta (119).jpg";
+import img120 from "../images/Nunta/Nunta (120).jpg";
+import img121 from "../images/Nunta/Nunta (121).jpg";
+import img122 from "../images/Nunta/Nunta (122).jpg";
+import img123 from "../images/Nunta/Nunta (123).jpg";
+import img124 from "../images/Nunta/Nunta (124).jpg";
+import img125 from "../images/Nunta/Nunta (125).jpg";
+import img126 from "../images/Nunta/Nunta (126).jpg";
+import img127 from "../images/Nunta/Nunta (127).jpg";
+import img128 from "../images/Nunta/Nunta (128).jpg";
+import img129 from "../images/Nunta/Nunta (129).jpg";
+import img130 from "../images/Nunta/Nunta (130).jpg";
+import img131 from "../images/Nunta/Nunta (131).jpg";
+import img132 from "../images/Nunta/Nunta (132).jpg";
+import img133 from "../images/Nunta/Nunta (133).jpg";
+import img134 from "../images/Nunta/Nunta (134).jpg";
+import img135 from "../images/Nunta/Nunta (135).jpg";
+import img136 from "../images/Nunta/Nunta (136).jpg";
+import img137 from "../images/Nunta/Nunta (137).jpg";
+import img138 from "../images/Nunta/Nunta (138).jpg";
+import img139 from "../images/Nunta/Nunta (139).jpg";
 
 
 // Array with local images
 const images = [
+  img139, img138, img137, img136, img135, img134, img133, img132,
+  img131, img130, img129, img128, img127, img126, img125, img124,
+  img123, img122, img121, img120, img119, img118, img117, img116,
+  img115, img114, img113, img112, img111, img110, img109, img108,
+  img107, img106, img105, img104, img103, img102, img101, img100,
+  img99, img98, img97, img96,
   img95, img94, img93, img92, img91, img90, img89, img88,
   img87, img86, img85, img84, img83, img82, img81, img80,
   img79, img78, img77, img76, img75, img74, img73, img72,

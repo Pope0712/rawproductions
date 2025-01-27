@@ -29,31 +29,24 @@ function ReviewsCarousel() {
     },
     {
       id: 4,
-      name: "Andrei1",
+      name: "Matei",
       text: "Wow! 😍 Ma faci sa plang. Sunt superbe😍😍😍Ne-ai emotionat foarte tare. Multumim din suflt pentru rabdare si pentru aceste minunatii😍😍😍ARTA!!!❤️💙❤️",
       rating: 5,
-      image: "/images/.jpg"
-    },
-    {
-      id: 5,
-      name: "Luca1",
-      text: "Noi deja ne gandim sa le scoatem pe toate intr-un album si sa le schimbam din cand in cand in rama😂😂",
-      rating: 5,
-      image: "/images/.jpg"
+      image: "/images/26.jpeg"
     },
     {
       id: 6,
-      name: "Andrei3",
+      name: "Denisa",
       text: "Dupa nunta noastra, ne-au ramas o multime de amintiri minunate, datorita lui Andrei. Este o persoana extrem de creativa, cu cadre si idei extraordinare, care poarta amprenta lui artistica unica. Desi nu am avut nicio idee proprie, i-am oferit toata increderea noastra si l-am lasat sa-si faca treaba, stiind ca suntem pe maini bune. A fost punctual si foarte atent la fiecare detaliu.     Iti multumim din nou pentru tot! Speram ca talentul tau sa fie apreciat de cat mai multe persoane!",
       rating: 5,
-      image: "/images/.jpg"
+      image: "/images/28.jpeg"
     },
     {
       id: 7,
-      name: "Andrei2",
+      name: "Marius",
       text: "O echipa tanara care aspira catre pogres constant. Sunt creativi, am observat ca mirii nasii si nuntasii sunt foarte relaxati si pozeaza in ipostaze naturale astfel ca pozele din album vor fi foarte frumoase. Recomand!",
       rating: 5,
-      image: "/images/.jpg"
+      image: "/images/27.jpeg"
     }, 
   
   ];

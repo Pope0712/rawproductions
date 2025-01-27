@@ -8,7 +8,7 @@ import PacheteStudio from '../PortofoliuRawProductionsFOTO/PacheteStudio';
 import backgroundVideo from "../video/FundalPrtflVideo1.mp4";
 
 // Import thumbnails
-import thumb1 from "../images/Thumbnails-Studio/8 Martie SH.jpg";
+import thumb1 from "../images/Thumbnails-Studio/RealEstate.jpg";
 import thumb2 from "../images/Thumbnails-Studio/Amnesya.jpeg";
 import thumb3 from "../images/Thumbnails-Studio/Carousel + Audi.jpg";
 import thumb4 from "../images/Thumbnails-Studio/CHR.jpg";
@@ -19,94 +19,88 @@ import thumb8 from "../images/Thumbnails-Studio/Reclama SH.jpg";
 import thumb9 from "../images/Thumbnails-Studio/Revelion SH 2025.jpg";
 import thumb10 from "../images/Thumbnails-Studio/A7III.jpg";
 import thumb11 from "../images/Thumbnails-Studio/Vibe Bar.jpg";
-import thumb12 from "../images/Thumbnails-Studio/RealEstate.jpg";
+
 
 const VideoStudio = () => {
   const videos = [
     { 
       id: "01", 
-      title: "8 Martie Studio Harmony", 
-      youtubeId: "YOUTUBE_ID_1",
+      title: "Video Real Estate", 
+      youtubeId: "D9G4rLRbId8",
       thumbnail: thumb1,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_1?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/D9G4rLRbId8?autoplay=1&mute=1&controls=0&showinfo=0"
     },
     { 
       id: "02", 
       title: "Aftermovie Amnesya Pool Party", 
-      youtubeId: "YOUTUBE_ID_2",
+      youtubeId: "qHhqyyJxstk",
       thumbnail: thumb2,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_2?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/qHhqyyJxstk?autoplay=1&mute=1&controls=0&showinfo=0"
     },
     { 
       id: "03", 
       title: "Carousel + Masina", 
-      youtubeId: "YOUTUBE_ID_3",
+      youtubeId: "EbIoU4cICOo",
       thumbnail: thumb3,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_3?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/EbIoU4cICOo?autoplay=1&mute=1&controls=0&showinfo=0"
     },
     { 
       id: "04", 
       title: "Chr", 
-      youtubeId: "YOUTUBE_ID_4",
+      youtubeId: "3zlpGL4KJCo",
       thumbnail: thumb4,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_4?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/3zlpGL4KJCo?autoplay=1&mute=1&controls=0&showinfo=0"
     },
     { 
       id: "05", 
       title: "Groom Style", 
-      youtubeId: "YOUTUBE_ID_5",
+      youtubeId: "D6GlQGCLy58",
       thumbnail: thumb5,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_5?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/D6GlQGCLy58?autoplay=1&mute=1&controls=0&showinfo=0"
     },
     { 
       id: "06", 
       title: "Opia Opening", 
-      youtubeId: "YOUTUBE_ID_6",
+      youtubeId: "hG1kVimzpak",
       thumbnail: thumb6,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_6?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/hG1kVimzpak?autoplay=1&mute=1&controls=0&showinfo=0"
     },
     { 
       id: "07", 
       title: "Cabinet Kineto", 
-      youtubeId: "YOUTUBE_ID_7",
+      youtubeId: "4KENmbN-jXk",
       thumbnail: thumb7,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_7?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/4KENmbN-jXk?autoplay=1&mute=1&controls=0&showinfo=0"
     },
     { 
       id: "08", 
       title: "Studio Harmony", 
-      youtubeId: "YOUTUBE_ID_8",
+      youtubeId: "ax0JqGlRs3s",
       thumbnail: thumb8,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_8?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/ax0JqGlRs3s?autoplay=1&mute=1&controls=0&showinfo=0"
     },
     { 
       id: "09", 
       title: "Revelion 2025 Studio Harmony", 
-      youtubeId: "YOUTUBE_ID_9",
+      youtubeId: "qyK9ILwdjM4",
       thumbnail: thumb9,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_9?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/qyK9ILwdjM4?autoplay=1&mute=1&controls=0&showinfo=0"
     },
     { 
       id: "10", 
       title: "Rig Build Fast Forward", 
-      youtubeId: "YOUTUBE_ID_10",
+      youtubeId: "UAOINAmVZNs",
       thumbnail: thumb10,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_10?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/UAOINAmVZNs?autoplay=1&mute=1&controls=0&showinfo=0"
     },
     { 
       id: "11", 
-      title: "Test bar", 
-      youtubeId: "YOUTUBE_ID_11",
+      title: "Reel Vibe Bar", 
+      youtubeId: "YMDRr6TODgs",
       thumbnail: thumb11,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_11?autoplay=1&mute=1&controls=0&showinfo=0"
+      previewUrl: "https://www.youtube.com/embed/YMDRr6TODgs?autoplay=1&mute=1&controls=0&showinfo=0"
     },
-    { 
-      id: "12", 
-      title: "Video Real Estate 1", 
-      youtubeId: "YOUTUBE_ID_12",
-      thumbnail: thumb12,
-      previewUrl: "https://www.youtube.com/embed/YOUTUBE_ID_12?autoplay=1&mute=1&controls=0&showinfo=0"
-    }
+  
   ];
 
   const [isPlayerVisible, setPlayerVisible] = useState(false);
