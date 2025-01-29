@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import './thirdsection.css';
 import ReactPlayer from 'react-player';
 const video1 = "https://www.youtube.com/watch?v=wHrc9UksYo0";
-const video2 = "https://www.youtube.com/watch?v=VIDEO_ID_2";
+const video2 = "https://www.youtube.com/watch?v=WF5lPCb_Vbg";
 
 
 function ThirdSection() {
