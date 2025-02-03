@@ -86,7 +86,7 @@ function Footer() {
           <h3>Contactați-ne</h3>
           <p>Strada Culturii Nr.47 Vernesti, Buzau</p>
           <p>+40 745 531 340 / +40 787 714 597</p>
-          <p>contact.rawproductions@gmail.com</p>
+          <p>rawproductions.ro@gmail.com</p>
           <p>www.rawproductions.ro</p>
         </div>
 

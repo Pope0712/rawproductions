@@ -3,7 +3,8 @@ import './thirdsection.css';
 import ReactPlayer from 'react-player';
 const video1 = "https://www.youtube.com/watch?v=wHrc9UksYo0";
 const video2 = "https://www.youtube.com/watch?v=WF5lPCb_Vbg";
-
+const video3 = "https://www.youtube.com/watch?v=Tn0R1ATiiSo";
+const video4 = "../video/Studio/Coming soon.mp4";
 
 function ThirdSection() {
   const [showPlayer, setShowPlayer] = useState(false);
@@ -252,7 +253,7 @@ function ThirdSection() {
               <div className="separator"></div>
               <button
                 className="view__video"
-                onClick={() => handleButtonClick(video1)}
+                onClick={() => handleButtonClick(video3)}
               >
                 <i className="m-caret-right-solid"></i>
               </button>
@@ -303,7 +304,7 @@ function ThirdSection() {
               <div className="separator"></div>
               <button
                 className="view__video"
-                onClick={() => handleButtonClick(video1)}
+                onClick={() => handleButtonClick(video4)}
               >
                 <i className="m-caret-right-solid"></i>
               </button>

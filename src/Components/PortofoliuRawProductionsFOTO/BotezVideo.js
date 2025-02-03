@@ -15,7 +15,7 @@ import thumb4 from "../images/Thumbnails-botez/Mateo Elian.jpg";
 import thumb5 from "../images/Thumbnails-botez/Amalia Maria.jpeg";
 import thumb6 from "../images/Thumbnails-botez/Botez Georgia.jpg";
 import thumb7 from "../images/Thumbnails-botez/Clara.jpg";
-import thumb8 from "../images/Thumbnails-botez/Botez Georgia.jpg";
+import thumb8 from "../images/Thumbnails-botez/Darius.jpeg";
 import thumb9 from "../images/Thumbnails-botez/Ariana Caroline.jpg";
 
 const VideoBotez = () => {

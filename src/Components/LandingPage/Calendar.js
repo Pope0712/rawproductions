@@ -3,8 +3,11 @@ import './Calendar.css';
 import sendFormDataToEmail from '../../services/emailService';
 
 function Calendar({ selectedDate, setSelectedDate, hasErrors }) {
-  const unavailableDates = ["2024-03-15", "2024-03-20", "2024-03-25", "2024-04-01"];
-  const limitedDates = ["2024-03-10", "2024-03-11"];
+  const unavailableDates = ["2025-02-15", "2025-03-08","2025-08-30"];
+  const limitedDates = ["2025-02-22", "2025-02-08", "2025-02-14", "2025-02-16", "2025-02-16" ,"2025-02-22", "2025-03-01", "2025-03-22", "2025-05-03",
+    "2025-05-10", "2025-05-17","2025-05-24", "2025-05-31", "2025-07-05","2025-07-06","2025-07-18", "2025-07-24", "2025-07-26", "2025-08-09", "2025-08-16", "2025-08-24","2025-08-29",
+    "2025-08-31", "2025-09-13", "2025-11-01"
+  ];
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const getDaysInMonth = (date) => {
@@ -28,14 +31,14 @@ function Calendar({ selectedDate, setSelectedDate, hasErrors }) {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     if (date < today) return true;
-
-    const dateString = date.toISOString().split('T')[0];
+  
+    const dateString = date.toLocaleDateString('en-CA'); // Format YYYY-MM-DD
     return unavailableDates.includes(dateString);
   };
-
+  
   const isDateLimited = (date) => {
     if (!date) return false;
-    const dateString = date.toISOString().split('T')[0];
+    const dateString = date.toLocaleDateString('en-CA'); // Format YYYY-MM-DD
     return limitedDates.includes(dateString);
   };
 

@@ -140,13 +140,13 @@ body {
 }
 
 .limited {
-  background-color: #d8d8d8;
+  background-color: rgb(255, 203, 81);
   color: #8c6f00;
   cursor: pointer;
 }
 
 .limited:hover:not(.unavailable) {
-  background-color: #e0ca97;
+  background-color: rgb(255, 203, 81);
 }
 
 .selected {
@@ -183,7 +183,7 @@ body {
 }
 
 .legend-color.limited {
-  background-color: #e8d4a2;
+  background-color: rgb(255, 203, 81);
   border: 1px solid #8c6f00;
 }
 
