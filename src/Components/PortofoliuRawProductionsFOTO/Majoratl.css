@@ -1,0 +1,200 @@
+/* Structura generală */
+.portfolio {
+    padding: 0;
+    margin: 0;
+    background-color: #000;
+    color: white;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  /* Container pentru videoclip */
+  .video-container1 {
+    position: relative;
+    width: 100%;
+    height: 30vh; /* Înălțimea videoclipului */
+    margin-top: 0px;
+    overflow: hidden;
+  }
+  
+  /* Videoclip pe tot ecranul */
+  .narrow-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Lățimea pe 100% din ecran */
+    height: 100%; /* Înălțimea pe întreaga vizibilitate a containerului */
+    object-fit: cover; /* Păstrează proporțiile videoclipului */
+  }
+  
+  /* Titlul "PORTRAITS" */
+  .portfolio-title {
+    position: absolute; /* Poziționare absolută peste videoclip */
+    top: 50%; /* Centrare pe verticală */
+    left: 50%; /* Centrare pe orizontală */
+    transform: translate(-50%, -50%); /* Corecție pentru centrare */
+    font-size: 4rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: white;
+    padding: 10px 20px;
+    z-index: 1; /* Este deasupra videoclipului */
+  }
+  
+  /* Grila de imagini */
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 coloane pentru desktop */
+    gap: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #000;
+  }
+  
+  .portfolio-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .portfolio-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .portfolio-item:hover img {
+    transform: scale(1.1); /* Efect de zoom la hover */
+  }
+  
+  .portfolio-item::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Overlay semitransparent */
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .portfolio-item:hover::after {
+    opacity: 1;
+  }
+  
+  /* Lightbox */
+  .lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  .lightbox-image {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 0;
+  }
+  
+  .lightbox-close,
+  .lightbox-prev,
+  .lightbox-next {
+    position: absolute;
+    background: none;
+    color: white;
+    font-size: 2rem;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    z-index: 1001;
+  }
+  
+  .lightbox-close {
+    top: 20px;
+    right: 20px;
+  }
+  
+  .lightbox-prev {
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .lightbox-next {
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .lightbox-close:hover,
+  .lightbox-prev:hover,
+  .lightbox-next:hover {
+    color: #ccc;
+  }
+  
+  /* Responsivitate */
+  @media (max-width: 1200px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(4, 1fr); /* 4 coloane pe ecrane mai mici */
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    .portfolio-grid {
+      grid-template-columns: repeat(3, 1fr); /* 3 coloane pe tablete */
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .video-container1 {
+      margin-top: 60px;
+      height: 20vh;
+    }
+  
+    .portfolio-title {
+      font-size: 2rem;
+      padding: 5px 10px;
+    }
+  
+    .portfolio-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 coloane pe telefoane */
+    }
+  
+    /* Dezactivează hover-ul pe dispozitivele mobile cu ecran mic */
+    .portfolio-item:hover img,
+    .portfolio-item:active img {
+      transform: none;
+    }
+  
+    .portfolio-item::after {
+      opacity: 0; /* Elimină overlay-ul peste imagini */
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .video-container1 {
+      margin-top: 40px;
+      height: 15vh;
+    }
+  
+    .portfolio-title {
+      font-size: 1.5rem;
+    }
+  
+    .portfolio-grid {
+      grid-template-columns: 1fr; /* O singură coloană pe ecrane foarte mici */
+    }
+  }

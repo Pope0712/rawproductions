@@ -1,0 +1,136 @@
+html, body {
+  overflow-x: hidden; /* Previne scroll-ul orizontal */
+}
+a {
+  text-decoration: none;
+  position: relative;
+  z-index: 1001;
+}
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 50px;
+  background-color: rgba(128, 128, 128, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  box-sizing: border-box;
+}
+
+.header.transparent {
+  background-color: transparent;
+}
+
+.header.show {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.header.hide {
+  transform: translateY(-100%);
+  opacity: 0;
+}
+
+.logo {
+  font-size: 50px;
+  color: white;
+  font-weight: 700;
+  position: relative;
+  z-index: 1001;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  z-index: 1002;
+}
+
+.navbar a {
+  font-size: 18px;
+  color: white;
+  font-weight: 500;
+  margin-left: 40px;
+  z-index: 1002;
+  text-align: center;
+}
+
+header .nav-btn {
+  padding: 5px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1.8rem;
+  display: none;
+  position: relative;
+  z-index: 1002;
+}
+
+/* Responsive design */
+@media only screen and (max-width: 960px) {
+  .header {
+    background-color: rgba(0, 0, 0, 0.116);
+    padding: 5%;
+  }
+
+  .logo {
+    font-size: 25px;
+  }
+
+  header .nav-btn {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    z-index: 9999;
+  }
+
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    gap: 2.5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(128, 128, 128, 0.95);
+    transform: translateY(-100vh);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .navbar.responsive_nav {
+    transform: translateY(0);
+  }
+
+  .navbar a {
+    font-size: 1.5rem;
+    margin: 10px 0;
+  }
+
+
+  .header.hide {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  .header.show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.unstyled-button {
+  all: unset; /* Elimină toate stilurile implicite */
+  cursor: pointer; /* Adaugă un cursor pointer pentru butoane */
+}
+

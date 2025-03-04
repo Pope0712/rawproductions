@@ -1,0 +1,107 @@
+/* General container */
+html, body {
+    overflow-x: hidden; /* Previne scroll-ul orizontal */
+  }
+.whyus-container {
+    background-color: #1a1a1a;
+    color: #d1d5db;
+    position: relative;
+    padding: 60px 20px;
+    overflow: hidden;
+    text-align: center;
+  }
+  
+  /* Gradient background */
+  .whyus-gradient {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(to top left, rgba(220, 38, 38, 0.2), transparent 50%);
+    z-index: -1;
+  }
+  
+  /* Header */
+  .whyus-header {
+    max-width: 800px;
+    margin: 0 auto 40px auto;
+  }
+  
+  .whyus-subtitle {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #9ca3af;
+    margin-bottom: 10px;
+    display: inline-block;
+  }
+  
+  .whyus-title {
+    font-size: 32px;
+    font-weight: bold;
+    background: linear-gradient(to bottom, #ffffff, #d1d5db);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 10px 0;
+  }
+  
+  .whyus-description {
+    font-size: 16px;
+    color: #9ca3af;
+    margin-top: 10px;
+    line-height: 1.6;
+  }
+  
+  /* Features grid */
+  .whyus-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Individual feature */
+  .whyus-feature {
+    background-color: #27272a;
+    border: 1px solid #3f3f46;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .whyus-feature:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Icon styling */
+  .whyus-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(to bottom, #ff6b6b, #ff4757);
+    color: #ffffff;
+    font-size: 24px;
+    box-shadow: 0 5px 15px rgba(255, 71, 87, 0.4);
+  }
+  
+  /* Feature title */
+  .whyus-feature-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 10px 0;
+  }
+  
+  /* Feature description */
+  .whyus-feature-description {
+    font-size: 14px;
+    color: #9ca3af;
+  }
+  

@@ -1,0 +1,19 @@
+.movie__number {
+  z-index: 5;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  color: var(--white);
+  text-align: center;
+  line-height: 65px;
+  font-size: 65px;
+  font-weight: 300;
+  padding-left: 25px;
+  padding-bottom: 25px;
+  transition: opacity 0.35s ease-in-out;
+}
+
+.movies.active .movie:not(.open) .movie__number {
+  opacity: 0;
+  
+}
