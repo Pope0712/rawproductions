@@ -147,28 +147,87 @@ import img136 from "../images/Nunta/Nunta (136).jpg";
 import img137 from "../images/Nunta/Nunta (137).jpg";
 import img138 from "../images/Nunta/Nunta (138).jpg";
 import img139 from "../images/Nunta/Nunta (139).jpg";
+import img140 from "../images/Nunta/Nunta (140).jpg";
+import img141 from "../images/Nunta/Nunta (141).jpg";
+import img142 from "../images/Nunta/Nunta (142).jpg";
+import img143 from "../images/Nunta/Nunta (143).jpg";
+import img144 from "../images/Nunta/Nunta (144).jpg";
+import img145 from "../images/Nunta/Nunta (145).jpg";
+import img146 from "../images/Nunta/Nunta (146).jpg";
+import img147 from "../images/Nunta/Nunta (147).jpg";
+import img148 from "../images/Nunta/Nunta (148).jpg";
+import img149 from "../images/Nunta/Nunta (149).jpg";
+import img150 from "../images/Nunta/Nunta (150).jpg";
+import img151 from "../images/Nunta/Nunta (151).jpg";
+import img152 from "../images/Nunta/Nunta (152).jpg";
+import img153 from "../images/Nunta/Nunta (153).jpg";
+import img154 from "../images/Nunta/Nunta (154).jpg";
+import img155 from "../images/Nunta/Nunta (155).jpg";
+import img156 from "../images/Nunta/Nunta (156).jpg";
+import img157 from "../images/Nunta/Nunta (157).jpg";
+import img158 from "../images/Nunta/Nunta (158).jpg";
+import img159 from "../images/Nunta/Nunta (159).jpg";
+import img160 from "../images/Nunta/Nunta (160).jpg";
+import img161 from "../images/Nunta/Nunta (161).jpg";
+import img162 from "../images/Nunta/Nunta (162).jpg";
+import img163 from "../images/Nunta/Nunta (163).jpg";
+import img164 from "../images/Nunta/Nunta (164).jpg";
+import img165 from "../images/Nunta/Nunta (165).jpg";
+import img166 from "../images/Nunta/Nunta (166).jpg";
+import img167 from "../images/Nunta/Nunta (167).jpg";
+import img168 from "../images/Nunta/Nunta (168).jpg";
+import img169 from "../images/Nunta/Nunta (169).jpg";
+import img170 from "../images/Nunta/Nunta (170).jpg";
+import img171 from "../images/Nunta/Nunta (171).jpg";
+import img172 from "../images/Nunta/Nunta (172).jpg";
+import img173 from "../images/Nunta/Nunta (173).jpg";
+import img174 from "../images/Nunta/Nunta (174).jpg";
+import img175 from "../images/Nunta/Nunta (175).jpg";
+import img176 from "../images/Nunta/Nunta (176).jpg";
+import img177 from "../images/Nunta/Nunta (177).jpg";
+import img178 from "../images/Nunta/Nunta (178).jpg";
+import img179 from "../images/Nunta/Nunta (179).jpg";
+import img180 from "../images/Nunta/Nunta (180).jpg";
+import img181 from "../images/Nunta/Nunta (181).jpg";
+import img182 from "../images/Nunta/Nunta (182).jpg";
+import img183 from "../images/Nunta/Nunta (183).jpg";
+import img184 from "../images/Nunta/Nunta (184).jpg";
+import img185 from "../images/Nunta/Nunta (185).jpg";
+import img186 from "../images/Nunta/Nunta (186).jpg";
+import img187 from "../images/Nunta/Nunta (187).jpg";
+import img188 from "../images/Nunta/Nunta (188).jpg";
+import img189 from "../images/Nunta/Nunta (189).jpg";
+import img190 from "../images/Nunta/Nunta (190).jpg";
+import img191 from "../images/Nunta/Nunta (191).jpg";
 
 
 // Array with local images
 const images = [
+  img191, img190, img189, img188, img187, img186, img185, img184,
+  img183, img182, img181, img180, img179, img178, img177, img176,
+  img175, img174, img173, img172, img171, img170, img169, img168,
+  img167, img166, img165, img164, img163, img162, img161, img160,
+  img159, img158, img157, img156, img155, img154, img153, img152,
+  img151, img150, img149, img148, img147, img146, img145, img144,
+  img143, img142, img141, img140,
   img139, img138, img137, img136, img135, img134, img133, img132,
   img131, img130, img129, img128, img127, img126, img125, img124,
   img123, img122, img121, img120, img119, img118, img117, img116,
   img115, img114, img113, img112, img111, img110, img109, img108,
   img107, img106, img105, img104, img103, img102, img101, img100,
-  img99, img98, img97, img96,
-  img95, img94, img93, img92, img91, img90, img89, img88,
-  img87, img86, img85, img84, img83, img82, img81, img80,
-  img79, img78, img77, img76, img75, img74, img73, img72,
-  img71, img70, img69, img68, img67, img66, img65, img64,
-  img63, img62, img61, img60, img59, img58, img57, img56,
-  img55, img54, img53, img52, img51, img50, img49, img48,
-  img47, img46, img45, img44, img43, img42, img41, img40,
-  img39, img38, img37, img36, img35, img34, img33, img32,
-  img31, img30, img29, img28, img27, img26, img25, img24,
-  img23, img22, img21, img20, img19, img18, img17, img16,
-  img15, img14, img13, img12, img11, img10, img9, img8,
-  img7, img6, img5, img4, img3, img2, img1
+  img99, img98, img97, img96, img95, img94, img93, img92,
+  img91, img90, img89, img88, img87, img86, img85, img84,
+  img83, img82, img81, img80, img79, img78, img77, img76,
+  img75, img74, img73, img72, img71, img70, img69, img68,
+  img67, img66, img65, img64, img63, img62, img61, img60,
+  img59, img58, img57, img56, img55, img54, img53, img52,
+  img51, img50, img49, img48, img47, img46, img45, img44,
+  img43, img42, img41, img40, img39, img38, img37, img36,
+  img35, img34, img33, img32, img31, img30, img29, img28,
+  img27, img26, img25, img24, img23, img22, img21, img20,
+  img19, img18, img17, img16, img15, img14, img13, img12,
+  img11, img10, img9, img8, img7, img6, img5, img4,
+  img3, img2, img1
 ];
 
 const Portfolio = () => {
