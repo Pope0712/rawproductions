@@ -35,7 +35,7 @@ const PacheteNunta = () => {
       price: "6.000 lei",
       features: [
         "1 Fotograf & 1 Videograf, prezenți pe toată durata evenimentului (pregătiri, biserică, petrecere).",
-        "Ședință foto înainte de botez: acasă sau într-o locație naturală, surprinzând copilul și familia.",
+        "Ședință foto în alta zi: acasă sau într-o locație naturală, surprinzând copilul și familia.",
         "Videoclip highlights (5-8 minute), cu o selecție muzicală personalizată.",
         "Film complet editat (1,5-2,5 ore), surprinzând toate momentele importante.",
         "Stick USB personalizat, livrat într-o cutie elegantă din sticlă, gravată cu numele copilului și data botezului.",
