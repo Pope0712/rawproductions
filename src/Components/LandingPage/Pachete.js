@@ -8,7 +8,7 @@ const Pachete = () => {
   const packages = [
     {
       title: "Amintiri de Neuitat - Botez", 
-      price: "4.500 lei",
+      price: "5.000 lei",
       features: [
         "1 Fotograf & 1 Videograf prezenți pe toată durata evenimentului (pregătiri, biserică și petrecere).",
         "Ședință foto înainte de botez: surprindem detalii intime și emoționante acasă sau într-o locație specială (pregătiri, decor, portrete de familie).",
@@ -21,7 +21,7 @@ const Pachete = () => {
     },
     {
       title: "Memories - Nunta",
-      price: "7.500 RON",
+      price: "12.500 RON",
       features: [
         "1 Fotograf & 1 Videograf prezenți pe durata întregului eveniment.",
         "Ședință foto „Save the Date”: realizată înainte de nuntă, într-o locație specială, perfectă pentru a anunța evenimentul.",
