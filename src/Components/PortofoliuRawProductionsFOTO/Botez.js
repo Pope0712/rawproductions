@@ -99,11 +99,28 @@ import img89 from "../images/Botez/Botez (89).jpg";
 import img90 from "../images/Botez/Botez (90).jpg";
 import img91 from "../images/Botez/Botez (91).jpg";
 import img92 from "../images/Botez/Botez (92).jpg";
+import img93 from "../images/Botez/Botez (93).jpg";
+import img94 from "../images/Botez/Botez (94).jpg";
+import img95 from "../images/Botez/Botez (95).jpg";
+import img96 from "../images/Botez/Botez (96).jpg";
+import img97 from "../images/Botez/Botez (97).jpg";
+import img98 from "../images/Botez/Botez (98).jpg";
+import img99 from "../images/Botez/Botez (99).jpg";
+import img100 from "../images/Botez/Botez (100).jpg";
+import img101 from "../images/Botez/Botez (101).jpg";
+import img102 from "../images/Botez/Botez (102).jpg";
+import img103 from "../images/Botez/Botez (103).jpg";
+import img104 from "../images/Botez/Botez (104).jpg";
+import img105 from "../images/Botez/Botez (105).jpg";
+import img106 from "../images/Botez/Botez (106).jpg";
 
 
 // Array with local images
 const images = [
-   img92, img91, img90, img89, img88, img87, img86, img85,  img84, img83, img82, img81, img80, img79, img78,
+   img106, img105, img104, img103, img102, img101, img100,
+  img99, img98, img97, img96, img95, img94, img93,
+  img92, img91, img90, img89, img88, img87, img86, img85,
+  img84, img83, img82, img81, img80, img79, img78,
   img77, img76, img75, img74, img73, img72, img71, img70,
   img69, img68, img67, img66, img65, img64, img63, img62,
   img61, img60, img59, img58, img57, img56, img55, img54,
@@ -113,7 +130,7 @@ const images = [
   img29, img28, img27, img26, img25, img24, img23, img22,
   img21, img20, img19, img18, img17, img16, img15, img14,
   img13, img12, img11, img10, img9, img8, img7, img6,
-  img5, img4, img3, img2, img1,
+  img5, img4, img3, img2, img1
 ];
 
 const Portfolio = () => {

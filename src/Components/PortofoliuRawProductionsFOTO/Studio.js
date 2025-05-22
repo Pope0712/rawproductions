@@ -84,19 +84,30 @@ import img74 from "../images/Studio/Studio (74).jpg";
 import img75 from "../images/Studio/Studio (75).jpg";
 import img76 from "../images/Studio/Studio (76).jpg";
 import img77 from "../images/Studio/Studio (77).jpg";
+import img78 from "../images/Studio/Studio (78).jpg";
+import img79 from "../images/Studio/Studio (79).jpg";
+import img80 from "../images/Studio/Studio (80).jpg";
+import img81 from "../images/Studio/Studio (81).jpg";
+import img82 from "../images/Studio/Studio (82).jpg";
+import img83 from "../images/Studio/Studio (83).jpg";
+import img84 from "../images/Studio/Studio (84).jpg";
+import img85 from "../images/Studio/Studio (85).jpg";
+import img86 from "../images/Studio/Studio (86).jpg";
+import img87 from "../images/Studio/Studio (87).jpg";
 
 // Array with local images
 const images = [
-  img1, img2, img3, img4, img5, img6, img7, img8,
-  img9, img10, img11, img12, img13, img14, img15, img16,
-  img17, img18, img19, img20, img21, img22, img23, img24,
-  img25, img26, img27, img28, img29, img30, img31, img32,
-  img33, img34, img35, img36, img37, img38, img39, img40,
-  img41, img42, img43, img44, img45, img46, img47, img48,
-  img49, img50, img51, img52, img53, img54, img55, img56,
-  img57, img58, img59, img60, img61, img62, img63, img64,
-  img65, img66, img67, img68, img69, img70, img71, img72,
-  img73, img74, img75, img76, img77,
+  img87, img86, img85, img84, img83, img82, img81, img80,
+  img79, img78, img77, img76, img75, img74, img73, img72,
+  img71, img70, img69, img68, img67, img66, img65, img64,
+  img63, img62, img61, img60, img59, img58, img57, img56,
+  img55, img54, img53, img52, img51, img50, img49, img48,
+  img47, img46, img45, img44, img43, img42, img41, img40,
+  img39, img38, img37, img36, img35, img34, img33, img32,
+  img31, img30, img29, img28, img27, img26, img25, img24,
+  img23, img22, img21, img20, img19, img18, img17, img16,
+  img15, img14, img13, img12, img11, img10, img9, img8,
+  img7, img6, img5, img4, img3, img2, img1
 ];
 
 const Portfolio = () => {
