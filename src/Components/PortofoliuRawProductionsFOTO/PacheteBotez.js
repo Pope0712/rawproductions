@@ -8,7 +8,7 @@ const PacheteNunta = () => {
   const packages = [
     {
       title: "Primii Pași",
-      price: "2.500 RON",
+      price: "3.000 RON",
       features: [
         "1 Fotograf & 1 Videograf prezenți la eveniment (biserică și petrecere).",
         "Fotografiile surprind momentele esențiale: ceremonia religioasă, invitații, familia și copilul.",
@@ -19,7 +19,7 @@ const PacheteNunta = () => {
     },
     {
       title: "Amintiri de Neuitat",
-      price: "4.500 lei",
+      price: "5.000 lei",
       features: [
         "1 Fotograf & 1 Videograf prezenți pe toată durata evenimentului (pregătiri, biserică și petrecere).",
         "Ședință foto înainte de botez: surprindem detalii intime și emoționante acasă sau într-o locație specială (pregătiri, decor, portrete de familie).",
@@ -32,7 +32,7 @@ const PacheteNunta = () => {
     },
     {
       title: "Zâmbete Infinite",
-      price: "7.500 lei",
+      price: "8.500 lei",
       features: [
         "1 Fotograf & 1 Videograf, prezenți pe toată durata evenimentului (pregătiri, biserică, petrecere).",
         "Ședință foto înainte de botez: acasă sau într-o locație naturală, surprinzând copilul și familia.",
