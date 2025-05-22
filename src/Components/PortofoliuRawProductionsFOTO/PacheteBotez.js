@@ -22,7 +22,7 @@ const PacheteNunta = () => {
       price: "5.000 lei",
       features: [
         "1 Fotograf & 1 Videograf prezenți pe toată durata evenimentului (pregătiri, biserică și petrecere).",
-        "Ședință foto înainte de botez: surprindem detalii intime și emoționante acasă sau într-o locație specială (pregătiri, decor, portrete de familie).",
+        "Ședință foto în alta zi: surprindem detalii intime și emoționante acasă sau într-o locație specială (pregătiri, decor, portrete de familie).",
         "Videoclip highlights (4-6 minute) + film complet editat (1-2 ore), surprinzând toate momentele importante.",
         "Stick USB personalizat, livrat într-o cutie elegantă din sticlă, gravată cu numele copilului și data evenimentului.",
         "Album foto personalizat, dimensiune 30x30 cm, cu imagini din ziua botezului.",
@@ -32,11 +32,10 @@ const PacheteNunta = () => {
     },
     {
       title: "Zâmbete Infinite",
-      price: "8.500 lei",
+      price: "6.000 lei",
       features: [
         "1 Fotograf & 1 Videograf, prezenți pe toată durata evenimentului (pregătiri, biserică, petrecere).",
         "Ședință foto înainte de botez: acasă sau într-o locație naturală, surprinzând copilul și familia.",
-        "Ședință foto de familie post-eveniment: o sesiune relaxată, într-o locație aleasă împreună, perfectă pentru cadre naturale și intime.",
         "Videoclip highlights (5-8 minute), cu o selecție muzicală personalizată.",
         "Film complet editat (1,5-2,5 ore), surprinzând toate momentele importante.",
         "Stick USB personalizat, livrat într-o cutie elegantă din sticlă, gravată cu numele copilului și data botezului.",
@@ -54,12 +53,12 @@ const PacheteNunta = () => {
         "1 Videograf (pe durata întregului eveniment) – 1.500 RON",
         "Asistent fotograf (ajută cu luminile, unghiuri secundare și echipament) – 500 RON",
         "Asistent videograf (ajută cu unghiuri secundare, echipament și stabilizatoare) – 500 RON",
-        "Ședință foto înainte de botez (acasă sau într-o locație specială) – 300 RON",
-        "Ședință foto de familie post-eveniment (într-o locație aleasă împreună) – 300 RON",
+        "Ședință foto înainte de botez (acasă sau într-o locație specială) – 1000 RON",
+        "Ședință foto de familie post-eveniment (într-o locație aleasă împreună) – 1000 RON",
         "Cadre aeriene integrate în materialele video finale (Drone Footage) – 200 RON",
         "Stick USB personalizat, livrat într-o cutie elegantă din sticlă gravată – 400 RON",
-        "Album foto personalizat (30x30 cm) – 500 RON",
-        "Albume pentru bunici sau nași (20x20 cm) – 300 RON/buc.",
+        "Album foto personalizat (30x30 cm) – 600 RON",
+        "Albume pentru bunici sau nași (20x20 cm) – 400 RON/buc.",
         "Canvas personalizat (60x90 cm) – 300 RON",
         
       ],
