@@ -8,7 +8,7 @@ const PacheteNunta = () => {
   const packages = [
     {
       title: " Essentials",
-      price: "5.000 RON",
+      price: "10.000 RON",
       features: [
         "1 Fotograf & 1 Videograf prezenți pe durata întregului eveniment.",
         "Fotografie și filmare din ziua nunții: biserică, cununie civilă, petrecere.",
@@ -21,7 +21,7 @@ const PacheteNunta = () => {
     },
     {
       title: "Memories",
-      price: "7.500 RON",
+      price: "12.500 RON",
       features: [
         "1 Fotograf & 1 Videograf prezenți pe durata întregului eveniment.",
         "Ședință foto „Save the Date”: realizată înainte de nuntă, într-o locație specială, perfectă pentru a anunța evenimentul.",
@@ -37,7 +37,7 @@ const PacheteNunta = () => {
     },
     {
       title: "Infinity",
-      price: "12.000 RON",
+      price: "15.000 RON",
       features: [
         "2 Fotografii & 2 Videografi, pentru o acoperire extinsă și cadre surprinse din mai multe perspective.",
         "„Save the Date”: o ședință foto realizată înainte de nuntă, ideală pentru invitații și anunțuri.",
@@ -58,17 +58,17 @@ const PacheteNunta = () => {
       "title": "Your Way",
       "price": "Variabil",
       "features": [
-        "1 Fotograf (pe durata întregului eveniment) – 3.500 RON",
-        "1 Videograf (pe durata întregului eveniment) – 3.500 RON",
+        "1 Fotograf (pe durata întregului eveniment) – 5.000 RON",
+        "1 Videograf (pe durata întregului eveniment) – 5.000 RON",
         "Asistent fotograf (ajută cu luminile, unghiuri secundare și echipament) – 1000 RON",
         "Asistent videograf (ajută cu unghiuri secundare, echipament și stabilizatoare) – 1000 RON",
         "Ședință foto „Save the Date” (înainte de nuntă) – 1.000 RON",
         "Ședință foto Trash the Dress (după nuntă) – 1.500 RON",
         "Ședință foto post-eveniment (într-o locație aleasă împreună) – 800 RON",
         "Cadre aeriene integrate în materialele video finale (Drone Footage) – 500 RON",
-        "Stick USB personalizat, livrat într-o cutie elegantă din sticlă gravată – 400 RON",
-        "Album foto personalizat (30x30 cm) – 500 RON",
-        "Albume pentru părinți/năși (20x20 cm) – 300 RON/buc.",
+        "Stick USB personalizat, livrat într-o cutie elegantă din sticlă gravată – 500 RON",
+        "Album foto personalizat (30x30 cm) – 800 RON",
+        "Albume pentru părinți/năși (20x20 cm) – 500 RON/buc.",
         "Canvas personalizat (60x90 cm) – 300 RON",
         
       ],
