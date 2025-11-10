@@ -62,8 +62,8 @@ html, body {
 
 .react-app__cards {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 25px;
   margin-top: 150px;
   width: 100%;
   justify-items: center;
@@ -197,8 +197,6 @@ html, body {
 .react-app__card:hover .react-app__wrapper {
   transform: perspective(900px) translateY(-5%) rotateX(25deg) translateZ(0);
   box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
-  -webkit-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 2px 35px 32px -8px rgba(0, 0, 0, 0.75);
 }
 
 .react-app__wrapper::before,
@@ -288,30 +286,28 @@ html, body {
   transform: translateY(0);
 }
 
+/* ===== MEDIA QUERIES ===== */
+
 @media screen and (max-width: 1768px) {
   .react-app__card {
     --card-height: 180px;
     --card-width: 160px;
   }
-  
+
   .react-app__hover-text {
     bottom: -190px;
     font-size: 0.85rem;
   }
-  
+
   .react-app__video {
     max-width: 800px;
   }
-  
+
   .play-button {
     width: 70px;
     height: 70px;
   }
-  
-  .play-button svg {
-    width: 28px;
-    height: 28px;
-  }
+
   .react-app__info-icon {
     top: -15px;
     right: 10px;
@@ -321,71 +317,40 @@ html, body {
 }
 
 @media screen and (max-width: 1360px) {
+  .react-app__cards {
+    grid-template-columns: repeat(3, auto);
+    gap: 80px;
+    row-gap: 240px;
+    margin-top: 80px;
+  }
+
   .react-app__card {
     --card-height: 180px;
     --card-width: 190px;
   }
-  
-  .react-app__content {
-    flex-direction: column;
-    margin-top: 20px;
+
+  .react-app__hover-text {
+    bottom: -145px;
   }
 
   .react-app__video {
     width: 90%;
     margin: 170px auto;
-    
-  }
-  
-  .react-app__cards {
-    grid-template-columns: repeat(3, auto);
-    gap: 80px;
-    margin-top: 80px;
-    row-gap: 240px;
   }
 
-
-  .react-app__hover-text {
-    bottom: -145px;
-  }
-  
   .play-button {
     width: 60px;
     height: 60px;
   }
-  
-  .play-button svg {
-    width: 25px;
-    height: 25px;
-  }
-  
+
   .play-caption {
     font-size: 0.9rem;
-    padding: 6px 12px;
-
-  }
-  .react-app__info-icon {
-    top: -45px;
-    right: 10px;
-    width: 25px;
-    height: 25px;
   }
 }
 
 @media screen and (max-width: 768px) {
-  .react-app__content {
-    margin-top: 20px;
-  }
-
-  .react-app__video {
-    width: 95%;
-    margin: 200px auto;
-  }
-
   .react-app__cards {
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(3, auto);
-    gap: 15px;
     row-gap: 250px;
     padding: 0 10px;
   }
@@ -399,16 +364,11 @@ html, body {
     bottom: -200px;
     font-size: 0.8rem;
   }
-  .react-app__info-icon {
-    top: -25px;
-    right: 10px;
-    width: 25px;
-    height: 25px;
-  }
 }
 
 @media screen and (max-width: 480px) {
   .react-app__cards {
+    grid-template-columns: repeat(2, 1fr);
     gap: 15px;
     row-gap: 230px;
     padding: 50px 10px;
@@ -422,63 +382,18 @@ html, body {
   .react-app__hover-text {
     bottom: -185px;
     font-size: 0.75rem;
-  }
-
-  .react-app__video {
-    width: 100%;
-    margin: 170px auto;
-  }
-
-  .play-button {
-    width: 50px;
-    height: 50px;
-  }
-
-  .play-button svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .play-caption {
-    font-size: 0.8rem;
-    padding: 5px 10px;
   }
 }
 
 @media screen and (max-width: 360px) {
   .react-app__cards {
+    grid-template-columns: repeat(1, 1fr);
     gap: 15px;
     row-gap: 230px;
-    padding: 50px 10px;
   }
 
   .react-app__card {
     --card-height: 140px;
     --card-width: 140px;
-  }
-
-  .react-app__hover-text {
-    bottom: -185px;
-    font-size: 0.75rem;
-  }
-
-  .react-app__video {
-    width: 100%;
-    margin: 170px auto;
-  }
-
-  .play-button {
-    width: 50px;
-    height: 50px;
-  }
-
-  .play-button svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  .play-caption {
-    font-size: 0.8rem;
-    padding: 5px 10px;
   }
 }

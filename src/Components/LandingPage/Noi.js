@@ -18,9 +18,7 @@ import CristiCover from "../images/Cristi Fundal.jpg";
 import CristiTitlu from "../images/Cristi Titlu.png";
 import Cristi from "../images/Cristi.png";
 
-import MeryCover from "../images/Mery Fundal1.jpg"; 
-import MeryTitlu from "../images/Mery Titlu.png"; 
-import Mery from "../images/Mery.png"; 
+
 
 import LucaCover from "../images/Luca Fundal.jpg"; 
 import LucaTitlu from "../images/Luca Titlu.png"; 
@@ -143,12 +141,7 @@ const Noi = () => {
             characterImage={Cristi}
             hoverText="Pentru mine, montajul video este o artă. Mă asigur că fiecare secundă transmite emoție și că rezultatul final este impecabil."
           />
-          <Card
-            coverImage={MeryCover}
-            titleImage={MeryTitlu}
-            characterImage={Mery}
-            hoverText="Ador să filmez cadre care transmit emoție și energie. Prin editare, transform momentele unice în povești care rămân vii."
-          />
+          
           {/* Added sixth card as a copy of Mery's card */}
           <Card
             coverImage={LucaCover}
