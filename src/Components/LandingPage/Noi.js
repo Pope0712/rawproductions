@@ -10,9 +10,9 @@ import AndreiCover from "../images/Andrei Fundal.jpg";
 import AndreiTitlu from "../images/Andrei Titlu.png";
 import Andrei from "../images/Andrei.png";
 
-import CenziCover from "../images/Cenzi Fundal.jpg";
-import CenziTitlu from "../images/Cenzi Titlu.png";
-import Cenzi from "../images/Cenzi.png";
+import CenziCover from "../images/Razvan Fundal.jpg";
+import CenziTitlu from "../images/Razvan titlu.png";
+import Cenzi from "../images/Razvan.png";
 
 import CristiCover from "../images/Cristi Fundal.jpg";
 import CristiTitlu from "../images/Cristi Titlu.png";
