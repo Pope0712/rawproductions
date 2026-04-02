@@ -94,8 +94,20 @@ if (formData.phone && formData.phone.trim()) {
   });
 }
 
+// 🔥 DOAR EMAIL (simplu, fără erori)
 const contactPayload = {
-  identifiers,
+  identifiers: [
+    {
+      type: 'email',
+      id: formData.email.trim(),
+      channels: {
+        email: {
+          status: 'subscribed',
+          statusDate: new Date().toISOString(),
+        },
+      },
+    },
+  ],
   firstName: formData.name.trim(),
 };
 
