@@ -150,6 +150,6 @@ app.post('/api/booking', async (req, res) => {
   }
 });
 
-app.listen(5000, () => {
-  console.log('Serverul rulează pe portul 5000');
+app.listen(process.env.PORT || 5000, () => {
+  console.log(`Serverul rulează pe portul ${process.env.PORT || 5000}`);
 });
