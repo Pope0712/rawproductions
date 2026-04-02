@@ -3,11 +3,35 @@ import './Calendar.css';
 import sendFormDataToEmail from '../../services/emailService';
 
 function Calendar({ selectedDate, setSelectedDate, hasErrors }) {
-  const unavailableDates = ["2025-02-15", "2025-03-08","2025-08-30"];
-  const limitedDates = ["2025-02-22", "2025-02-08", "2025-02-14", "2025-02-16", "2025-02-16" ,"2025-02-22", "2025-03-01", "2025-03-22", "2025-05-03",
-    "2025-05-10", "2025-05-17","2025-05-24", "2025-05-31", "2025-07-05","2025-07-06","2025-07-18", "2025-07-24", "2025-07-26", "2025-08-09", "2025-08-16", "2025-08-24","2025-08-29",
-    "2025-08-31", "2025-09-13", "2025-11-01"
+  const unavailableDates = ['2025-02-15', '2025-03-08', '2025-08-30'];
+  const limitedDates = [
+    '2025-02-22',
+    '2025-02-08',
+    '2025-02-14',
+    '2025-02-16',
+    '2025-02-16',
+    '2025-02-22',
+    '2025-03-01',
+    '2025-03-22',
+    '2025-05-03',
+    '2025-05-10',
+    '2025-05-17',
+    '2025-05-24',
+    '2025-05-31',
+    '2025-07-05',
+    '2025-07-06',
+    '2025-07-18',
+    '2025-07-24',
+    '2025-07-26',
+    '2025-08-09',
+    '2025-08-16',
+    '2025-08-24',
+    '2025-08-29',
+    '2025-08-31',
+    '2025-09-13',
+    '2025-11-01',
   ];
+
   const [currentDate, setCurrentDate] = useState(new Date());
 
   const getDaysInMonth = (date) => {
@@ -28,17 +52,19 @@ function Calendar({ selectedDate, setSelectedDate, hasErrors }) {
 
   const isDateUnavailable = (date) => {
     if (!date) return false;
+
     const today = new Date();
     today.setHours(0, 0, 0, 0);
+
     if (date < today) return true;
-  
-    const dateString = date.toLocaleDateString('en-CA'); // Format YYYY-MM-DD
+
+    const dateString = date.toLocaleDateString('en-CA');
     return unavailableDates.includes(dateString);
   };
-  
+
   const isDateLimited = (date) => {
     if (!date) return false;
-    const dateString = date.toLocaleDateString('en-CA'); // Format YYYY-MM-DD
+    const dateString = date.toLocaleDateString('en-CA');
     return limitedDates.includes(dateString);
   };
 
@@ -50,6 +76,7 @@ function Calendar({ selectedDate, setSelectedDate, hasErrors }) {
 
   const handleDayClick = (date) => {
     if (!date || isDateUnavailable(date)) return;
+
     if (selectedDate && date.toDateString() === selectedDate.toDateString()) {
       setSelectedDate(null);
     } else {
@@ -57,15 +84,21 @@ function Calendar({ selectedDate, setSelectedDate, hasErrors }) {
     }
   };
 
-  const monthYearString = currentDate.toLocaleString('ro-RO', { month: 'long', year: 'numeric' });
+  const monthYearString = currentDate.toLocaleString('ro-RO', {
+    month: 'long',
+    year: 'numeric',
+  });
+
   const weekDays = ['D', 'L', 'M', 'M', 'J', 'V', 'S'];
 
   return (
     <div className={`calendar-column ${hasErrors && !selectedDate ? 'invalid' : ''}`}>
       <h1 className="page-title">Verifică disponibilitatea</h1>
-      {(!selectedDate && hasErrors) && (
+
+      {!selectedDate && hasErrors && (
         <div className="error-message">Vă rugăm să selectați o dată din calendar.</div>
       )}
+
       <div className="calendar-container">
         <div className="calendar-header">
           <button onClick={() => changeMonth(-1)}>&lt;</button>
@@ -76,7 +109,9 @@ function Calendar({ selectedDate, setSelectedDate, hasErrors }) {
         <div className="calendar">
           <div className="weekdays">
             {weekDays.map((day, index) => (
-              <div key={`${day}-${index}`} className="weekday">{day}</div>
+              <div key={`${day}-${index}`} className="weekday">
+                {day}
+              </div>
             ))}
           </div>
 
@@ -87,8 +122,10 @@ function Calendar({ selectedDate, setSelectedDate, hasErrors }) {
 
               const unavailable = isDateUnavailable(date);
               const limited = isDateLimited(date);
-              const selected = selectedDate && date && selectedDate.toDateString() === date.toDateString();
+              const selected =
+                selectedDate && date && selectedDate.toDateString() === date.toDateString();
               const isToday = date && date.toDateString() === today.toDateString();
+
               const dayClass = `
                 day
                 ${date ? 'valid-day' : ''}
@@ -110,7 +147,7 @@ function Calendar({ selectedDate, setSelectedDate, hasErrors }) {
             })}
           </div>
         </div>
-        
+
         <div className="legend">
           <div className="legend-item">
             <div className="legend-color today"></div>
@@ -139,8 +176,10 @@ function ContactForm({ selectedDate, setHasErrors, onSuccess }) {
     name: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
+    marketingConsent: false,
   });
+
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -150,55 +189,78 @@ function ContactForm({ selectedDate, setHasErrors, onSuccess }) {
     if (!selectedDate) {
       newErrors.date = 'Vă rugăm să selectați o dată din calendar.';
     }
+
     if (!formData.name.trim()) {
       newErrors.name = 'Completați numele.';
     }
+
     if (!formData.email.trim()) {
       newErrors.email = 'Completați adresa de email.';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Introduceți un email valid.';
     }
+
     if (!formData.phone.trim()) {
       newErrors.phone = 'Completați numărul de telefon.';
     } else if (!/^\d{10}$/.test(formData.phone)) {
       newErrors.phone = 'Telefonul trebuie să aibă 10 cifre.';
     }
+
     if (!formData.message.trim()) {
       newErrors.message = 'Completați mesajul.';
     }
 
+    if (!formData.marketingConsent) {
+      newErrors.marketingConsent =
+        'Trebuie să vă dați acordul pentru a fi contactat pe email.';
+    }
+
     setErrors(newErrors);
     setHasErrors(Object.keys(newErrors).length > 0);
+
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Formular trimis către handleSubmit");
-    if (isSubmitting) return; // Prevenirea cererilor duplicate
+    console.log('Formular trimis către handleSubmit');
+
+    if (isSubmitting) return;
+
     if (validate()) {
       setIsSubmitting(true);
+
       try {
-        console.log("Trimitere date către sendFormDataToEmail:", formData);
-        const { success, message } = await sendFormDataToEmail({
+        const payload = {
           ...formData,
           selectedDate: selectedDate.toISOString(),
-        });
+        };
+
+        console.log('Trimitere date către sendFormDataToEmail:', payload);
+
+        const { success, message } = await sendFormDataToEmail(payload);
+
         if (success) {
-          console.log("Email trimis cu succes");
-          setFormData({ name: '', email: '', phone: '', message: '' });
+          console.log('Email trimis cu succes');
+          setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            message: '',
+            marketingConsent: false,
+          });
           setErrors({});
           setHasErrors(false);
           onSuccess();
         } else {
-          console.log("Eroare la trimitere:", message);
+          console.log('Eroare la trimitere:', message);
           setErrors((prev) => ({
             ...prev,
             submit: message,
           }));
         }
       } catch (error) {
-        console.error("Eroare în timpul trimiterii:", error);
+        console.error('Eroare în timpul trimiterii:', error);
         setErrors((prev) => ({
           ...prev,
           submit: 'A apărut o eroare la trimiterea formularului. Vă rugăm să încercați din nou.',
@@ -210,7 +272,10 @@ function ContactForm({ selectedDate, setHasErrors, onSuccess }) {
   };
 
   const handleChange = (field) => (e) => {
-    setFormData((prev) => ({ ...prev, [field]: e.target.value }));
+    const value = field === 'marketingConsent' ? e.target.checked : e.target.value;
+
+    setFormData((prev) => ({ ...prev, [field]: value }));
+
     if (errors[field]) {
       setErrors((prev) => {
         const newErrors = { ...prev };
@@ -223,10 +288,10 @@ function ContactForm({ selectedDate, setHasErrors, onSuccess }) {
   return (
     <div className="form-column" id="form-column">
       <h2 className="form-title">Completează formularul și te sunăm noi</h2>
-      
+
       <form className="contact-form" onSubmit={handleSubmit} noValidate>
         {errors.date && <div className="error-message">{errors.date}</div>}
-        
+
         <div className="form-group">
           <input
             type="text"
@@ -266,21 +331,32 @@ function ContactForm({ selectedDate, setHasErrors, onSuccess }) {
             rows="4"
             value={formData.message}
             onChange={handleChange('message')}
-            placeholder="Mesaj. Adaugati si pachetul selectat!"
+            placeholder="Mesaj. Adăugați și pachetul selectat!"
             className={errors.message ? 'error-field' : ''}
           />
           {errors.message && <div className="error-message">{errors.message}</div>}
         </div>
 
-        {errors.submit && (
-          <div className="error-message submit-error">{errors.submit}</div>
-        )}
+        <div className="form-group checkbox-group">
+          <label className="checkbox-label">
+            <input
+              type="checkbox"
+              checked={formData.marketingConsent}
+              onChange={handleChange('marketingConsent')}
+            />
+            <span>
+              Sunt de acord să fiu contactat pe email și să primesc informații despre
+              ofertă, disponibilitate și serviciile RAWProductions.
+            </span>
+          </label>
+          {errors.marketingConsent && (
+            <div className="error-message">{errors.marketingConsent}</div>
+          )}
+        </div>
 
-        <button 
-          type="submit" 
-          className="submit-button"
-          disabled={isSubmitting}
-        >
+        {errors.submit && <div className="error-message submit-error">{errors.submit}</div>}
+
+        <button type="submit" className="submit-button" disabled={isSubmitting}>
           {isSubmitting ? 'Se trimite...' : 'Trimite'}
         </button>
       </form>
@@ -302,7 +378,9 @@ function SuccessPopup({ onClose }) {
         <p className="modal-message">
           Vă mulțumim pentru mesaj. Vom lua legătura cu dvs. în cel mai scurt timp.
         </p>
-        <button className="modal-close-button" onClick={onClose}>Închide</button>
+        <button className="modal-close-button" onClick={onClose}>
+          Închide
+        </button>
       </div>
     </div>
   );
@@ -331,6 +409,7 @@ function CalendarContactPage() {
           onSuccess={handleSuccess}
         />
       </div>
+
       {showPopup && <SuccessPopup onClose={() => setShowPopup(false)} />}
     </div>
   );
