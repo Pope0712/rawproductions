@@ -67,31 +67,37 @@ app.post('/api/booking', async (req, res) => {
       try {
         console.log('Salvez contactul în Omnisend...');
 
-        const identifiers = [
-          {
-            type: 'email',
-            id: formData.email.trim(),
-            channels: {
-              email: {
-                status: formData.marketingConsent ? 'subscribed' : 'nonSubscribed',
-                statusDate: new Date().toISOString(),
-              },
-            },
-          },
-        ];
+       const identifiers = [
+  {
+    type: 'email',
+    id: formData.email.trim(),
+    channels: {
+      email: {
+        status: formData.marketingConsent ? 'subscribed' : 'nonSubscribed',
+        statusDate: new Date().toISOString(),
+      },
+    },
+  },
+];
 
-        if (formData.phone && formData.phone.trim()) {
-          identifiers.push({
-            type: 'phone',
-            id: formData.phone.trim(),
-          });
-        }
+// 🔥 IMPORTANT: adaugă telefonul CORECT
+if (formData.phone && formData.phone.trim()) {
+  identifiers.push({
+    type: 'phone',
+    id: formData.phone.trim(),
+    channels: {
+      sms: {
+        status: 'subscribed',
+        statusDate: new Date().toISOString(),
+      },
+    },
+  });
+}
 
-        const contactPayload = {
-          identifiers,
-          firstName: formData.name.trim(),
-          sendWelcomeEmail: false,
-        };
+const contactPayload = {
+  identifiers,
+  firstName: formData.name.trim(),
+};
 
         console.log('Payload contact Omnisend:', JSON.stringify(contactPayload, null, 2));
 
