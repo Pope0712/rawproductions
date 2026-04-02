@@ -67,22 +67,33 @@ app.post('/api/booking', async (req, res) => {
       try {
         console.log('Salvez contactul în Omnisend...');
 
-        const contactPayload = {
-          identifiers: [
-            {
-              type: 'email',
-              id: formData.email.trim(),
-              channels: {
-                email: {
-                  status: formData.marketingConsent ? 'subscribed' : 'nonSubscribed',
-                  statusDate: new Date().toISOString(),
-                },
+        const identifiers = [
+          {
+            type: 'email',
+            id: formData.email.trim(),
+            channels: {
+              email: {
+                status: formData.marketingConsent ? 'subscribed' : 'nonSubscribed',
+                statusDate: new Date().toISOString(),
               },
             },
-          ],
+          },
+        ];
+
+        if (formData.phone && formData.phone.trim()) {
+          identifiers.push({
+            type: 'phone',
+            id: formData.phone.trim(),
+          });
+        }
+
+        const contactPayload = {
+          identifiers,
           firstName: formData.name.trim(),
-          phone: (formData.phone || '').trim(),
+          sendWelcomeEmail: false,
         };
+
+        console.log('Payload contact Omnisend:', JSON.stringify(contactPayload, null, 2));
 
         const contactResponse = await fetch('https://api.omnisend.com/v3/contacts', {
           method: 'POST',
@@ -99,6 +110,24 @@ app.post('/api/booking', async (req, res) => {
 
         console.log('Trimit event către Omnisend...');
 
+        const eventPayload = {
+          eventName: 'booking_request_submitted',
+          origin: 'api',
+          contact: {
+            email: formData.email.trim(),
+            phone: (formData.phone || '').trim() || undefined,
+            firstName: formData.name.trim(),
+          },
+          properties: {
+            selected_date: formattedDate,
+            raw_selected_date: formData.selectedDate,
+            message: (formData.message || '').trim(),
+            marketing_consent: !!formData.marketingConsent,
+          },
+        };
+
+        console.log('Payload event Omnisend:', JSON.stringify(eventPayload, null, 2));
+
         const omnisendResponse = await fetch('https://api.omnisend.com/api/events', {
           method: 'POST',
           headers: {
@@ -106,21 +135,7 @@ app.post('/api/booking', async (req, res) => {
             Authorization: `Omnisend-API-Key ${process.env.OMNISEND_API_KEY}`,
             'Omnisend-Version': '2026-03-15',
           },
-          body: JSON.stringify({
-            eventName: 'booking_request_submitted',
-            origin: 'api',
-            contact: {
-              email: formData.email.trim(),
-              phone: (formData.phone || '').trim() || undefined,
-              firstName: formData.name.trim(),
-            },
-            properties: {
-              selected_date: formattedDate,
-              raw_selected_date: formData.selectedDate,
-              message: (formData.message || '').trim(),
-              marketing_consent: !!formData.marketingConsent,
-            },
-          }),
+          body: JSON.stringify(eventPayload),
         });
 
         const omnisendText = await omnisendResponse.text();
