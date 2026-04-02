@@ -1,8 +1,10 @@
+const API_URL = 'https://rawproductions-api.onrender.com';
+
 const sendFormDataToEmail = async (formData) => {
   console.log('Funcția sendFormDataToEmail a fost apelată:', formData);
 
   try {
-    const response = await fetch('/api/booking', {
+    const response = await fetch(`${API_URL}/api/booking`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
