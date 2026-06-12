@@ -1,2 +1,0 @@
-*.mov filter=lfs diff=lfs merge=lfs -text
-src/Components/video/ShowReelNunta.mov filter=lfs diff=lfs merge=lfs -text

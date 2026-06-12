@@ -1,0 +1,1732 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RAW Productions — Foto & Video</title>
+<meta name="description" content="RAW Productions — foto & video pentru nunți, botezuri, majorate, reels, corporate și ședințe de studio. Cinema pentru momentele tale.">
+<meta name="theme-color" content="#050505">
+<!-- preview la share (WhatsApp, Instagram, Facebook) — actualizează og:url și og:image când publici site-ul -->
+<meta property="og:title" content="RAW Productions — Foto & Video">
+<meta property="og:description" content="Cinema pentru momentele tale: nunți, botezuri, majorate, reels, corporate și studio.">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ro_RO">
+<meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&h=630&q=80">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='10' fill='%23050505'/%3E%3Cg stroke='%23f2efe9' stroke-width='4' stroke-linecap='round'%3E%3Cline x1='24' y1='7' x2='24' y2='41'/%3E%3Cline x1='9.3' y1='15.5' x2='38.7' y2='32.5'/%3E%3Cline x1='9.3' y1='32.5' x2='38.7' y2='15.5'/%3E%3C/g%3E%3C/svg%3E">
+<link rel="preconnect" href="https://images.unsplash.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#050505;
+  --bg-soft:#0c0c0c;
+  --ink:#f2efe9;
+  --ink-dim:rgba(242,239,233,.55);
+  --ink-faint:rgba(242,239,233,.28);
+  --gold:#d4af7a;
+  --line:rgba(242,239,233,.14);
+  --serif:'Cormorant Garamond',serif;
+  --sans:'Space Grotesk',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  background:var(--bg);
+  color:var(--ink);
+  font-family:var(--sans);
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--gold);color:#000}
+
+/* ---------- grain ---------- */
+.grain{
+  position:fixed;inset:-50%;z-index:60;pointer-events:none;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  animation:grain 8s steps(10) infinite;
+}
+@keyframes grain{
+  0%,100%{transform:translate(0,0)}10%{transform:translate(-5%,-7%)}
+  30%{transform:translate(4%,3%)}50%{transform:translate(-3%,6%)}
+  70%{transform:translate(6%,-4%)}90%{transform:translate(-4%,2%)}
+}
+
+/* ---------- intro ---------- */
+#intro{
+  position:fixed;inset:0;z-index:100;background:var(--bg);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;
+  transition:opacity 1.1s ease,visibility 1.1s;
+}
+#intro.done{opacity:0;visibility:hidden}
+.intro-logo{
+  width:min(420px,76vw);height:auto;
+  animation:logoIn 2.2s cubic-bezier(.2,.8,.2,1) both;
+}
+@keyframes logoIn{from{opacity:0;transform:scale(.86);filter:blur(6px)}to{opacity:1;transform:scale(1);filter:none}}
+#intro p{
+  font-family:var(--serif);font-style:italic;font-size:17px;color:var(--ink-dim);
+  animation:fadeUp 1.6s ease both 1s;
+}
+@keyframes spinIn{from{opacity:0;transform:rotate(-120deg) scale(.4)}to{opacity:1;transform:rotate(0) scale(1)}}
+@keyframes trackIn{from{opacity:0;letter-spacing:1.2em}to{opacity:1;letter-spacing:.55em}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* ---------- fundal cinematic ---------- */
+#bgPrev{position:fixed;inset:0;z-index:6;pointer-events:none}
+#bgPrev .bgl{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  opacity:0;transition:opacity 1.4s ease;filter:saturate(.8) contrast(1.02);
+  transform:scale(1.04);
+}
+#bgPrev .bgl.on{opacity:.22}
+#bgPrev::after{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at center,rgba(5,5,5,.55) 0%,rgba(5,5,5,.9) 75%,#050505 100%);
+}
+
+/* ---------- nav ---------- */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:26px 38px;
+}
+.logo{display:flex;align-items:center;cursor:default}
+.logo-img{height:30px;width:auto;display:block}
+.nav-right{display:flex;gap:26px;align-items:center}
+.nav-link{
+  background:none;border:none;color:var(--ink-dim);font-family:var(--sans);
+  font-size:12px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;
+  padding:6px 0;position:relative;transition:color .3s;
+}
+.nav-link::after{
+  content:"";position:absolute;left:0;bottom:0;height:1px;width:0;
+  background:var(--gold);transition:width .35s ease;
+}
+.nav-link:hover{color:var(--ink)}
+.nav-link:hover::after{width:100%}
+.nav-cta{
+  border:1px solid var(--line);border-radius:999px;padding:10px 22px;
+  color:var(--ink);background:transparent;font-size:12px;letter-spacing:.2em;
+  text-transform:uppercase;cursor:pointer;font-family:var(--sans);
+  transition:border-color .3s,background .3s,color .3s;
+}
+.nav-cta:hover{border-color:var(--gold);background:var(--gold);color:#000}
+
+/* ---------- stage / radial map ---------- */
+#stage{position:fixed;inset:0;z-index:10}
+#wires{position:absolute;inset:0;width:100%;height:100%}
+#wires line{
+  stroke:var(--line);stroke-width:1;
+  stroke-dasharray:600;stroke-dashoffset:600;
+  transition:stroke .4s;
+  animation:wire 1.8s ease forwards;
+}
+@keyframes wire{to{stroke-dashoffset:0}}
+#wires line.lit{stroke:rgba(212,175,122,.55)}
+
+/* center */
+#center{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  text-align:center;width:min(420px,80vw);pointer-events:none;
+}
+/* logo central cu backlight + raze la hover */
+.logo-wrap{
+  position:relative;display:block;width:min(330px,62vw);margin:0 auto;
+  pointer-events:auto;cursor:pointer;
+}
+.center-logo{
+  position:relative;z-index:2;width:100%;height:auto;display:block;
+  transition:filter .9s ease;
+}
+/* backlight abia perceptibil în spatele logo-ului */
+.logo-wrap::before{
+  content:"";position:absolute;left:50%;top:50%;z-index:1;
+  width:110%;height:230%;transform:translate(-50%,-50%);
+  background:radial-gradient(ellipse,rgba(255,240,210,.32) 0%,rgba(212,175,122,.13) 45%,transparent 70%);
+  filter:blur(14px);
+  opacity:0;transition:opacity 1.2s ease;
+  pointer-events:none;
+}
+/* lucire subțire care alunecă o dată peste litere (mascată de forma logo-ului) */
+.logo-wrap .sheen{
+  position:absolute;inset:0;z-index:3;pointer-events:none;
+  background:linear-gradient(115deg,
+    transparent 38%,
+    rgba(255,248,232,.95) 50%,
+    transparent 62%);
+  background-size:260% 100%;
+  background-position:200% 0;
+  -webkit-mask-image:url('logo.png');
+  -webkit-mask-size:100% 100%;
+  mask-image:url('logo.png');
+  mask-size:100% 100%;
+}
+@keyframes glint{from{background-position:200% 0}to{background-position:-110% 0}}
+.logo-wrap:hover::before,.logo-wrap:focus-visible::before{opacity:1}
+.logo-wrap:hover .sheen{animation:glint 1.4s cubic-bezier(.4,.1,.3,1) .1s}
+.logo-wrap:hover .center-logo{filter:drop-shadow(0 0 14px rgba(255,238,205,.45))}
+#center .tag{
+  font-family:var(--serif);font-style:italic;font-size:clamp(15px,1.6vw,19px);
+  color:var(--ink-dim);margin-top:12px;line-height:1.55;
+}
+#center .hint{
+  margin-top:26px;font-size:10px;letter-spacing:.35em;text-transform:uppercase;
+  color:var(--ink-faint);animation:pulseHint 3s ease infinite;
+}
+@keyframes pulseHint{0%,100%{opacity:.5}50%{opacity:1}}
+
+/* nodes */
+.node{
+  position:absolute;transform:translate(-50%,-50%);
+  background:none;border:none;cursor:pointer;font-family:var(--sans);color:var(--ink);
+  opacity:0;animation:nodeIn .9s ease forwards;
+}
+.node:hover,.node.show{z-index:5}
+@keyframes nodeIn{
+  from{opacity:0;transform:translate(-50%,-50%) translateY(14px)}
+  to{opacity:1;transform:translate(-50%,-50%)}
+}
+.pill{
+  display:flex;align-items:center;gap:13px;text-align:left;
+  background:rgba(14,14,14,.82);backdrop-filter:blur(8px);
+  border:1px solid var(--line);border-radius:999px;
+  padding:13px 24px 13px 15px;
+  transition:transform .4s cubic-bezier(.2,.8,.2,1),border-color .4s,box-shadow .4s;
+}
+.node:hover .pill,.node:focus-visible .pill,.node.show .pill{
+  transform:scale(1.07);border-color:var(--cat,#d4af7a);
+  box-shadow:0 0 50px -8px var(--cat,#d4af7a);
+}
+.pill .ic{
+  width:38px;height:38px;border-radius:50%;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  background:color-mix(in srgb,var(--cat,#d4af7a) 16%,transparent);
+  color:var(--cat,#d4af7a);
+}
+.pill .ic svg{width:17px;height:17px}
+.pill .t{font-size:14px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.pill .d{font-size:11px;color:var(--ink-dim);white-space:nowrap;margin-top:3px;font-weight:300;letter-spacing:.04em}
+
+/* floating thumbs */
+.thumbs{position:absolute;inset:0;pointer-events:none}
+.thumb{
+  position:absolute;width:128px;height:86px;border-radius:7px;
+  box-shadow:0 14px 40px -10px rgba(0,0,0,.8);
+  border:1px solid rgba(242,239,233,.1);
+  opacity:0;transform:scale(.7) translateY(8px);
+  transition:opacity .5s ease,transform .6s cubic-bezier(.2,.8,.2,1);
+  background-size:cover;background-position:center;overflow:hidden;
+}
+.thumb::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(255,255,255,.16),transparent 55%)}
+.node:hover .thumb,.node:focus-visible .thumb,.node.show .thumb{opacity:1;transform:scale(1) translateY(0)}
+.node:hover .thumb:nth-child(2),.node.show .thumb:nth-child(2){transition-delay:.06s}
+.node:hover .thumb:nth-child(3),.node.show .thumb:nth-child(3){transition-delay:.12s}
+
+/* ---------- overlay (gallery) ---------- */
+.overlay{
+  position:fixed;inset:0;z-index:80;background:rgba(5,5,5,.97);
+  opacity:0;visibility:hidden;transition:opacity .55s ease,visibility .55s;
+  overflow-y:auto;overscroll-behavior:contain;
+}
+.overlay.open{opacity:1;visibility:visible}
+.overlay-inner{max-width:1180px;margin:0 auto;padding:110px 38px 90px}
+.ov-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;flex-wrap:wrap;margin-bottom:14px}
+.ov-kicker{font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--cat,#d4af7a);margin-bottom:14px}
+.ov-title{font-family:var(--serif);font-weight:500;font-size:clamp(40px,6.5vw,76px);line-height:1.08;letter-spacing:.01em;overflow:hidden}
+.ov-title .rv{display:inline-block;transform:translateY(115%);transition:transform .9s cubic-bezier(.2,.8,.2,1) .08s}
+.overlay.open .ov-title .rv{transform:none}
+.ov-desc{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--ink-dim);max-width:560px;line-height:1.6;margin-top:18px}
+.ov-meta{font-size:11px;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-faint);text-align:right;line-height:2.1}
+.ov-kicker,.ov-desc,.ov-meta{
+  opacity:0;transform:translateY(14px);
+  transition:opacity .7s ease .2s,transform .7s cubic-bezier(.2,.8,.2,1) .2s;
+}
+.overlay.open .ov-kicker,.overlay.open .ov-desc,.overlay.open .ov-meta{opacity:1;transform:none}
+.close-btn{
+  position:fixed;top:24px;right:34px;z-index:90;
+  width:48px;height:48px;border-radius:50%;
+  border:1px solid var(--line);background:rgba(10,10,10,.8);backdrop-filter:blur(6px);
+  color:var(--ink);font-size:17px;cursor:pointer;
+  transition:transform .3s,border-color .3s;
+}
+.close-btn:hover{transform:rotate(90deg);border-color:var(--gold)}
+.sec-label{
+  display:flex;align-items:center;gap:20px;margin-top:64px;
+  font-size:11px;letter-spacing:.4em;text-transform:uppercase;color:var(--cat,#d4af7a);
+}
+.sec-label::after{content:"";flex:1;height:1px;background:var(--line)}
+.sec-label .n{color:var(--ink-faint);letter-spacing:.15em}
+.grid{display:grid;grid-template-columns:repeat(6,1fr);gap:14px;margin-top:26px}
+.grid.vgrid .tile{grid-column:span 2;aspect-ratio:16/9}
+.tile{
+  position:relative;border-radius:8px;overflow:hidden;cursor:pointer;
+  border:1px solid rgba(242,239,233,.07);
+  transform:translateY(26px);opacity:0;
+  transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s ease;
+}
+.overlay.open .tile.inview{transform:none;opacity:1}
+.tile .ph{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  opacity:0;transition:transform .8s cubic-bezier(.2,.8,.2,1),opacity .9s ease;
+}
+.tile .ph.on{opacity:1}
+.tile:hover .ph{transform:scale(1.06)}
+.tile::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.55),transparent 45%);
+}
+.tile .cap{
+  position:absolute;left:16px;bottom:13px;z-index:2;
+  font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:rgba(242,239,233,.85);
+  transform:translateY(5px);opacity:.8;transition:transform .45s ease,opacity .45s;
+}
+.tile:hover .cap{transform:none;opacity:1}
+.tile .play{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;
+  width:52px;height:52px;border-radius:50%;
+  border:1px solid rgba(242,239,233,.5);background:rgba(0,0,0,.3);backdrop-filter:blur(4px);
+  display:flex;align-items:center;justify-content:center;
+  transition:transform .35s,background .35s;
+}
+.tile:hover .play{transform:translate(-50%,-50%) scale(1.12);background:var(--cat,#d4af7a)}
+.tile .play svg{width:15px;height:15px;margin-left:2px;fill:#fff}
+.tile:hover .play svg{fill:#000}
+.tile.tv{grid-column:span 2;aspect-ratio:3/4}
+.t-a{grid-column:span 4;aspect-ratio:16/9}
+.t-b{grid-column:span 2;aspect-ratio:8/9}
+.t-c{grid-column:span 2;aspect-ratio:1/1}
+.t-d{grid-column:span 3;aspect-ratio:3/2}
+.t-e{grid-column:span 3;aspect-ratio:3/2}
+.t-f{grid-column:span 2;aspect-ratio:1/1}
+.t-g{grid-column:span 2;aspect-ratio:1/1}
+.ov-foot{
+  margin-top:60px;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+  border-top:1px solid var(--line);padding-top:34px;
+}
+.ov-foot p{font-family:var(--serif);font-style:italic;color:var(--ink-dim);font-size:17px}
+.gold-btn{
+  border:1px solid var(--gold);background:transparent;color:var(--gold);
+  border-radius:999px;padding:13px 30px;font-family:var(--sans);
+  font-size:12px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;
+  transition:background .3s,color .3s;
+}
+.gold-btn:hover{background:var(--gold);color:#000}
+/* sheen pe butoane */
+.gold-btn,.nav-cta{position:relative;overflow:hidden}
+.gold-btn::before,.nav-cta::before{
+  content:"";position:absolute;top:0;bottom:0;left:0;width:55%;
+  background:linear-gradient(110deg,transparent,rgba(255,255,255,.28),transparent);
+  transform:translateX(-180%) skewX(-16deg);transition:transform .65s ease;pointer-events:none;
+}
+.gold-btn:hover::before,.nav-cta:hover::before{transform:translateX(330%) skewX(-16deg)}
+
+/* reveal în Despre noi */
+.member,.gear>div,.a-stats .st{
+  opacity:0;transform:translateY(18px);
+  transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1);
+}
+.overlay.open .member,.overlay.open .gear>div,.overlay.open .a-stats .st{opacity:1;transform:none}
+.member:nth-child(2){transition-delay:.12s}
+.member:nth-child(3){transition-delay:.24s}
+.gear>div:nth-child(2){transition-delay:.06s}
+.gear>div:nth-child(3){transition-delay:.12s}
+.gear>div:nth-child(4){transition-delay:.18s}
+.gear>div:nth-child(5){transition-delay:.24s}
+.gear>div:nth-child(6){transition-delay:.3s}
+.a-stats .st:nth-child(2){transition-delay:.1s}
+.a-stats .st:nth-child(3){transition-delay:.2s}
+.a-stats .st:nth-child(4){transition-delay:.3s}
+.a-stats .st:nth-child(5){transition-delay:.4s}
+.a-stats .st:nth-child(6){transition-delay:.5s}
+
+/* ---------- următorul univers ---------- */
+.next-cat{
+  width:100%;margin-top:70px;padding:50px 20px;
+  background:transparent;border:1px solid var(--line);border-radius:14px;
+  cursor:pointer;text-align:center;color:var(--ink);font-family:var(--sans);
+  transition:border-color .4s,background .4s;
+}
+.next-cat:hover{border-color:var(--cat,#d4af7a);background:rgba(212,175,122,.04)}
+.next-cat .nc-k{
+  display:block;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--ink-faint);
+}
+.next-cat .nc-t{
+  display:block;margin-top:14px;font-family:var(--serif);font-weight:500;
+  font-size:clamp(30px,4.5vw,46px);transition:color .4s,letter-spacing .4s;
+}
+.next-cat:hover .nc-t{color:var(--cat,#d4af7a)}
+
+/* ---------- albume per eveniment ---------- */
+.alb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:26px}
+.alb-card{
+  position:relative;border-radius:10px;overflow:hidden;cursor:pointer;
+  aspect-ratio:4/5;border:1px solid rgba(242,239,233,.08);
+  background:none;padding:0;text-align:left;font-family:var(--sans);color:var(--ink);
+  transform:translateY(26px);opacity:0;
+  transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s ease,border-color .4s;
+}
+.overlay.open .alb-card.inview{transform:none;opacity:1}
+.alb-card:hover{border-color:var(--cat,#d4af7a)}
+.alb-card .cover{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .9s cubic-bezier(.2,.8,.2,1);
+}
+.alb-card:hover .cover{transform:scale(1.06)}
+.alb-card::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.82) 0%,rgba(0,0,0,.15) 50%,transparent);
+}
+.alb-card .info{position:absolute;left:18px;right:18px;bottom:16px;z-index:2}
+.alb-card .nm{font-family:var(--serif);font-size:clamp(19px,2.2vw,24px);font-weight:500}
+.alb-card .mt{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-dim);margin-top:6px}
+.alb-card .ct{font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--cat,#d4af7a);margin-top:4px}
+.back-btn{
+  background:none;border:1px solid var(--line);border-radius:999px;
+  color:var(--ink-dim);font-family:var(--sans);font-size:11px;
+  letter-spacing:.2em;text-transform:uppercase;cursor:pointer;
+  padding:10px 22px;margin-bottom:34px;
+  transition:color .3s,border-color .3s;
+}
+.back-btn:hover{color:var(--ink);border-color:var(--cat,#d4af7a)}
+
+/* ---------- portofoliu — toate universurile ---------- */
+.pf-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:54px}
+.pf-card{
+  position:relative;border-radius:10px;overflow:hidden;cursor:pointer;
+  aspect-ratio:16/9;border:1px solid rgba(242,239,233,.08);
+  background:none;padding:0;text-align:left;font-family:var(--sans);color:var(--ink);
+  transform:translateY(26px);opacity:0;
+  transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s ease,border-color .4s;
+}
+.overlay.open .pf-card.inview{transform:none;opacity:1}
+.pf-card:hover{border-color:var(--cat,#d4af7a)}
+.pf-card .cover{
+  position:absolute;inset:0;background-size:cover;background-position:center;
+  transition:transform .9s cubic-bezier(.2,.8,.2,1);
+}
+.pf-card:hover .cover{transform:scale(1.06)}
+.pf-card::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.78) 0%,rgba(0,0,0,.18) 55%,transparent);
+}
+.pf-card .info{position:absolute;left:22px;right:22px;bottom:18px;z-index:2}
+.pf-card .k{font-size:9px;letter-spacing:.32em;text-transform:uppercase;color:var(--cat,#d4af7a)}
+.pf-card .nm{font-family:var(--serif);font-size:clamp(22px,3vw,30px);font-weight:500;margin-top:5px}
+.pf-card .ct{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-dim);margin-top:6px}
+.pf-card .go{
+  position:absolute;right:20px;bottom:20px;z-index:2;
+  width:38px;height:38px;border-radius:50%;
+  border:1px solid rgba(242,239,233,.3);
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;color:var(--ink);
+  transition:background .35s,border-color .35s,color .35s,transform .35s;
+}
+.pf-card:hover .go{background:var(--cat,#d4af7a);border-color:var(--cat,#d4af7a);color:#000;transform:translateX(3px)}
+
+/* ---------- contact overlay ---------- */
+#contact .overlay-inner{max-width:880px;text-align:center;padding-top:150px}
+#contact .ov-title{font-size:clamp(38px,6vw,68px)}
+.c-rows{margin-top:60px;display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.c-row{
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  padding:30px 8px;border-bottom:1px solid var(--line);text-decoration:none;color:var(--ink);
+  transition:background .3s,padding .3s;
+}
+.c-row:hover{background:rgba(212,175,122,.05);padding-left:20px}
+.c-row .lbl{font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-faint)}
+.c-row .val{font-family:var(--serif);font-size:clamp(19px,3vw,27px);font-weight:500}
+.c-row .arr{color:var(--gold);font-size:20px}
+#contact .note{margin-top:46px;font-family:var(--serif);font-style:italic;color:var(--ink-dim);font-size:17px;line-height:1.7}
+
+/* ---------- lightbox ---------- */
+#lightbox{
+  position:fixed;inset:0;z-index:95;background:rgba(3,3,3,.96);
+  display:flex;align-items:center;justify-content:center;gap:26px;
+  opacity:0;visibility:hidden;transition:opacity .4s ease,visibility .4s;
+}
+#lightbox.open{opacity:1;visibility:visible}
+.lb-frame{width:min(1020px,82vw);text-align:center}
+.lb-wrap{
+  width:100%;aspect-ratio:16/9;border-radius:10px;overflow:hidden;
+  border:1px solid rgba(242,239,233,.1);
+  box-shadow:0 30px 90px -30px rgba(0,0,0,.9);
+  transform:scale(.96);transition:transform .45s cubic-bezier(.2,.8,.2,1);
+}
+#lightbox.open .lb-wrap{transform:scale(1)}
+.lb-wrap iframe{display:none;width:100%;height:100%;border:0;background:#000}
+.lb-ph{
+  width:100%;height:100%;background-size:cover;background-position:center;
+  transition:opacity .6s ease;
+  animation:kbz 18s ease-in-out infinite alternate;
+}
+@keyframes kbz{from{transform:scale(1)}to{transform:scale(1.07)}}
+.lb-cap{
+  margin-top:22px;font-family:var(--serif);font-style:italic;font-size:21px;color:var(--ink);
+}
+.lb-count{display:block;margin-top:8px;font-size:11px;letter-spacing:.3em;color:var(--ink-faint)}
+.lb-arr{
+  width:54px;height:54px;border-radius:50%;flex:none;
+  border:1px solid var(--line);background:transparent;color:var(--ink);
+  font-size:19px;cursor:pointer;transition:border-color .3s,background .3s,color .3s;
+}
+.lb-arr:hover{border-color:var(--gold);background:var(--gold);color:#000}
+.lb-x{
+  position:absolute;top:24px;right:34px;width:48px;height:48px;border-radius:50%;
+  border:1px solid var(--line);background:transparent;color:var(--ink);
+  font-size:17px;cursor:pointer;transition:transform .3s,border-color .3s;
+}
+.lb-x:hover{transform:rotate(90deg);border-color:var(--gold)}
+
+/* ---------- testimoniale ---------- */
+.testi{
+  margin-top:80px;text-align:center;border-top:1px solid var(--line);padding-top:60px;
+}
+.testi blockquote{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:clamp(21px,3vw,29px);line-height:1.55;max-width:760px;margin:26px auto 0;
+  min-height:3.2em;transition:opacity .5s ease;
+}
+.testi blockquote::before{content:"„"}
+.testi blockquote::after{content:""}
+.t-name{margin-top:18px;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-dim);transition:opacity .5s}
+.t-dots{display:flex;gap:10px;justify-content:center;margin-top:26px}
+.t-dots button{
+  width:7px;height:7px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--ink-faint);transition:background .3s,transform .3s;padding:0;
+}
+.t-dots button.on{background:var(--gold);transform:scale(1.35)}
+
+/* ---------- formular rezervare ---------- */
+.book{margin-top:70px;text-align:left;border-top:1px solid var(--line);padding-top:50px}
+.book .f-title{
+  font-family:var(--serif);font-size:clamp(26px,4vw,38px);font-weight:500;text-align:center;
+}
+.book .f-sub{text-align:center;font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-faint);margin-top:10px}
+.f-grid{display:grid;grid-template-columns:1fr 1fr;gap:30px 34px;margin-top:46px}
+.f-field{display:flex;flex-direction:column;gap:9px}
+.f-field.wide{grid-column:1/-1}
+.f-field label{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-faint)}
+.f-field input,.f-field select,.f-field textarea{
+  background:transparent;border:none;border-bottom:1px solid var(--line);
+  color:var(--ink);font-family:var(--serif);font-size:19px;padding:8px 2px 12px;
+  outline:none;border-radius:0;transition:border-color .3s;resize:vertical;
+}
+.f-field select{appearance:none;cursor:pointer}
+.f-field select option{background:#111;color:var(--ink);font-family:var(--sans);font-size:15px}
+.f-field input:focus,.f-field select:focus,.f-field textarea:focus{border-color:var(--gold)}
+.f-field input::placeholder,.f-field textarea::placeholder{color:var(--ink-faint);font-style:italic}
+.f-field input[type=date]{color-scheme:dark}
+.f-send{display:flex;justify-content:center;margin-top:46px}
+.f-ok{
+  text-align:center;margin-top:24px;font-family:var(--serif);font-style:italic;
+  color:var(--gold);font-size:17px;opacity:0;transition:opacity .5s;
+}
+.f-ok.show{opacity:1}
+
+/* ---------- pachete ---------- */
+.pk-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:56px;align-items:stretch}
+.pk-card{
+  position:relative;display:flex;flex-direction:column;
+  border:1px solid var(--line);border-radius:14px;
+  padding:36px 30px 30px;background:rgba(12,12,12,.6);
+  transform:translateY(26px);opacity:0;
+  transition:transform .7s cubic-bezier(.2,.8,.2,1),opacity .7s ease,border-color .4s;
+}
+.overlay.open .pk-card{transform:none;opacity:1}
+.overlay.open .pk-card:nth-child(2){transition-delay:.1s}
+.overlay.open .pk-card:nth-child(3){transition-delay:.2s}
+.pk-card:hover{border-color:rgba(212,175,122,.45)}
+.pk-card.featured{
+  border-color:var(--gold);
+  background:linear-gradient(180deg,rgba(212,175,122,.07),rgba(12,12,12,.6) 45%);
+}
+.pk-badge{
+  position:absolute;top:-11px;left:50%;transform:translateX(-50%);
+  background:var(--gold);color:#000;border-radius:999px;
+  font-size:9px;letter-spacing:.25em;text-transform:uppercase;font-weight:600;
+  padding:6px 16px;white-space:nowrap;
+}
+.pk-name{font-family:var(--serif);font-size:30px;font-weight:500}
+.pk-tag{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-faint);margin-top:8px}
+.pk-list{list-style:none;margin:28px 0 34px;flex:1}
+.pk-list li{
+  padding:13px 0 13px 26px;position:relative;
+  font-size:14px;font-weight:300;color:var(--ink-dim);line-height:1.5;
+  border-bottom:1px solid rgba(242,239,233,.07);
+}
+.pk-list li:last-child{border-bottom:none}
+.pk-list li::before{content:"✦";position:absolute;left:2px;top:13px;color:var(--gold);font-size:10px}
+.pk-list em{color:var(--ink);font-style:normal;font-weight:400}
+.pk-cta{width:100%}
+.pk-note{
+  margin-top:54px;text-align:center;font-family:var(--serif);font-style:italic;
+  font-size:18px;color:var(--ink-dim);line-height:1.7;
+}
+
+/* ---------- despre noi ---------- */
+#about .overlay-inner{max-width:980px}
+.a-lead{
+  font-family:var(--serif);font-size:clamp(22px,3.2vw,32px);font-weight:400;
+  line-height:1.6;max-width:780px;margin-top:34px;
+}
+.a-lead em{color:var(--gold);font-style:italic}
+.a-body{
+  margin-top:26px;color:var(--ink-dim);font-weight:300;font-size:15.5px;
+  line-height:1.85;max-width:680px;letter-spacing:.02em;
+}
+.team{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:30px}
+.member{text-align:center}
+.member .face{
+  aspect-ratio:4/5;border-radius:10px;background-size:cover;
+  border:1px solid rgba(242,239,233,.08);position:relative;overflow:hidden;
+  transition:transform .5s cubic-bezier(.2,.8,.2,1);
+}
+.member:hover .face{transform:translateY(-6px)}
+.member .face::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(to top,rgba(0,0,0,.5),transparent 40%);
+}
+.member .nm{font-family:var(--serif);font-size:21px;margin-top:18px}
+.member .rl{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-faint);margin-top:6px}
+.member .quote{
+  font-family:var(--serif);font-style:italic;font-size:13.5px;
+  color:var(--ink-dim);line-height:1.65;margin-top:10px;padding:0 6px;
+}
+.team.t2{grid-template-columns:repeat(2,1fr);max-width:480px;margin-left:auto;margin-right:auto}
+.team.t2 .face{background-position:center top}
+.gear{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 40px;margin-top:30px;max-width:680px}
+.gear div{
+  display:flex;align-items:baseline;gap:14px;padding:14px 4px;
+  border-bottom:1px solid var(--line);
+}
+.gear b{font-weight:500;font-size:14px;letter-spacing:.06em;white-space:nowrap}
+.gear span{color:var(--ink-dim);font-weight:300;font-size:13px}
+.a-stats{display:flex;gap:60px;flex-wrap:wrap;margin-top:64px}
+.a-stats .st .num{font-family:var(--serif);font-size:clamp(36px,5vw,54px);color:var(--gold)}
+.a-stats .st .lab{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-faint);margin-top:6px}
+
+/* ---------- buton WhatsApp ---------- */
+#waBtn{
+  position:fixed;right:28px;bottom:28px;z-index:55;
+  width:54px;height:54px;border-radius:50%;
+  background:#1ec05a;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 12px 34px -8px rgba(30,192,90,.55);
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s;
+}
+#waBtn:hover{transform:scale(1.1);box-shadow:0 16px 40px -8px rgba(30,192,90,.75)}
+#waBtn svg{width:27px;height:27px;fill:#fff}
+
+/* ---------- FAQ ---------- */
+.faq{margin-top:70px;text-align:left;border-top:1px solid var(--line);padding-top:50px}
+.faq .f-title{font-family:var(--serif);font-size:clamp(26px,4vw,38px);font-weight:500;text-align:center}
+.faq .f-sub{text-align:center;font-size:12px;letter-spacing:.25em;text-transform:uppercase;color:var(--ink-faint);margin-top:10px;margin-bottom:30px}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{
+  cursor:pointer;padding:21px 4px;list-style:none;
+  display:flex;align-items:center;justify-content:space-between;gap:18px;
+  font-size:14.5px;letter-spacing:.04em;transition:color .3s;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--gold);font-size:20px;font-weight:300;transition:transform .35s ease;flex:none}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq summary:hover{color:var(--gold)}
+.faq .a{
+  padding:0 4px 22px;color:var(--ink-dim);font-weight:300;
+  font-size:14px;line-height:1.75;max-width:640px;
+}
+
+/* ---------- footer strip ---------- */
+.foot{
+  position:fixed;bottom:0;left:0;right:0;z-index:40;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 38px;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-faint);
+}
+
+/* respectă preferința de mișcare redusă (accesibilitate) */
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
+/* telefon pe orizontală: cercul nu încape pe verticală — listă compactă din pastile */
+@media (max-width:960px) and (max-height:480px){
+  #center{position:static;transform:none;width:auto;padding:90px 20px 10px;text-align:center}
+  #stage{position:static;display:flex;flex-direction:column;align-items:center;overflow-y:auto;height:100vh}
+  body{overflow:auto}
+  #wires{display:none}
+  .node{position:static;transform:none;margin:7px;animation:fadeUp .7s ease both}
+  .thumbs{display:none}
+  .foot{display:none}
+}
+
+/* ---------- mobile: același cerc radial, compact ---------- */
+@media (max-width:860px){
+  nav{padding:18px 20px}
+  /* logo-ul apare doar în centru pe telefon, nu și sus */
+  .logo{display:none}
+  .nav-right{gap:18px}
+  .nav-link{font-size:11px;letter-spacing:.18em}
+  .nav-cta{padding:9px 18px;font-size:11px}
+
+  /* centru compact */
+  #center{width:58vw}
+  .logo-wrap{width:56vw;max-width:230px;margin-bottom:2px}
+  #center .tag{font-size:11.5px;margin-top:7px;line-height:1.5}
+  #center .tag br{display:none}
+  #center .hint{margin-top:14px;font-size:8.5px;letter-spacing:.28em}
+
+  /* noduri = pastile ca pe desktop, doar mai mici */
+  .pill{gap:9px;padding:9px 14px 9px 10px;border-radius:999px}
+  .pill .ic{width:30px;height:30px}
+  .pill .ic svg{width:13px;height:13px}
+  .pill .t{font-size:10px;letter-spacing:.1em}
+  .pill .d{display:none}
+  .pill br{display:none}
+
+  /* fundalul ambient, foarte fin */
+  #bgPrev .bgl.on{opacity:.17}
+
+  /* linii puțin mai vizibile pe ecran mic */
+  #wires line{stroke:rgba(242,239,233,.22)}
+  #wires line.lit{stroke:rgba(212,175,122,.65)}
+
+  /* pe telefon, previzualizarea e fundalul cinematic — fără poze mici lângă pastile */
+  .thumbs{display:none}
+
+  .foot{padding:14px 20px;font-size:8px;letter-spacing:.2em}
+  #waBtn{display:none}
+
+  .overlay-inner{padding:96px 20px 70px}
+  .f-grid{grid-template-columns:1fr}
+  #lightbox{gap:12px}
+  .lb-arr{position:absolute;bottom:26px;z-index:2}
+  .lb-arr.prev{left:calc(50% - 70px)}
+  .lb-arr.next{right:calc(50% - 70px)}
+  .lb-frame{width:92vw}
+  .lb-x{top:18px;right:18px}
+  .pf-grid{grid-template-columns:1fr;gap:12px}
+  .pk-grid{grid-template-columns:1fr;gap:22px;margin-top:48px}
+  .nav-link{font-size:10px;letter-spacing:.12em}
+  .nav-right{gap:13px}
+  .alb-grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .alb-card .nm{font-size:15px}
+  .alb-card .info{left:13px;right:13px;bottom:12px}
+  .grid{grid-template-columns:repeat(2,1fr);gap:10px}
+  .t-a,.t-b,.t-c,.t-d,.t-e,.t-f,.t-g{grid-column:span 2;aspect-ratio:16/10}
+  .grid .tile.tv{grid-column:span 1;aspect-ratio:3/4}
+  .grid.vgrid .tile{grid-column:span 2;aspect-ratio:16/9}
+  .close-btn{top:18px;right:18px}
+  .team{grid-template-columns:1fr 1fr}
+  .gear{grid-template-columns:1fr}
+  .a-stats{gap:34px}
+}
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+
+<!-- intro -->
+<div id="intro">
+  <img class="intro-logo" src="logo.png" alt="RAW Productions">
+  <p>cinema pentru momentele tale</p>
+</div>
+
+<!-- shared svg defs -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <g id="asterisk" stroke="#f2efe9" stroke-width="3" stroke-linecap="round">
+      <line x1="24" y1="4" x2="24" y2="44"/>
+      <line x1="6.7" y1="14" x2="41.3" y2="34"/>
+      <line x1="6.7" y1="34" x2="41.3" y2="14"/>
+    </g>
+    <g id="i-rings" fill="none" stroke="currentColor" stroke-width="1.6">
+      <circle cx="9" cy="12" r="5.5"/><circle cx="15" cy="12" r="5.5"/>
+    </g>
+    <g id="i-drop" fill="none" stroke="currentColor" stroke-width="1.6">
+      <path d="M12 3.5c4 5 6.5 8.4 6.5 11.5a6.5 6.5 0 1 1-13 0C5.5 11.9 8 8.5 12 3.5z"/>
+    </g>
+    <g id="i-cap" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+      <path d="M3 9.5 12 5l9 4.5L12 14 3 9.5z"/><path d="M7 11.5V16c0 1.4 2.2 2.8 5 2.8s5-1.4 5-2.8v-4.5"/><line x1="21" y1="9.5" x2="21" y2="15"/>
+    </g>
+    <g id="i-play" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+      <rect x="4" y="3" width="16" height="18" rx="3.5"/><path d="M10 9l5 3-5 3V9z" fill="currentColor" stroke="none"/>
+    </g>
+    <g id="i-case" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+      <rect x="3.5" y="7.5" width="17" height="12" rx="2.5"/><path d="M9 7.5V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.5"/><line x1="3.5" y1="12.5" x2="20.5" y2="12.5"/>
+    </g>
+    <g id="i-party" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+      <path d="M12 3v2.4M5.8 5.8l1.7 1.7M3 12h2.4M18.2 5.8l-1.7 1.7M21 12h-2.4"/>
+      <path d="M12 8.5l1.7 3.4 3.8.6-2.7 2.7.6 3.8-3.4-1.8-3.4 1.8.6-3.8-2.7-2.7 3.8-.6L12 8.5z"/>
+    </g>
+    <g id="i-cam" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round">
+      <rect x="3" y="7" width="18" height="13" rx="2.5"/><path d="M8.5 7l1.5-2.7h4L15.5 7"/><circle cx="12" cy="13.2" r="3.4"/>
+    </g>
+  </defs>
+</svg>
+
+<!-- fundal cinematic la categoria activă -->
+<div id="bgPrev"><div class="bgl"></div><div class="bgl"></div></div>
+
+<!-- nav -->
+<nav>
+  <div class="logo">
+    <img class="logo-img" src="logo.png" alt="RAW Productions">
+  </div>
+  <div class="nav-right">
+    <button class="nav-link" onclick="openPortfolio()">Portofoliu</button>
+    <button class="nav-link" onclick="openPacks()">Pachete</button>
+    <button class="nav-link" onclick="openAbout()">Despre noi</button>
+    <button class="nav-cta" onclick="openContact()">Contact</button>
+  </div>
+</nav>
+
+<!-- radial stage (desktop) -->
+<div id="stage">
+  <svg id="wires"></svg>
+  <div id="center">
+    <span class="logo-wrap">
+      <img class="center-logo" src="logo.png" alt="RAW Productions">
+      <span class="sheen"></span>
+    </span>
+    <p class="tag">Foto &amp; video cu suflet — surprindem emoția, <br>nu doar imaginea.</p>
+    <p class="hint">alege un univers</p>
+  </div>
+  <!-- nodes injected by JS -->
+</div>
+
+<!-- portofoliu — toate universurile -->
+<div class="overlay" id="portfolio">
+  <button class="close-btn" onclick="closeOverlays()" aria-label="Închide">✕</button>
+  <div class="overlay-inner">
+    <div class="ov-head">
+      <div>
+        <p class="ov-kicker" style="--cat:#d4af7a">RAW Productions</p>
+        <h3 class="ov-title"><span class="rv">Portofoliu</span></h3>
+        <p class="ov-desc">Șase universuri, aceeași privire: momente reale, lumină frumoasă, emoție nefiltrată. Alege unul și intră.</p>
+      </div>
+    </div>
+    <div class="pf-grid" id="pfGrid"></div>
+  </div>
+</div>
+
+<!-- album (un eveniment) -->
+<div class="overlay" id="albumOv">
+  <button class="close-btn" onclick="closeOverlays()" aria-label="Închide">✕</button>
+  <div class="overlay-inner">
+    <button class="back-btn" id="albBack">← Înapoi</button>
+    <div class="ov-head">
+      <div>
+        <p class="ov-kicker" id="aKicker"></p>
+        <h3 class="ov-title" id="aTitle"></h3>
+        <p class="ov-desc" id="aMeta"></p>
+      </div>
+    </div>
+    <div class="grid" id="aGrid"></div>
+  </div>
+</div>
+
+<!-- gallery overlay -->
+<div class="overlay" id="gallery">
+  <button class="close-btn" onclick="closeOverlays()" aria-label="Închide">✕</button>
+  <div class="overlay-inner">
+    <div class="ov-head">
+      <div>
+        <p class="ov-kicker" id="gKicker"></p>
+        <h3 class="ov-title" id="gTitle"></h3>
+        <p class="ov-desc" id="gDesc"></p>
+      </div>
+      <div class="ov-meta" id="gMeta"></div>
+    </div>
+    <p class="sec-label">Albume foto <span class="n" id="gPhotoN"></span></p>
+    <div class="grid" id="gGrid"></div>
+    <p class="sec-label">Video <span class="n" id="gVideoN"></span></p>
+    <div class="grid vgrid" id="gVidGrid"></div>
+    <div class="testi">
+      <p class="ov-kicker" style="--cat:#d4af7a">Ce spun clienții</p>
+      <blockquote id="tQuote"></blockquote>
+      <p class="t-name" id="tName"></p>
+      <div class="t-dots" id="tDots"></div>
+    </div>
+    <div class="ov-foot">
+      <p>Îți place ce vezi? Hai să povestim despre evenimentul tău.</p>
+      <button class="gold-btn" onclick="openContact()">Cere o ofertă</button>
+    </div>
+    <button class="next-cat" id="nextCat">
+      <span class="nc-k">Următorul univers</span>
+      <span class="nc-t" id="nextCatT"></span>
+    </button>
+  </div>
+</div>
+
+<!-- contact overlay -->
+<div class="overlay" id="contact">
+  <button class="close-btn" onclick="closeOverlays()" aria-label="Închide">✕</button>
+  <div class="overlay-inner">
+    <p class="ov-kicker" style="--cat:#d4af7a">Hai să lucrăm împreună</p>
+    <h3 class="ov-title"><span class="rv">Spune-ne povestea ta</span></h3>
+    <div class="c-rows">
+      <a class="c-row" href="tel:+40745531340">
+        <span class="lbl">Telefon</span><span class="val">+40 745 531 340</span><span class="arr">→</span>
+      </a>
+      <a class="c-row" href="tel:+40787714597">
+        <span class="lbl">Telefon</span><span class="val">+40 787 714 597</span><span class="arr">→</span>
+      </a>
+      <a class="c-row" href="mailto:rawproductions.ro@gmail.com">
+        <span class="lbl">Email</span><span class="val">rawproductions.ro@gmail.com</span><span class="arr">→</span>
+      </a>
+      <a class="c-row" href="https://www.instagram.com/rawproductions.ro" target="_blank" rel="noopener">
+        <span class="lbl">Instagram</span><span class="val">@rawproductions.ro</span><span class="arr">→</span>
+      </a>
+      <a class="c-row" href="https://www.tiktok.com/@rawproductions_ro" target="_blank" rel="noopener">
+        <span class="lbl">TikTok</span><span class="val">@rawproductions_ro</span><span class="arr">→</span>
+      </a>
+      <a class="c-row" href="https://maps.app.goo.gl/ZCWxpjDEMsXhSMUL6" target="_blank" rel="noopener">
+        <span class="lbl">Studio</span><span class="val">Str. Culturii 47, Vernești, Buzău</span><span class="arr">→</span>
+      </a>
+    </div>
+    <p class="note">Răspundem de obicei în aceeași zi.<br>Disponibili pentru evenimente în toată România.</p>
+
+    <div class="faq">
+      <p class="f-title">Întrebări frecvente</p>
+      <p class="f-sub">Ce ne întreabă toată lumea</p>
+      <details>
+        <summary>În cât timp primim pozele și filmul?</summary>
+        <p class="a">Teaser-ul îl primiți în 48 de ore — perfect de pus pe Instagram cât emoțiile sunt proaspete. Galeria foto completă ajunge în 2–4 săptămâni, iar filmul evenimentului în 4–6 săptămâni, în funcție de sezon.</p>
+      </details>
+      <details>
+        <summary>Vă deplasați în afara orașului?</summary>
+        <p class="a">Da, filmăm oriunde în România (și în afara ei). Costul deplasării se calculează transparent în ofertă, în funcție de distanță și de durata evenimentului.</p>
+      </details>
+      <details>
+        <summary>Câte fotografii primim?</summary>
+        <p class="a">Livrăm o selecție atent editată, nu tot ce apasă declanșatorul: de regulă 400–800 de cadre la o nuntă, în funcție de pachet și de durata evenimentului. Calitate, nu cantitate.</p>
+      </details>
+      <details>
+        <summary>Cum rezervăm data?</summary>
+        <p class="a">Semnăm un contract și se achită un avans — din acel moment data e blocată exclusiv pentru voi. Restul se achită la livrare.</p>
+      </details>
+      <details>
+        <summary>Putem cere anumite cadre?</summary>
+        <p class="a">Sigur — ne puteți trimite o listă cu momentele și persoanele importante. Stilul nostru rămâne însă candid: surprindem momente reale, nu regizăm scene.</p>
+      </details>
+      <details>
+        <summary>Livrați și fișierele RAW needitate?</summary>
+        <p class="a">De regulă livrăm doar materialul finisat, pentru că editarea face parte din stilul nostru. Pentru situații speciale, putem discuta în ofertă.</p>
+      </details>
+    </div>
+
+    <form class="book" id="bookForm">
+      <p class="f-title">Rezervă o dată</p>
+      <p class="f-sub">Cere o ofertă personalizată</p>
+      <div class="f-grid">
+        <div class="f-field">
+          <label for="fNume">Nume</label>
+          <input id="fNume" name="nume" type="text" placeholder="Numele tău" required>
+        </div>
+        <div class="f-field">
+          <label for="fTel">Telefon</label>
+          <input id="fTel" name="telefon" type="tel" placeholder="+40 ...">
+        </div>
+        <div class="f-field">
+          <label for="fTip">Tip eveniment</label>
+          <select id="fTip" name="tip" required>
+            <option value="" disabled selected>Alege...</option>
+            <option>Nuntă</option><option>Botez</option><option>Absolvire</option>
+            <option>Reels & Social</option><option>Corporate</option><option>Ședință studio</option>
+            <option>Altceva</option>
+          </select>
+        </div>
+        <div class="f-field">
+          <label for="fData">Data evenimentului</label>
+          <input id="fData" name="data" type="date">
+        </div>
+        <div class="f-field wide">
+          <label for="fLoc">Locație</label>
+          <input id="fLoc" name="locatie" type="text" placeholder="Oraș / locație eveniment">
+        </div>
+        <div class="f-field wide">
+          <label for="fMsg">Mesaj</label>
+          <textarea id="fMsg" name="mesaj" rows="3" placeholder="Spune-ne pe scurt ce îți dorești..."></textarea>
+        </div>
+      </div>
+      <div class="f-send"><button class="gold-btn" type="submit">Trimite cererea</button></div>
+      <p class="f-ok" id="fOk">Se deschide aplicația ta de email cu cererea completată — apasă Send. ✦</p>
+    </form>
+  </div>
+</div>
+
+<!-- pachete -->
+<div class="overlay" id="packs">
+  <button class="close-btn" onclick="closeOverlays()" aria-label="Închide">✕</button>
+  <div class="overlay-inner">
+    <div class="ov-head">
+      <div>
+        <p class="ov-kicker" style="--cat:#d4af7a">Foto &amp; Video</p>
+        <h3 class="ov-title"><span class="rv">Pachete</span></h3>
+        <p class="ov-desc">Trei moduri de a lucra împreună — de la esențial la povestea completă. Fiecare pachet se adaptează tipului tău de eveniment.</p>
+      </div>
+    </div>
+
+    <div class="pk-grid">
+      <div class="pk-card">
+        <p class="pk-name">Essential</p>
+        <p class="pk-tag">Doar ce contează</p>
+        <ul class="pk-list">
+          <li>Fotograf <em>sau</em> videograf</li>
+          <li>Acoperire până la 8 ore</li>
+          <li>Selecție editată profesional</li>
+          <li>Galerie online privată</li>
+          <li>Predare în 2–4 săptămâni</li>
+        </ul>
+        <button class="gold-btn pk-cta" onclick="openContact()">Cere ofertă</button>
+      </div>
+
+      <div class="pk-card featured">
+        <span class="pk-badge">Cel mai ales</span>
+        <p class="pk-name">Premium</p>
+        <p class="pk-tag">Foto + video, fără compromis</p>
+        <ul class="pk-list">
+          <li>Fotograf <em>și</em> videograf</li>
+          <li>Acoperire până la 12 ore</li>
+          <li>Filmări cu dronă incluse</li>
+          <li>Teaser livrat în 48 de ore</li>
+          <li>Film cinematic editat</li>
+          <li>Galerie online + album foto</li>
+        </ul>
+        <button class="gold-btn pk-cta" onclick="openContact()">Cere ofertă</button>
+      </div>
+
+      <div class="pk-card">
+        <p class="pk-name">Full Story</p>
+        <p class="pk-tag">Povestea completă, de la A la Z</p>
+        <ul class="pk-list">
+          <li>Tot ce include Premium</li>
+          <li>Echipă extinsă (al doilea videograf)</li>
+          <li>Sesiune bonus (save the date / ședință foto)</li>
+          <li>Film cinematic extins</li>
+          <li>Albume pentru părinți</li>
+          <li>Livrare prioritară</li>
+        </ul>
+        <button class="gold-btn pk-cta" onclick="openContact()">Cere ofertă</button>
+      </div>
+    </div>
+
+    <p class="pk-note">Fiecare eveniment e diferit, așa că nu credem în prețuri de catalog.<br>Spune-ne ce plănuiești și primești o ofertă personalizată în aceeași zi.</p>
+  </div>
+</div>
+
+<!-- despre noi -->
+<div class="overlay" id="about">
+  <button class="close-btn" onclick="closeOverlays()" aria-label="Închide">✕</button>
+  <div class="overlay-inner">
+    <p class="ov-kicker" style="--cat:#d4af7a">Despre noi</p>
+    <h3 class="ov-title"><span class="rv">RAW, pentru că<br>nimic nu e regizat</span></h3>
+    <p class="a-lead">Suntem o echipă mică de povestitori vizuali. Credem că cele mai bune cadre sunt cele <em>nefiltrate</em> — lacrima de la ceremonie, râsul din culise, îmbrățișarea de la final.</p>
+    <p class="a-body">RAW Productions a pornit din pasiunea pentru momente reale. Nu venim cu liste de poze obligatorii și nu oprim petrecerea pentru cadre forțate — observăm, anticipăm și surprindem. Lucrăm cu echipament profesional, livrăm la timp și rămânem oamenii discreți din colțul sălii pe care abia îi observi, dar care văd tot.</p>
+
+    <p class="sec-label" style="--cat:#d4af7a">Echipa</p>
+    <div class="team">
+      <div class="member">
+        <div class="face" style="background-image:url('images/Pope2.png')"></div>
+        <p class="nm">Pope</p>
+        <p class="quote">„Pasiunea mea este să surprind momentele care contează. Fiecare cadru spune o poveste pe care vreau să o păstrezi mereu."</p>
+      </div>
+      <div class="member">
+        <div class="face" style="background-image:url('images/Andrei.png')"></div>
+        <p class="nm">Andrei</p>
+        <p class="quote">„Pentru mine, fotografia înseamnă emoție și autenticitate. Mă bucur să surprind momente care spun povești și rămân vii peste ani."</p>
+      </div>
+      <div class="member">
+        <div class="face" style="background-image:url('images/Razvan.png')"></div>
+        <p class="nm">Răzvan</p>
+        <p class="quote">„Îmi place să surprind detaliile care aduc poveștile la viață. În editare, mă asigur că fiecare imagine strălucește cu naturalețe."</p>
+      </div>
+      <div class="member">
+        <div class="face" style="background-image:url('images/Cristi.png')"></div>
+        <p class="nm">Cristi</p>
+        <p class="quote">„Pentru mine, montajul video este o artă. Mă asigur că fiecare secundă transmite emoție și că rezultatul final este impecabil."</p>
+      </div>
+      <div class="member">
+        <div class="face" style="background-image:url('images/Luca.png')"></div>
+        <p class="nm">Luca</p>
+        <p class="quote">„Pentru mine, fiecare fotografie este o combinație de lumină, compoziție și emoție. Caut mereu detaliile care fac diferența."</p>
+      </div>
+    </div>
+
+    <p class="sec-label" style="--cat:#d4af7a">Cu ce lucrăm</p>
+    <div class="gear">
+      <div><b>Camere</b><span>Sony FX3 · Sony A7 IV</span></div>
+      <div><b>Obiective</b><span>G Master 24-70 · 85mm f/1.4</span></div>
+      <div><b>Dronă</b><span>DJI Mavic 3 Pro</span></div>
+      <div><b>Stabilizare</b><span>DJI RS 4 · slider motorizat</span></div>
+      <div><b>Lumini</b><span>Aputure 600d · panouri RGB</span></div>
+      <div><b>Audio</b><span>lavaliere wireless · recorder</span></div>
+    </div>
+
+    <div class="a-stats">
+      <div class="st"><p class="num">200</p><p class="lab">Evenimente capturate</p></div>
+      <div class="st"><p class="num">350</p><p class="lab">Clienți fericiți</p></div>
+      <div class="st"><p class="num">2000+</p><p class="lab">Ore de material filmate</p></div>
+      <div class="st"><p class="num">500+</p><p class="lab">Proiecte finalizate</p></div>
+      <div class="st"><p class="num">8+</p><p class="lab">Ani de experiență</p></div>
+      <div class="st"><p class="num">100%</p><p class="lab">Clienți satisfăcuți</p></div>
+    </div>
+
+    <div class="ov-foot">
+      <p>Vrei să ne cunoști? Hai la o cafea — sau scrie-ne direct.</p>
+      <button class="gold-btn" onclick="openContact()">Contactează-ne</button>
+    </div>
+  </div>
+</div>
+
+<!-- lightbox -->
+<div id="lightbox">
+  <button class="lb-x" onclick="closeLightbox()" aria-label="Închide">✕</button>
+  <button class="lb-arr prev" onclick="stepLightbox(-1)" aria-label="Imaginea anterioară">←</button>
+  <div class="lb-frame">
+    <div class="lb-wrap">
+      <div class="lb-ph" id="lbPh"></div>
+      <iframe id="lbIfr" title="Video RAW Productions" allow="autoplay; encrypted-media; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <p class="lb-cap" id="lbCap"></p>
+    <span class="lb-count" id="lbCount"></span>
+  </div>
+  <button class="lb-arr next" onclick="stepLightbox(1)" aria-label="Imaginea următoare">→</button>
+</div>
+
+<!-- WhatsApp (desktop) — schimbă numărul în wa.me/40XXXXXXXXX -->
+<a id="waBtn" href="https://wa.me/40745531340" target="_blank" rel="noopener" aria-label="Scrie-ne pe WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3a8.2 8.2 0 1 1 7 3.8zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1-.2.2-.6.8-.8 1-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.4-3c-.3-.4 0-.5.2-.7l.5-.6c.1-.2.1-.4 0-.5l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1.1 2.7c.1.2 1.8 2.8 4.4 3.9.6.3 1.1.4 1.5.5.6.2 1.2.2 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.4-.4z"/></svg>
+</a>
+
+<div class="foot">
+  <span>© 2026 RAW Productions</span>
+  <span>Foto · Video · Evenimente</span>
+</div>
+
+<script>
+/* ================= data ================= */
+const CATS = {
+  nunti:{
+    title:"Nunți", color:"#d4af7a", icon:"i-rings",
+    short:"Povestea voastră, cadru cu cadru",
+    desc:"De la emoția pregătirilor până la ultimul dans — filmăm și fotografiem discret, cinematic, fără momente regizate forțat.",
+    meta:["Film cinematic 4K","Albume premium","Dronă inclusă"],
+    caps:["Pregătirile","Ceremonia","First look","Dansul mirilor","Detalii","Petrecerea","Sesiune trash the dress","Portret de cuplu"],
+    vids:[{t:"Doru & Ellie",y:"cNRsdQreFIg",img:"images/Thumbnails-nunta/Doru & Ellie.jpeg"},{t:"Cătălin & Irina",y:"qt419bIGSic",img:"images/Thumbnails-nunta/Catalin & Irina.jpg"},{t:"Marian & Irina",y:"jcWM0n39v2o",img:"images/Thumbnails-nunta/Marian & Irina.jpg"},{t:"Roxana & Mădălin",y:"QmZUHTH2U5A",img:"images/Thumbnails-nunta/Roxana & Madalin.jpg"},{t:"Gabriel & Andreea",y:"K6n3pQiFdUE",img:"images/Thumbnails-nunta/Gabriel & Andreea.jpeg"},{t:"Simona & Adi",y:"Do8WGmWejyE",img:"images/Thumbnails-nunta/Simona & Adi.jpg"},{t:"Iulia & Adrian",y:"4LGQnUfYTsY",img:"images/Thumbnails-nunta/Iulia & Adrian.jpg"}]
+  },
+  botezuri:{
+    title:"Botezuri", color:"#8ab4d8", icon:"i-drop",
+    short:"Primul capitol al celui mic",
+    desc:"Momente delicate, lumină caldă și multă răbdare. Surprindem emoția familiei la început de drum.",
+    meta:["Foto + video","Momente candide","Predare rapidă"],
+    caps:["Sosirea","Slujba","Cristelnița","Familia","Detalii delicate","Tortul","Invitații","Portret de familie"],
+    vids:[{t:"Sebastian Ioan",y:"KeI9EHbWFD0",img:"images/Thumbnails-botez/Sebastian Ioan.jpg"},{t:"Filip Ștefan",y:"RBSdoeaEy3k",img:"images/Thumbnails-botez/Filip Stefan.jpg"},{t:"Dominic",y:"77yBdUZLCco",img:"images/Thumbnails-botez/Dominic.jpg"},{t:"Noah",y:"BmZhBXVZiU0",img:"images/Thumbnails-botez/Noah.jpg"},{t:"Mara",y:"0kJdh7NjRlc",img:"images/Thumbnails-botez/Mara.jpg"},{t:"Mateo Elian",y:"THVJ7bHQGEQ",img:"images/Thumbnails-botez/Mateo Elian.jpg"},{t:"Amalia Maria",y:"8taUlpvxw2M",img:"images/Thumbnails-botez/Amalia Maria.jpeg"},{t:"Georgia",y:"Qg2hzUCfnEs",img:"images/Thumbnails-botez/Botez Georgia.jpg"},{t:"Clara",y:"3iLMP01XseY",img:"images/Thumbnails-botez/Clara.jpg"},{t:"Darius",y:"rEll_fhdzQ4",img:"images/Thumbnails-botez/Darius.jpeg"},{t:"Ariana Caroline",y:"_M7U_Iux-iI",img:"images/Thumbnails-botez/Ariana Caroline.jpg"}]
+  },
+  majorate:{
+    title:"Majorate", color:"#a78bdb", icon:"i-party",
+    short:"Petrecerea de 18 ani",
+    desc:"Energie, lumini și prieteni — surprindem petrecerea de majorat exact așa cum a fost: vie, reală, de neuitat.",
+    meta:["Foto + video","Aftermovie","Reels pentru invitați"],
+    caps:[],
+    vids:[{t:"Ștefania",y:"SBMIIJ7lrTs",img:"images/Thumbnails-Majorat/Stefania.jpg"},{t:"Bianca",y:"bj5-1oQFDQ8",img:"images/Thumbnails-Majorat/Bianca.jpg"},{t:"Gabriela",y:"XkE-y4ouuds",img:"images/Thumbnails-Majorat/Gabriela.jpg"},{t:"Maia",y:"1lRjdmdWYEQ",img:"images/Thumbnails-Majorat/Maia.jpg"},{t:"Patrick",y:"0UR1N7YVFKE",img:"images/Thumbnails-Majorat/Patrick.jpg"},{t:"Sabina",y:"MaEoTriLziQ",img:"images/Thumbnails-Majorat/Sabina.jpg"},{t:"Andreea",y:"JpNFblkFqsg",img:"images/Thumbnails-Majorat/Andreea.jpg"}]
+  },
+  reels:{
+    title:"Reels & Social", color:"#e06a7e", icon:"i-play",
+    short:"Conținut care oprește scroll-ul",
+    desc:"Reels, TikTok și clipuri scurte filmate vertical, editate dinamic, gândite pentru engagement.",
+    meta:["Format vertical","Editare dinamică","Strategie de conținut"],
+    caps:["Stop frame de brand","Behind the scenes","Produs","Lifestyle","Eveniment","Echipa","Flat lay","Editorial"],
+    vids:[{t:"Studio Verde — reel de brand"},{t:"Bijuterii — reel de produs"},{t:"Cafenea — trend viral"},{t:"Testimonial video"},{t:"Eveniment — teaser"},{t:"Promo 15 sec"}]
+  },
+  corporate:{
+    title:"Corporate", color:"#6db3a4", icon:"i-case",
+    short:"Imaginea profesională a afacerii tale",
+    desc:"Evenimente de companie, conferințe, team-building-uri și materiale de prezentare — sobru, curat, premium.",
+    meta:["Conferințe","Video de prezentare","Portrete de echipă"],
+    caps:["Conferința","Speakeri","Networking","Echipa","Sediul","Detalii brand","Premiile","Portrete profesionale"],
+    vids:[{t:"TechHub 2025 — aftermovie"},{t:"Consultanță — video de prezentare"},{t:"Interviuri speakeri"},{t:"Testimoniale clienți"},{t:"Employer branding"},{t:"Recap eveniment"}]
+  },
+  studio:{
+    title:"Studio", color:"#d8a25c", icon:"i-cam",
+    short:"Portrete cu lumină controlată",
+    desc:"Ședințe foto în studio: portrete, fashion, produse și fotografii de familie, cu lumini profesionale.",
+    meta:["Portret","Fashion","Produs"],
+    caps:["Portret clasic","Low key","Fashion","Familie","Maternitate","Produs","Headshot","Editorial"],
+    vids:[{t:"Video Real Estate",y:"D9G4rLRbId8",img:"images/Thumbnails-Studio/RealEstate.jpg"},{t:"Aftermovie Amnesya Pool Party",y:"qHhqyyJxstk",img:"images/Thumbnails-Studio/Amnesya.jpeg"},{t:"Carousel + Mașină",y:"EbIoU4cICOo",img:"images/Thumbnails-Studio/Carousel + Audi.jpg"},{t:"CHR",y:"3zlpGL4KJCo",img:"images/Thumbnails-Studio/CHR.jpg"},{t:"Groom Style",y:"D6GlQGCLy58",img:"images/Thumbnails-Studio/Mire.jpg"},{t:"Opia Opening",y:"hG1kVimzpak",img:"images/Thumbnails-Studio/Opia.jpeg"},{t:"Cabinet Kineto",y:"4KENmbN-jXk",img:"images/Thumbnails-Studio/Cabinet Kineto.jpg"},{t:"Studio Harmony",y:"ax0JqGlRs3s",img:"images/Thumbnails-Studio/Reclama SH.jpg"},{t:"Revelion 2025 Studio Harmony",y:"qyK9ILwdjM4",img:"images/Thumbnails-Studio/Revelion SH 2025.jpg"},{t:"Rig Build Fast Forward",y:"UAOINAmVZNs",img:"images/Thumbnails-Studio/A7III.jpg"},{t:"Reel Vibe Bar",y:"YMDRr6TODgs",img:"images/Thumbnails-Studio/Vibe Bar.jpg"}]
+  }
+};
+const ORDER = ["nunti","corporate","reels","majorate","botezuri","studio"];
+
+/* albume per eveniment — date reale din folderul images/ */
+const ALBUMS={"nunti":[{"n":"Andreea & Mihai","m":"Mai 2025","cover":"images/Nunta/Andreea & Mihai1.jpg","files":["images/Nunta/Andreea & Mihai1.jpg","images/Nunta/Andreea & Mihai2.jpg","images/Nunta/Andreea & Mihai3.jpg","images/Nunta/Andreea & Mihai4.jpg","images/Nunta/Andreea & Mihai5.jpg","images/Nunta/Andreea & Mihai6.jpg","images/Nunta/Andreea & Mihai7.jpg","images/Nunta/Andreea & Mihai8.jpg","images/Nunta/Andreea & Mihai9.jpg","images/Nunta/Andreea & Mihai10.jpg","images/Nunta/Andreea & Mihai11.jpg","images/Nunta/Andreea & Mihai12.jpg","images/Nunta/Andreea & Mihai13.jpg","images/Nunta/Andreea & Mihai14.jpg","images/Nunta/Andreea & Mihai15.jpg","images/Nunta/Andreea & Mihai16.jpg","images/Nunta/Andreea & Mihai17.jpg","images/Nunta/Andreea & Mihai18.jpg","images/Nunta/Andreea & Mihai19.jpg","images/Nunta/Andreea & Mihai20.jpg","images/Nunta/Andreea & Mihai21.jpg","images/Nunta/Andreea & Mihai22.jpg","images/Nunta/Andreea & Mihai23.jpg","images/Nunta/Andreea & Mihai24.jpg","images/Nunta/Andreea & Mihai25.jpg","images/Nunta/Andreea & Mihai26.jpg","images/Nunta/Andreea & Mihai27.jpg","images/Nunta/Andreea & Mihai28.jpg","images/Nunta/Andreea & Mihai29.jpg","images/Nunta/Andreea & Mihai30.jpg","images/Nunta/Andreea & Mihai31.jpg","images/Nunta/Andreea & Mihai32.jpg","images/Nunta/Andreea & Mihai33.jpg","images/Nunta/Andreea & Mihai34.jpg","images/Nunta/Andreea & Mihai35.jpg","images/Nunta/Andreea & Mihai36.jpg","images/Nunta/Andreea & Mihai37.jpg","images/Nunta/Andreea & Mihai38.jpg","images/Nunta/Andreea & Mihai39.jpg","images/Nunta/Andreea & Mihai40.jpg","images/Nunta/Andreea & Mihai41.jpg","images/Nunta/Andreea & Mihai42.jpg","images/Nunta/Andreea & Mihai43.jpg","images/Nunta/Andreea & Mihai44.jpg","images/Nunta/Andreea & Mihai45.jpg","images/Nunta/Andreea & Mihai46.jpg","images/Nunta/Andreea & Mihai47.jpg"],"v":[1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0]},{"n":"Irina & Marian","m":"Iulie 2024","cover":"images/Thumbnails-nunta/Marian & Irina.jpg","files":["images/Nunta/Irina & Marian1.jpg","images/Nunta/Irina & Marian2.jpg","images/Nunta/Irina & Marian3.jpg","images/Nunta/Irina & Marian4.jpg","images/Nunta/Irina & Marian5.jpg","images/Nunta/Irina & Marian6.jpg","images/Nunta/Irina & Marian7.jpg","images/Nunta/Irina & Marian8.jpg","images/Nunta/Irina & Marian9.jpg","images/Nunta/Irina & Marian10.jpg","images/Nunta/Irina & Marian11.jpg","images/Nunta/Irina & Marian12.jpg","images/Nunta/Irina & Marian13.jpg","images/Nunta/Irina & Marian14.jpg","images/Nunta/Irina & Marian15.jpg","images/Nunta/Irina & Marian16.jpg","images/Nunta/Irina & Marian17.jpg","images/Nunta/Irina & Marian18.jpg","images/Nunta/Irina & Marian19.jpg","images/Nunta/Irina & Marian20.jpg","images/Nunta/Irina & Marian21.jpg","images/Nunta/Irina & Marian22.jpg","images/Nunta/Irina & Marian23.jpg","images/Nunta/Irina & Marian24.jpg","images/Nunta/Irina & Marian25.jpg","images/Nunta/Irina & Marian26.jpg","images/Nunta/Irina & Marian27.jpg","images/Nunta/Irina & Marian28.jpg","images/Nunta/Irina & Marian29.jpg","images/Nunta/Irina & Marian30.jpg"],"v":[0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0]},{"n":"Roxana & Madalin","m":"Iulie 2023","cover":"images/Thumbnails-nunta/Roxana & Madalin.jpg","files":["images/Nunta/Roxana & Madalin1.jpg","images/Nunta/Roxana & Madalin2.jpg","images/Nunta/Roxana & Madalin3.jpg","images/Nunta/Roxana & Madalin4.jpg","images/Nunta/Roxana & Madalin5.jpg","images/Nunta/Roxana & Madalin6.jpg","images/Nunta/Roxana & Madalin7.jpg","images/Nunta/Roxana & Madalin8.jpg","images/Nunta/Roxana & Madalin9.jpg","images/Nunta/Roxana & Madalin10.jpg","images/Nunta/Roxana & Madalin11.jpg","images/Nunta/Roxana & Madalin12.jpg","images/Nunta/Roxana & Madalin13.jpg","images/Nunta/Roxana & Madalin14.jpg","images/Nunta/Roxana & Madalin15.jpg","images/Nunta/Roxana & Madalin16.jpg","images/Nunta/Roxana & Madalin17.jpg","images/Nunta/Roxana & Madalin18.jpg","images/Nunta/Roxana & Madalin19.jpg","images/Nunta/Roxana & Madalin20.jpg","images/Nunta/Roxana & Madalin21.jpg","images/Nunta/Roxana & Madalin22.jpg","images/Nunta/Roxana & Madalin23.jpg","images/Nunta/Roxana & Madalin24.jpg"],"v":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},{"n":"Lacra & Bogdan","m":"Iunie 2024","cover":"images/Nunta/Lacra & Bogdan1.jpg","files":["images/Nunta/Lacra & Bogdan1.jpg","images/Nunta/Lacra & Bogdan2.jpg","images/Nunta/Lacra & Bogdan3.jpg","images/Nunta/Lacra & Bogdan4.jpg","images/Nunta/Lacra & Bogdan5.jpg","images/Nunta/Lacra & Bogdan6.jpg","images/Nunta/Lacra & Bogdan7.jpg","images/Nunta/Lacra & Bogdan8.jpg","images/Nunta/Lacra & Bogdan9.jpg","images/Nunta/Lacra & Bogdan10.jpg","images/Nunta/Lacra & Bogdan11.jpg","images/Nunta/Lacra & Bogdan12.jpg","images/Nunta/Lacra & Bogdan13.jpg","images/Nunta/Lacra & Bogdan14.jpg","images/Nunta/Lacra & Bogdan15.jpg","images/Nunta/Lacra & Bogdan16.jpg","images/Nunta/Lacra & Bogdan17.jpg","images/Nunta/Lacra & Bogdan18.jpg","images/Nunta/Lacra & Bogdan19.jpg","images/Nunta/Lacra & Bogdan20.jpg","images/Nunta/Lacra & Bogdan21.jpg"],"v":[0,0,0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0]},{"n":"Iulia & Adrian","m":"Aprilie 2023","cover":"images/Thumbnails-nunta/Iulia & Adrian.jpg","files":["images/Nunta/Iulia & Adrian 1.jpg","images/Nunta/Iulia & Adrian 2.jpg","images/Nunta/Iulia & Adrian 3.jpg","images/Nunta/Iulia & Adrian 4.jpg","images/Nunta/Iulia & Adrian 5.jpg","images/Nunta/Iulia & Adrian 6.jpg","images/Nunta/Iulia & Adrian 7.jpg","images/Nunta/Iulia & Adrian 8.jpg","images/Nunta/Iulia & Adrian 9.jpg","images/Nunta/Iulia & Adrian 10.jpg","images/Nunta/Iulia & Adrian 11.jpg","images/Nunta/Iulia & Adrian 12.jpg","images/Nunta/Iulia & Adrian 13.jpg","images/Nunta/Iulia & Adrian 14.jpg","images/Nunta/Iulia & Adrian 15.jpg","images/Nunta/Iulia & Adrian 16.jpg"],"v":[0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0]},{"n":"Andreea & Gabriel","m":"","cover":"images/Thumbnails-nunta/Gabriel & Andreea.jpeg","files":["images/Nunta/Andreea & Gabriel1.jpg","images/Nunta/Andreea & Gabriel2.jpg","images/Nunta/Andreea & Gabriel3.jpg","images/Nunta/Andreea & Gabriel4.jpg","images/Nunta/Andreea & Gabriel5.jpg","images/Nunta/Andreea & Gabriel6.jpg","images/Nunta/Andreea & Gabriel7.jpg"],"v":[1,1,1,0,0,1,1]},{"n":"Madena & Catalin","m":"Mai 2025","cover":"images/Nunta/Madena & Catalin1.jpg","files":["images/Nunta/Madena & Catalin1.jpg","images/Nunta/Madena & Catalin2.jpg","images/Nunta/Madena & Catalin3.jpg","images/Nunta/Madena & Catalin4.jpg","images/Nunta/Madena & Catalin5.jpg"],"v":[0,0,1,1,0]},{"n":"Selecție · momente diverse","m":"","cover":"images/Nunta/Nunta (99).jpg","files":["images/Nunta/Nunta (99).jpg","images/Nunta/Nunta (100).jpg","images/Nunta/Nunta (101).jpg","images/Nunta/Nunta (102).jpg","images/Nunta/Nunta (103).jpg","images/Nunta/Nunta (104).jpg","images/Nunta/Nunta (105).jpg","images/Nunta/Nunta (106).jpg","images/Nunta/Nunta (107).jpg","images/Nunta/Nunta (108).jpg","images/Nunta/Nunta (109).jpg","images/Nunta/Nunta (110).jpg","images/Nunta/Nunta (111).jpg","images/Nunta/Nunta (112).jpg","images/Nunta/Nunta (113).jpg","images/Nunta/Nunta (114).jpg","images/Nunta/Nunta (115).jpg","images/Nunta/Nunta (116).jpg","images/Nunta/Nunta (117).jpg","images/Nunta/Nunta (118).jpg","images/Nunta/Nunta (119).jpg","images/Nunta/Nunta (120).jpg","images/Nunta/Nunta (121).jpg","images/Nunta/Nunta (122).jpg","images/Nunta/Nunta (123).jpg","images/Nunta/Nunta (124).jpg","images/Nunta/Nunta (125).jpg","images/Nunta/Nunta (126).jpg","images/Nunta/Nunta (127).jpg","images/Nunta/Nunta (128).jpg","images/Nunta/Nunta (129).jpg","images/Nunta/Nunta (130).jpg","images/Nunta/Nunta (131).jpg","images/Nunta/Nunta (132).jpg","images/Nunta/Nunta (133).jpg","images/Nunta/Nunta (134).jpg","images/Nunta/Nunta (135).jpg","images/Nunta/Nunta (136).jpg","images/Nunta/Nunta (137).jpg"],"v":[1,0,1,1,1,0,0,0,0,1,0,0,0,1,0,0,1,0,0,1,0,0,0,0,0,0,0,0,0,0,1,0,0,0,1,0,0,0,0]}],"botezuri":[{"n":"Mateo Elian","m":"Iulie 2023","cover":"images/Thumbnails-botez/Mateo Elian.jpg","files":["images/Botez/Botez (15).jpg","images/Botez/Botez (16).jpg","images/Botez/Botez (17).jpg","images/Botez/Botez (18).jpg","images/Botez/Botez (19).jpg","images/Botez/Botez (20).jpg","images/Botez/Botez (21).jpg","images/Botez/Botez (22).jpg","images/Botez/Botez (23).jpg"],"v":[0,0,0,0,0,0,0,0,1]},{"n":"Amalia Maria","m":"Septembrie 2023","cover":"images/Thumbnails-botez/Amalia Maria.jpeg","files":["images/Botez/Botez (43).jpg","images/Botez/Botez (45).jpg","images/Botez/Botez (47).jpg","images/Botez/Botez (49).jpg","images/Botez/Botez (51).jpg","images/Botez/Botez (52).jpg"],"v":[0,0,0,0,0,0]},{"n":"Ariana Caroline","m":"Septembrie 2023","cover":"images/Thumbnails-botez/Ariana Caroline.jpg","files":["images/Botez/Botez (44).jpg","images/Botez/Botez (46).jpg","images/Botez/Botez (48).jpg","images/Botez/Botez (50).jpg","images/Botez/Botez (53).jpg","images/Botez/Botez (54).jpg","images/Botez/Botez (55).jpg","images/Botez/Botez (56).jpg","images/Botez/Botez (57).jpg","images/Botez/Botez (58).jpg","images/Botez/Botez (59).jpg","images/Botez/Botez (60).jpg","images/Botez/Botez (61).jpg"],"v":[0,0,0,0,0,0,0,0,1,0,1,0,0]},{"n":"Dominic","m":"Decembrie 2023","cover":"images/Thumbnails-botez/Dominic.jpg","files":["images/Botez/Botez (64).jpg","images/Botez/Botez (65).jpg","images/Botez/Botez (66).jpg","images/Botez/Botez (67).jpg"],"v":[0,0,0,0]},{"n":"Noah","m":"Martie 2024","cover":"images/Thumbnails-botez/Noah.jpg","files":["images/Botez/Botez (26).jpg","images/Botez/Botez (27).jpg","images/Botez/Botez (28).jpg","images/Botez/Botez (29).jpg"],"v":[0,0,0,0]},{"n":"Botezul Georgiei","m":"Mai 2024","cover":"images/Thumbnails-botez/Botez Georgia.jpg","files":["images/Botez/Botez (35).jpg","images/Botez/Botez (36).jpg","images/Botez/Botez (37).jpg","images/Botez/Botez (38).jpg","images/Botez/Botez (39).jpg","images/Botez/Botez (40).jpg","images/Botez/Botez (41).jpg","images/Botez/Botez (42).jpg"],"v":[0,0,0,0,0,0,0,0]},{"n":"Sebastian Ioan","m":"Iunie 2024","cover":"images/Thumbnails-botez/Sebastian Ioan.jpg","files":["images/Botez/Botez (30).jpg","images/Botez/Botez (31).jpg","images/Botez/Botez (32).jpg","images/Botez/Botez (33).jpg","images/Botez/Botez (34).jpg"],"v":[0,0,0,0,0]},{"n":"Botez · August 2024","m":"August 2024","cover":"images/Botez/Botez (4).jpg","files":["images/Botez/Botez (4).jpg","images/Botez/Botez (5).jpg","images/Botez/Botez (6).jpg","images/Botez/Botez (7).jpg","images/Botez/Botez (8).jpg","images/Botez/Botez (9).jpg","images/Botez/Botez (69).jpg","images/Botez/Botez (70).jpg"],"v":[0,0,0,0,0,0,0,0]},{"n":"Darius","m":"Ianuarie 2025","cover":"images/Thumbnails-botez/Darius.jpeg","files":["images/Botez/Botez (72).jpg","images/Botez/Botez (73).jpg","images/Botez/Botez (74).jpg","images/Botez/Botez (75).jpg","images/Botez/Botez (76).jpg","images/Botez/Botez (77).jpg","images/Botez/Botez (78).jpg","images/Botez/Botez (79).jpg","images/Botez/Botez (80).jpg","images/Botez/Botez (81).jpg","images/Botez/Botez (82).jpg","images/Botez/Botez (83).jpg","images/Botez/Botez (84).jpg"],"v":[0,0,0,0,0,0,0,0,0,0,0,0,0]},{"n":"Filip Ștefan","m":"Martie 2025","cover":"images/Thumbnails-botez/Filip Stefan.jpg","files":["images/Botez/Botez (101).jpg","images/Botez/Botez (102).jpg","images/Botez/Botez (103).jpg","images/Botez/Botez (104).jpg","images/Botez/Botez (105).jpg","images/Botez/Botez (106).jpg"],"v":[0,0,0,0,0,0]},{"n":"Mara","m":"Mai 2025","cover":"images/Thumbnails-botez/Mara.jpg","files":["images/Botez/Botez (93).jpg","images/Botez/Botez (94).jpg","images/Botez/Botez (95).jpg","images/Botez/Botez (96).jpg","images/Botez/Botez (97).jpg","images/Botez/Botez (98).jpg"],"v":[0,1,0,0,0,0]},{"n":"Clara","m":"","cover":"images/Thumbnails-botez/Clara.jpg","files":["images/Botez/Botez (85).jpg","images/Botez/Botez (86).jpg","images/Botez/Botez (87).jpg","images/Botez/Botez (88).jpg","images/Botez/Botez (89).jpg","images/Botez/Botez (90).jpg","images/Botez/Botez (91).jpg","images/Botez/Botez (92).jpg"],"v":[0,0,0,1,1,0,0,1]},{"n":"Selecție · alte momente","m":"","cover":"images/Botez/Botez (10).jpg","files":["images/Botez/Botez (10).jpg","images/Botez/Botez (11).jpg","images/Botez/Botez (12).jpg","images/Botez/Botez (13).jpg","images/Botez/Botez (14).jpg","images/Botez/Botez (62).jpg","images/Botez/Botez (63).jpg","images/Botez/Botez (24).jpg","images/Botez/Botez (25).jpg","images/Botez/Botez (1).jpg","images/Botez/Botez (2).jpg","images/Botez/Botez (3).jpg","images/Botez/Botez (68).jpg","images/Botez/Botez (71).jpg","images/Botez/Botez (99).jpg","images/Botez/Botez (100).jpg"],"v":[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]}],"majorate":[{"n":"Gabriela","m":"Februarie 2023","cover":"images/Thumbnails-Majorat/Gabriela.jpg","files":["images/Majorat/Majorat (56).jpg","images/Majorat/Majorat (57).jpg","images/Majorat/Majorat (158).jpg","images/Majorat/Majorat (159).jpg","images/Majorat/Majorat (160).jpg","images/Majorat/Majorat (161).jpg","images/Majorat/Majorat (162).jpg","images/Majorat/Majorat (163).jpg"],"v":[0,0,0,0,0,0,0,0]},{"n":"Majorat · Iulie 2023","m":"Iulie 2023","cover":"images/Majorat/Majorat (2).jpg","files":["images/Majorat/Majorat (2).jpg","images/Majorat/Majorat (3).jpg","images/Majorat/Majorat (4).jpg","images/Majorat/Majorat (5).jpg","images/Majorat/Majorat (6).jpg","images/Majorat/Majorat (7).jpg"],"v":[1,0,0,0,0,0]},{"n":"Sabina","m":"Iulie 2023","cover":"images/Thumbnails-Majorat/Sabina.jpg","files":["images/Majorat/Majorat (8).jpg","images/Majorat/Majorat (9).jpg","images/Majorat/Majorat (11).jpg","images/Majorat/Majorat (12).jpg","images/Majorat/Majorat (13).jpg","images/Majorat/Majorat (14).jpg"],"v":[0,0,0,0,0,0]},{"n":"Andreea","m":"Septembrie 2023","cover":"images/Thumbnails-Majorat/Andreea.jpg","files":["images/Majorat/Majorat (46).jpg","images/Majorat/Majorat (47).jpg","images/Majorat/Majorat (48).jpg","images/Majorat/Majorat (49).jpg","images/Majorat/Majorat (50).jpg","images/Majorat/Majorat (51).jpg","images/Majorat/Majorat (52).jpg","images/Majorat/Majorat (53).jpg"],"v":[0,0,0,0,0,0,0,0]},{"n":"Majorat · Decembrie 2023","m":"Decembrie 2023","cover":"images/Majorat/Majorat (33).jpg","files":["images/Majorat/Majorat (33).jpg","images/Majorat/Majorat (34).jpg","images/Majorat/Majorat (35).jpg","images/Majorat/Majorat (36).jpg","images/Majorat/Majorat (37).jpg"],"v":[0,0,0,0,0]},{"n":"Patrick","m":"Ianuarie 2024","cover":"images/Thumbnails-Majorat/Patrick.jpg","files":["images/Majorat/Majorat (30).jpg","images/Majorat/Majorat (31).jpg","images/Majorat/Majorat (32).jpg","images/Majorat/Majorat (38).jpg","images/Majorat/Majorat (39).jpg","images/Majorat/Majorat (40).jpg"],"v":[0,0,0,0,0,0]},{"n":"Ștefania","m":"August 2024","cover":"images/Thumbnails-Majorat/Stefania.jpg","files":["images/Majorat/Majorat (24).jpg","images/Majorat/Majorat (25).jpg","images/Majorat/Majorat (26).jpg","images/Majorat/Majorat (27).jpg"],"v":[0,0,0,0]},{"n":"Maia","m":"Octombrie 2024","cover":"images/Thumbnails-Majorat/Maia.jpg","files":["images/Majorat/Majorat (16).jpg","images/Majorat/Majorat (17).jpg","images/Majorat/Majorat (18).jpg","images/Majorat/Majorat (19).jpg","images/Majorat/Majorat (20).jpg","images/Majorat/Majorat (21).jpg"],"v":[1,1,1,0,0,0]},{"n":"Majorate · Arhivă highlights","m":"","cover":"images/Thumbnails-Majorat/Bianca.jpg","files":["images/Majorat/Majorat (58).jpg","images/Majorat/Majorat (59).jpg","images/Majorat/Majorat (60).jpg","images/Majorat/Majorat (61).jpg","images/Majorat/Majorat (62).jpg","images/Majorat/Majorat (63).jpg","images/Majorat/Majorat (64).jpg","images/Majorat/Majorat (65).jpg","images/Majorat/Majorat (66).jpg","images/Majorat/Majorat (67).jpg","images/Majorat/Majorat (68).jpg","images/Majorat/Majorat (69).jpg","images/Majorat/Majorat (70).jpg","images/Majorat/Majorat (71).jpg","images/Majorat/Majorat (72).jpg","images/Majorat/Majorat (73).jpg","images/Majorat/Majorat (74).jpg","images/Majorat/Majorat (75).jpg","images/Majorat/Majorat (76).jpg","images/Majorat/Majorat (77).jpg","images/Majorat/Majorat (78).jpg","images/Majorat/Majorat (79).jpg","images/Majorat/Majorat (80).jpg","images/Majorat/Majorat (81).jpg","images/Majorat/Majorat (82).jpg","images/Majorat/Majorat (83).jpg","images/Majorat/Majorat (84).jpg","images/Majorat/Majorat (85).jpg","images/Majorat/Majorat (86).jpg","images/Majorat/Majorat (87).jpg","images/Majorat/Majorat (88).jpg","images/Majorat/Majorat (89).jpg","images/Majorat/Majorat (90).jpg","images/Majorat/Majorat (91).jpg","images/Majorat/Majorat (92).jpg","images/Majorat/Majorat (93).jpg","images/Majorat/Majorat (94).jpg","images/Majorat/Majorat (95).jpg","images/Majorat/Majorat (96).jpg","images/Majorat/Majorat (97).jpg","images/Majorat/Majorat (98).jpg","images/Majorat/Majorat (99).jpg","images/Majorat/Majorat (100).jpg","images/Majorat/Majorat (101).jpg","images/Majorat/Majorat (102).jpg","images/Majorat/Majorat (103).jpg","images/Majorat/Majorat (104).jpg","images/Majorat/Majorat (105).jpg","images/Majorat/Majorat (106).jpg","images/Majorat/Majorat (107).jpg","images/Majorat/Majorat (108).jpg","images/Majorat/Majorat (109).jpg","images/Majorat/Majorat (110).jpg","images/Majorat/Majorat (111).jpg","images/Majorat/Majorat (112).jpg","images/Majorat/Majorat (113).jpg","images/Majorat/Majorat (114).jpg","images/Majorat/Majorat (115).jpg","images/Majorat/Majorat (116).jpg","images/Majorat/Majorat (117).jpg","images/Majorat/Majorat (118).jpg","images/Majorat/Majorat (119).jpg","images/Majorat/Majorat (120).jpg","images/Majorat/Majorat (121).jpg","images/Majorat/Majorat (122).jpg","images/Majorat/Majorat (123).jpg","images/Majorat/Majorat (124).jpg","images/Majorat/Majorat (125).jpg","images/Majorat/Majorat (126).jpg","images/Majorat/Majorat (127).jpg","images/Majorat/Majorat (128).jpg","images/Majorat/Majorat (129).jpg","images/Majorat/Majorat (130).jpg","images/Majorat/Majorat (131).jpg","images/Majorat/Majorat (132).jpg","images/Majorat/Majorat (133).jpg","images/Majorat/Majorat (134).jpg","images/Majorat/Majorat (135).jpg","images/Majorat/Majorat (136).jpg","images/Majorat/Majorat (137).jpg","images/Majorat/Majorat (138).jpg","images/Majorat/Majorat (139).jpg","images/Majorat/Majorat (140).jpg","images/Majorat/Majorat (141).jpg","images/Majorat/Majorat (142).jpg","images/Majorat/Majorat (143).jpg","images/Majorat/Majorat (144).jpg","images/Majorat/Majorat (145).jpg","images/Majorat/Majorat (146).jpg","images/Majorat/Majorat (147).jpg","images/Majorat/Majorat (148).jpg","images/Majorat/Majorat (149).jpg","images/Majorat/Majorat (150).jpg","images/Majorat/Majorat (151).jpg","images/Majorat/Majorat (152).jpg","images/Majorat/Majorat (153).jpg","images/Majorat/Majorat (154).jpg","images/Majorat/Majorat (155).jpg","images/Majorat/Majorat (156).jpg","images/Majorat/Majorat (157).jpg"],"v":[0,0,0,0,0,0,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1,1,0,0,0,1,1,1,1,1,0,0,0,1,1,1,0,0,1,1,0,0,0,0,0,0,1,1,1,1,1,1,1,1,1,0,0,1,0,0,0,0,0,0,0,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]},{"n":"Selecție · alte momente","m":"","cover":"images/Majorat/Majorat (1).jpg","files":["images/Majorat/Majorat (1).jpg","images/Majorat/Majorat (10).jpg","images/Majorat/Majorat (42).jpg","images/Majorat/Majorat (54).jpg","images/Majorat/Majorat (55).jpg","images/Majorat/Majorat (15).jpg","images/Majorat/Majorat (41).jpg","images/Majorat/Majorat (43).jpg","images/Majorat/Majorat (44).jpg","images/Majorat/Majorat (45).jpg","images/Majorat/Majorat (28).jpg","images/Majorat/Majorat (29).jpg","images/Majorat/Majorat (22).jpg","images/Majorat/Majorat (23).jpg"],"v":[0,0,0,0,0,0,0,0,0,0,0,0,0,0]}],"studio":[{"n":"Vibe Bar","m":"Iulie 2023","cover":"images/Thumbnails-Studio/Vibe Bar.jpg","files":["images/Studio/Studio (12).jpg","images/Studio/Studio (13).jpg","images/Studio/Studio (14).jpg","images/Studio/Studio (15).jpg","images/Studio/Studio (16).jpg","images/Studio/Studio (17).jpg"],"v":[0,0,0,0,0,0]},{"n":"A7III","m":"Octombrie 2023","cover":"images/Thumbnails-Studio/A7III.jpg","files":["images/Studio/Studio (18).jpg","images/Studio/Studio (19).jpg","images/Studio/Studio (20).jpg","images/Studio/Studio (21).jpg","images/Studio/Studio (22).jpg","images/Studio/Studio (23).jpg","images/Studio/Studio (24).jpg","images/Studio/Studio (25).jpg","images/Studio/Studio (26).jpg"],"v":[0,0,0,0,0,1,0,0,0]},{"n":"Cabinet Kineto","m":"Iulie 2024","cover":"images/Thumbnails-Studio/Cabinet Kineto.jpg","files":["images/Studio/Studio (61).jpg","images/Studio/Studio (62).jpg","images/Studio/Studio (63).jpg","images/Studio/Studio (64).jpg","images/Studio/Studio (65).jpg","images/Studio/Studio (66).jpg"],"v":[1,0,0,0,0,0]},{"n":"Carousel + Audi","m":"Iulie 2024","cover":"images/Thumbnails-Studio/Carousel + Audi.jpg","files":["images/Studio/Studio (46).jpg","images/Studio/Studio (47).jpg","images/Studio/Studio (48).jpg","images/Studio/Studio (49).jpg","images/Studio/Studio (50).jpg","images/Studio/Studio (51).jpg"],"v":[0,0,0,0,0,0]},{"n":"Opia","m":"Septembrie 2024","cover":"images/Thumbnails-Studio/Opia.jpeg","files":["images/Studio/Studio (30).jpg","images/Studio/Studio (31).jpg","images/Studio/Studio (32).jpg","images/Studio/Studio (33).jpg"],"v":[0,0,0,1]},{"n":"Mire","m":"Octombrie 2024","cover":"images/Thumbnails-Studio/Mire.jpg","files":["images/Studio/Studio (7).jpg","images/Studio/Studio (8).jpg","images/Studio/Studio (9).jpg","images/Studio/Studio (10).jpg","images/Studio/Studio (11).jpg","images/Studio/Studio (74).jpg","images/Studio/Studio (75).jpg","images/Studio/Studio (76).jpg","images/Studio/Studio (77).jpg"],"v":[1,1,1,1,1,1,1,1,1]},{"n":"CHR","m":"Octombrie 2024","cover":"images/Thumbnails-Studio/CHR.jpg","files":["images/Studio/Studio (55).jpg","images/Studio/Studio (56).jpg","images/Studio/Studio (57).jpg","images/Studio/Studio (58).jpg","images/Studio/Studio (59).jpg","images/Studio/Studio (60).jpg"],"v":[1,1,1,1,1,1]},{"n":"Revelion SH 2025","m":"Octombrie 2024","cover":"images/Thumbnails-Studio/Revelion SH 2025.jpg","files":["images/Studio/Studio (41).jpg","images/Studio/Studio (42).jpg","images/Studio/Studio (43).jpg","images/Studio/Studio (44).jpg","images/Studio/Studio (45).jpg"],"v":[0,0,0,0,0]},{"n":"8 Martie SH","m":"Ianuarie 2025","cover":"images/Thumbnails-Studio/8 Martie SH.jpg","files":["images/Studio/Studio (67).jpg","images/Studio/Studio (68).jpg","images/Studio/Studio (69).jpg","images/Studio/Studio (70).jpg","images/Studio/Studio (71).jpg","images/Studio/Studio (72).jpg"],"v":[1,1,1,1,1,1]},{"n":"Reclama SH","m":"Aprilie 2025","cover":"images/Thumbnails-Studio/Reclama SH.jpg","files":["images/Studio/Studio (78).jpg","images/Studio/Studio (79).jpg","images/Studio/Studio (80).jpg","images/Studio/Studio (81).jpg","images/Studio/Studio (82).jpg","images/Studio/Studio (83).jpg","images/Studio/Studio (84).jpg","images/Studio/Studio (85).jpg","images/Studio/Studio (86).jpg","images/Studio/Studio (87).jpg"],"v":[1,1,1,1,1,1,1,1,1,1]},{"n":"Selecție · alte momente","m":"","cover":"images/Studio/Studio (4).jpg","files":["images/Studio/Studio (4).jpg","images/Studio/Studio (1).jpg","images/Studio/Studio (2).jpg","images/Studio/Studio (3).jpg","images/Studio/Studio (27).jpg","images/Studio/Studio (28).jpg","images/Studio/Studio (29).jpg","images/Studio/Studio (37).jpg","images/Studio/Studio (34).jpg","images/Studio/Studio (35).jpg","images/Studio/Studio (36).jpg","images/Studio/Studio (40).jpg","images/Studio/Studio (73).jpg","images/Studio/Studio (38).jpg","images/Studio/Studio (39).jpg","images/Studio/Studio (5).jpg","images/Studio/Studio (6).jpg","images/Studio/Studio (53).jpg","images/Studio/Studio (54).jpg","images/Studio/Studio (52).jpg"],"v":[0,0,1,0,0,1,0,0,0,0,0,0,1,0,0,1,0,0,1,0]}],"reels":[{"n":"Studio Verde","m":"Campanie social · demo","cover":"https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=1200&q=80","files":["https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1533928298208-27ff66555d8d?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1496065187959-7f07b8353c55?auto=format&fit=crop&w=1200&q=80"],"v":[0,0,0,0,0,0,0,0]},{"n":"Brand de bijuterii","m":"Serie de produs · demo","cover":"https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80","files":["https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1533928298208-27ff66555d8d?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1496065187959-7f07b8353c55?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=1200&q=80"],"v":[0,0,0,0,0,0,0,0]},{"n":"Cafenea locală","m":"Colaborare lunară · demo","cover":"https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80","files":["https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1533928298208-27ff66555d8d?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1496065187959-7f07b8353c55?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1611162616475-46b635cb6868?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1200&q=80"],"v":[0,0,0,0,0,0,0,0]}],"corporate":[{"n":"Conferința TechHub","m":"București · demo","cover":"https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80","files":["https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80"],"v":[0,0,0,0,0,0,0,0]},{"n":"Team-building","m":"Poiana Brașov · demo","cover":"https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80","files":["https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80"],"v":[0,0,0,0,0,0,0,0]},{"n":"Video de prezentare","m":"demo","cover":"https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80","files":["https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1505373877841-8d25f7d46678?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1200&q=80","https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1200&q=80"],"v":[0,0,0,0,0,0,0,0]}]};
+const POOL={};
+Object.keys(ALBUMS).forEach(k=>{
+  POOL[k]=[];
+  ALBUMS[k].forEach(a=>{POOL[k].push(a.cover,...a.files);});
+});
+function imgUrl(key,i,w){
+  const p=POOL[key];
+  if(!p||!p.length)return null;
+  return p[((i%p.length)+p.length)%p.length];
+}
+function bg(key,i,w){
+  const g=ph(CATS[key].color,i);
+  const u=imgUrl(key,i);
+  return u?`url('${u}'), ${g}`:g;
+}
+function bgPath(key,p,i){
+  const g=ph(CATS[key].color,i||0);
+  return p?`url('${p}'), ${g}`:g;
+}
+/* fade-in când imaginea s-a încărcat */
+function reveal(el,url){
+  if(!url){el.classList.add('on');return;}
+  const im=new Image();
+  im.onload=im.onerror=()=>el.classList.add('on');
+  im.src=url;
+}
+
+/* reveal la scroll: elementele apar când intră în ecran */
+const tileObs=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){e.target.classList.add('inview');tileObs.unobserve(e.target);}
+  });
+},{threshold:.1});
+
+/* tilt 3D fin pe carduri (doar desktop) */
+function tiltify(el){
+  if(!matchMedia('(hover:hover) and (pointer:fine)').matches)return;
+  el.addEventListener('mousemove',e=>{
+    if(!el.classList.contains('inview'))return;
+    const r=el.getBoundingClientRect();
+    const px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5;
+    el.style.transition='transform .15s ease';
+    el.style.transform=`perspective(800px) rotateX(${(-py*5).toFixed(2)}deg) rotateY(${(px*6).toFixed(2)}deg)`;
+  });
+  el.addEventListener('mouseleave',()=>{
+    el.style.transition='transform .6s cubic-bezier(.2,.8,.2,1)';
+    el.style.transform='';
+    setTimeout(()=>el.style.transition='',600);
+  });
+}
+
+/* placeholder "photo" gradients per category */
+function ph(color,i){
+  const angles=[35,160,220,300,80,120,260,15];
+  const a=angles[i%angles.length];
+  return `linear-gradient(${a}deg,
+    color-mix(in srgb, ${color} 38%, #000) 0%,
+    #0a0a0a 42%,
+    color-mix(in srgb, ${color} 14%, #000) 100%)`;
+}
+
+/* ================= build radial nodes ================= */
+const stage=document.getElementById('stage');
+const wires=document.getElementById('wires');
+const nodes=[];
+
+ORDER.forEach((key,i)=>{
+  const c=CATS[key];
+  const el=document.createElement('button');
+  el.className='node';
+  el.style.setProperty('--cat',c.color);
+  el.style.animationDelay=(1.6+i*0.12)+'s';
+  el.onclick=()=>openCat(key);
+  el.innerHTML=`
+    <div class="thumbs">
+      <div class="thumb" style="background-image:${bg(key,0,600)};left:-122px;top:-96px;transform-origin:bottom right"></div>
+      <div class="thumb" style="background-image:${bg(key,3,600)};right:-114px;top:-102px"></div>
+      <div class="thumb" style="background-image:${bg(key,5,600)};left:30px;bottom:-100px"></div>
+    </div>
+    <div class="pill">
+      <span class="ic"><svg viewBox="0 0 24 24"><use href="#${c.icon}"/></svg></span>
+      <span><span class="t">${c.title}</span><br><span class="d">${c.short}</span></span>
+    </div>`;
+  stage.appendChild(el);
+  nodes.push(el);
+});
+
+const linePos=[];
+function layout(){
+  const w=innerWidth,h=innerHeight;
+  const cx=w/2, cy=h/2;
+  const mob=w<861;
+  // raze proporționale cu ecranul, ca cercul să umple spațiul disponibil
+  const rx=mob?Math.min(w*0.5-95,260):Math.min(w*0.36,480);
+  const ry=mob?Math.min(h*0.29,260):Math.min(h*0.345,330);
+  wires.innerHTML='';
+  linePos.length=0;
+  nodes.forEach((el,i)=>{
+    const ang=(-90+i*60)*Math.PI/180;
+    const x=cx+Math.cos(ang)*rx, y=cy+Math.sin(ang)*ry;
+    el.style.left=x+'px'; el.style.top=y+'px';
+    const l=document.createElementNS('http://www.w3.org/2000/svg','line');
+    const t=mob?0.58:0.42; // liniile pornesc în afara textului din centru
+    const x1=cx+(x-cx)*t, y1=cy+(y-cy)*t;
+    l.setAttribute('x1',x1); l.setAttribute('y1',y1);
+    l.setAttribute('x2',x); l.setAttribute('y2',y);
+    l.style.animationDelay=(1.4+i*0.1)+'s';
+    wires.appendChild(l);
+    linePos.push({x1,y1,x2:x,y2:y});
+    el.onmouseenter=()=>{l.classList.add('lit');preloadCat(ORDER[i]);hintTo(ORDER[i]);startBgCycle(ORDER[i]);};
+    el.onmouseleave=()=>{l.classList.remove('lit');hintReset();stopBgCycle();};
+  });
+}
+layout();
+addEventListener('resize',layout);
+
+/* fundal cinematic — crossfade între imaginile categoriei active */
+const bgls=document.querySelectorAll('#bgPrev .bgl');
+let bgFlip=0,bgIdx=0;
+function showBgUrl(u){
+  if(!u)return;
+  bgFlip^=1;
+  const nxt=bgls[bgFlip],prv=bgls[bgFlip^1];
+  const im=new Image();
+  im.onload=()=>{
+    nxt.style.backgroundImage=`url('${u}')`;
+    nxt.classList.add('on');
+    prv.classList.remove('on');
+  };
+  im.src=u;
+}
+function showBgFor(key){
+  const p=POOL[key];
+  if(!p||!p.length)return;
+  bgIdx=(bgIdx+3)%p.length;
+  showBgUrl(p[bgIdx]);
+}
+/* pe desktop, la hover pe un univers, pozele lui se schimbă la fiecare 2 secunde */
+let bgTimer=null;
+function startBgCycle(key){
+  clearInterval(bgTimer);
+  showBgFor(key);
+  bgTimer=setInterval(()=>showBgFor(key),2000);
+}
+function stopBgCycle(){
+  clearInterval(bgTimer);bgTimer=null;
+  hideBg();
+}
+function hideBg(){bgls.forEach(b=>b.classList.remove('on'));}
+
+/* pe telefon, landing-ul respiră: poze random din toate evenimentele, foarte difuz */
+const ALLPOOL=['nunti','botezuri','majorate','studio'].flatMap(k=>POOL[k]||[]);
+function ambientTick(){
+  if(innerWidth>=861)return;
+  if(document.querySelector('.overlay.open'))return;
+  if(!ALLPOOL.length)return;
+  showBgUrl(ALLPOOL[Math.floor(Math.random()*ALLPOOL.length)]);
+}
+setInterval(ambientTick,3000);
+setTimeout(ambientTick,900);
+
+/* centrul reacționează la hover */
+const hintEl=document.querySelector('#center .hint');
+function hintTo(key){
+  const c=CATS[key];
+  hintEl.textContent=c.short;
+  hintEl.style.color=c.color;
+  hintEl.style.animation='none';
+}
+function hintReset(){
+  hintEl.textContent='alege un univers';
+  hintEl.style.color='';
+  hintEl.style.animation='';
+}
+
+/* puncte de lumină care călătoresc pe linii */
+function firePulse(){
+  if(!linePos.length||document.querySelector('.overlay.open')){
+    setTimeout(firePulse,2500);return;
+  }
+  const L=linePos[Math.floor(Math.random()*linePos.length)];
+  const c=document.createElementNS('http://www.w3.org/2000/svg','circle');
+  c.setAttribute('r',2.2);c.setAttribute('fill','#d4af7a');
+  wires.appendChild(c);
+  const t0=performance.now(),dur=1400;
+  (function step(now){
+    const t=Math.min(1,(now-t0)/dur);
+    const e=t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+    c.setAttribute('cx',L.x1+(L.x2-L.x1)*e);
+    c.setAttribute('cy',L.y1+(L.y2-L.y1)*e);
+    c.style.opacity=String(.9*(1-t*t));
+    if(t<1&&c.isConnected)requestAnimationFrame(step);else c.remove();
+  })(t0);
+  setTimeout(firePulse,1600+Math.random()*2000);
+}
+setTimeout(firePulse,3600);
+
+/* plutire subtilă a nodurilor */
+(function bob(){
+  const t=performance.now()/1000;
+  nodes.forEach((el,i)=>{
+    el.style.translate='0 '+(Math.sin(t*0.8+i*1.05)*3.5).toFixed(2)+'px';
+  });
+  requestAnimationFrame(bob);
+})();
+
+/* pe telefon nu se mișcă nimic singur */
+
+/* subtle parallax */
+addEventListener('mousemove',e=>{
+  const dx=(e.clientX/innerWidth-.5), dy=(e.clientY/innerHeight-.5);
+  nodes.forEach((el,i)=>{
+    const f=6+(i%3)*3;
+    el.style.marginLeft=(-dx*f)+'px';
+    el.style.marginTop=(-dy*f)+'px';
+  });
+});
+
+/* ================= overlays ================= */
+const gallery=document.getElementById('gallery');
+const contact=document.getElementById('contact');
+const shapes=['t-a','t-b','t-c','t-d','t-e','t-f','t-g','t-c'];
+
+function openCat(key){
+  const c=CATS[key];
+  gallery.style.setProperty('--cat',c.color);
+  document.getElementById('gKicker').textContent='Portofoliu — RAW Productions';
+  document.getElementById('gTitle').innerHTML='<span class="rv">'+c.title+'</span>';
+  document.getElementById('gDesc').textContent=c.desc;
+  document.getElementById('gMeta').innerHTML=c.meta.join('<br>');
+  document.getElementById('gPhotoN').textContent='— '+ALBUMS[key].length+' albume';
+  document.getElementById('gVideoN').textContent='— '+c.vids.length+' clipuri';
+
+  // albume foto: un card per eveniment
+  const grid=document.getElementById('gGrid');
+  grid.className='alb-grid';
+  grid.innerHTML='';
+  ALBUMS[key].forEach((al,i)=>{
+    const t=document.createElement('button');
+    t.className='alb-card';
+    t.style.setProperty('--cat',c.color);
+    t.style.transitionDelay=(i*0.07)+'s';
+    t.innerHTML=`
+      <span class="cover" style="background-image:${bgPath(key,al.cover,i)}"></span>
+      <span class="info">
+        <span class="nm">${al.n}</span><br>
+        <span class="mt">${al.m}</span><br>
+        <span class="ct">${al.files.length} fotografii →</span>
+      </span>`;
+    t.onclick=()=>openAlbum(key,i);
+    tileObs.observe(t);tiltify(t);
+    grid.appendChild(t);
+  });
+
+  // video
+  const vgrid=document.getElementById('gVidGrid');
+  vgrid.innerHTML='';
+  c.vids.forEach((v,i)=>{
+    const t=document.createElement('div');
+    t.className='tile';
+    t.style.transitionDelay=(i*0.05)+'s';
+    const thumb=v.img?v.img:(v.y?`https://i.ytimg.com/vi/${v.y}/hqdefault.jpg`:(v.v?`https://vumbnail.com/${v.v}.jpg`:null));
+    const bgv=thumb?`url('${thumb}'), ${ph(c.color,i+2)}`:ph(c.color,i+2);
+    t.innerHTML=`
+      <div class="ph on" style="background-image:${bgv}"></div>
+      <span class="play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></span>
+      <span class="cap">${v.t}</span>`;
+    t.onclick=()=>{
+      // doar local pe disc playerele încorporate sunt blocate; pe site-ul publicat redă în pagină
+      if(location.protocol==='file:'&&(v.y||v.v)){
+        window.open(v.y?'https://www.youtube.com/watch?v='+v.y:'https://vimeo.com/'+v.v,'_blank');
+      }else{
+        openLightbox(key,'vids',i);
+      }
+    };
+    tileObs.observe(t);
+    vgrid.appendChild(t);
+  });
+
+  // testimoniale + următorul univers + preload
+  loadQuotes(key);
+  const nx=ORDER[(ORDER.indexOf(key)+1)%ORDER.length];
+  document.getElementById('nextCatT').textContent=CATS[nx].title+' →';
+  document.getElementById('nextCat').onclick=()=>openCat(nx);
+  preloadCat(nx);
+
+  closeOverlays(true);
+  void gallery.offsetWidth; // forțează re-redarea ca animațiile de reveal să pornească
+  gallery.classList.add('open');
+  gallery.scrollTop=0;
+}
+function openContact(){
+  closeOverlays(true);
+  contact.classList.add('open');
+}
+/* album — galeria unui eveniment */
+const albumOv=document.getElementById('albumOv');
+function openAlbum(key,i){
+  const c=CATS[key], al=ALBUMS[key][i];
+  albumOv.style.setProperty('--cat',c.color);
+  document.getElementById('aKicker').textContent=c.title+' — RAW Productions';
+  document.getElementById('aTitle').innerHTML='<span class="rv">'+al.n+'</span>';
+  document.getElementById('aMeta').textContent=(al.m?al.m+' · ':'')+al.files.length+' fotografii';
+  document.getElementById('albBack').onclick=()=>openCat(key);
+  const ag=document.getElementById('aGrid');
+  ag.innerHTML='';
+  al.files.forEach((p,j)=>{
+    const t=document.createElement('div');
+    const vert=al.v&&al.v[j]===1;
+    t.className='tile '+(vert?'tv':shapes[j%shapes.length]);
+    t.style.transitionDelay=((j%8)*0.05)+'s';
+    t.innerHTML=`<div class="ph" style="background-image:${bgPath(key,p,j)}"></div>`;
+    t.onclick=()=>openAlbumLightbox(key,i,j);
+    reveal(t.querySelector('.ph'),p);
+    tileObs.observe(t);
+    ag.appendChild(t);
+  });
+  closeOverlays(true);
+  void albumOv.offsetWidth;
+  albumOv.classList.add('open');
+  albumOv.scrollTop=0;
+}
+
+/* portofoliu — toate universurile */
+const portfolio=document.getElementById('portfolio');
+const pfGrid=document.getElementById('pfGrid');
+ORDER.forEach((key,i)=>{
+  const c=CATS[key];
+  const b=document.createElement('button');
+  b.className='pf-card';
+  b.style.setProperty('--cat',c.color);
+  b.style.transitionDelay=(i*0.07)+'s';
+  b.onclick=()=>openCat(key);
+  b.innerHTML=`
+    <span class="cover" style="background-image:${bg(key,0,1200)}"></span>
+    <span class="info">
+      <span class="k">${c.short}</span><br>
+      <span class="nm">${c.title}</span><br>
+      <span class="ct">${ALBUMS[key].length} albume · ${c.vids.length} clipuri</span>
+    </span>
+    <span class="go">→</span>`;
+  tileObs.observe(b);tiltify(b);
+  pfGrid.appendChild(b);
+});
+function openPortfolio(){
+  ORDER.forEach(preloadCat);
+  closeOverlays(true);
+  void portfolio.offsetWidth;
+  portfolio.classList.add('open');
+  portfolio.scrollTop=0;
+}
+
+/* pachete */
+const packs=document.getElementById('packs');
+function openPacks(){
+  closeOverlays(true);
+  void packs.offsetWidth;
+  packs.classList.add('open');
+  packs.scrollTop=0;
+}
+
+const about=document.getElementById('about');
+/* cifrele din statistici numără de la zero la deschidere */
+const statEls=[...document.querySelectorAll('#about .a-stats .num')]
+  .map(el=>({el,target:parseInt(el.textContent,10),suffix:el.textContent.replace(/^\d+/,'')}));
+function animateStats(){
+  const t0=performance.now(),dur=1400;
+  (function step(now){
+    const t=Math.min(1,(now-t0)/dur);
+    const e=1-Math.pow(1-t,3);
+    statEls.forEach(s=>{s.el.textContent=Math.round(s.target*e)+s.suffix;});
+    if(t<1&&about.classList.contains('open'))requestAnimationFrame(step);
+  })(t0);
+}
+function openAbout(){
+  closeOverlays(true);
+  about.classList.add('open');
+  about.scrollTop=0;
+  animateStats();
+}
+function closeOverlays(){
+  gallery.classList.remove('open');
+  contact.classList.remove('open');
+  about.classList.remove('open');
+  portfolio.classList.remove('open');
+  albumOv.classList.remove('open');
+  packs.classList.remove('open');
+}
+/* ================= lightbox ================= */
+const lightbox=document.getElementById('lightbox');
+let lbKey=null,lbList='vids',lbIdx=0,lbAlb=null;
+function openLightbox(key,list,i){
+  lbKey=key;lbList=list;lbIdx=i;lbAlb=null;renderLightbox();
+  lightbox.classList.add('open');
+}
+function openAlbumLightbox(key,albIdx,j){
+  lbKey=key;lbList='album';lbIdx=j;lbAlb=ALBUMS[key][albIdx];
+  renderLightbox();
+  lightbox.classList.add('open');
+}
+function renderLightbox(){
+  const c=CATS[lbKey];
+  const el=document.getElementById('lbPh');
+  const fr=document.getElementById('lbIfr');
+  el.style.display='block';
+  fr.style.display='none';
+  fr.removeAttribute('src');
+  let u=null,cap='',n=0;
+  if(lbList==='album'){
+    n=lbAlb.files.length;
+    u=lbAlb.files[lbIdx];
+    el.style.backgroundImage=bgPath(lbKey,u,lbIdx);
+    el.style.backgroundSize=(lbAlb.v&&lbAlb.v[lbIdx]===1)?'contain':'cover';
+    el.style.backgroundRepeat='no-repeat';
+    cap=lbAlb.n;
+  }else{
+    n=c.vids.length;
+    const v=c.vids[lbIdx];
+    cap=v.t;
+    if(v.y||v.v){
+      el.style.display='none';
+      fr.style.display='block';
+      fr.src=v.y
+        ?'https://www.youtube.com/embed/'+v.y+'?autoplay=1&rel=0'
+        :'https://player.vimeo.com/video/'+v.v+'?autoplay=1&byline=0&title=0&portrait=0';
+    }else{
+      el.style.backgroundImage=ph(c.color,lbIdx+2);
+      el.style.backgroundSize='cover';
+    }
+  }
+  el.style.opacity=.35;
+  if(u){const im=new Image();im.onload=im.onerror=()=>el.style.opacity=1;im.src=u;}
+  else el.style.opacity=1;
+  document.getElementById('lbCap').textContent=cap;
+  document.getElementById('lbCount').textContent=
+    (lbIdx+1)+' / '+n+' — '+c.title+(lbList==='vids'?' · video':'');
+}
+
+/* swipe pe mobil */
+let swX=null;
+lightbox.addEventListener('touchstart',e=>{swX=e.touches[0].clientX},{passive:true});
+lightbox.addEventListener('touchend',e=>{
+  if(swX===null)return;
+  const dx=e.changedTouches[0].clientX-swX;
+  if(Math.abs(dx)>45)stepLightbox(dx<0?1:-1);
+  swX=null;
+},{passive:true});
+function stepLightbox(d){
+  const n=lbList==='album'?lbAlb.files.length:CATS[lbKey][lbList].length;
+  lbIdx=(lbIdx+d+n)%n;renderLightbox();
+}
+function closeLightbox(){
+  lightbox.classList.remove('open');
+  const fr=document.getElementById('lbIfr');
+  fr.removeAttribute('src');
+}
+
+addEventListener('keydown',e=>{
+  if(lightbox.classList.contains('open')){
+    if(e.key==='Escape')closeLightbox();
+    if(e.key==='ArrowRight')stepLightbox(1);
+    if(e.key==='ArrowLeft')stepLightbox(-1);
+    return;
+  }
+  if(e.key==='Escape')closeOverlays();
+});
+
+/* ================= testimoniale pe categorie ================= */
+const RECENZII=[
+  {q:"Vă mulțumim foarte mult🤗 filmarea este super și cadrele foarte bine inspirate… ne simțim ca la Hollywood🤗 Cu siguranță vă vom recomanda prietenilor și să ne vedem și la alte evenimente fericite!",n:"Irina & Cătălin"},
+  {q:"Abia acum ne-am uitat la trailer și am rămas cu gura căscată amândoi. Piele de găină. Nu ne dăm seama de unde ai putut avea atâta viziune și inspirație, dar zici că e trailerul unui film foarte mișto. Genial! Pur și simplu, genial!",n:"Gabriel & Andreea"},
+  {q:"Sunteți criminali 😂 partea de la final — am râs de am murit 😂 Bravo, băieți, apreciem simțul umorului. Mulțumim din nou pentru tot, este incredibil ce ați făcut.",n:"Roxana & Mădălin"},
+  {q:"Wow! 😍 Mă faci să plâng. Sunt superbe 😍 Ne-ai emoționat foarte tare. Mulțumim din suflet pentru răbdare și pentru aceste minunății. ARTĂ!!! ❤️",n:"Matei"},
+  {q:"După nunta noastră ne-au rămas o mulțime de amintiri minunate. O persoană extrem de creativă, cu cadre și idei extraordinare, care poartă amprenta lui artistică unică. I-am oferit toată încrederea și am știut că suntem pe mâini bune.",n:"Denisa"},
+  {q:"O echipă tânără care aspiră către progres constant. Sunt creativi — mirii, nașii și nuntașii sunt foarte relaxați și pozează natural, astfel că pozele din album vor fi foarte frumoase. Recomand!",n:"Marius"}
+];
+const QUOTES={nunti:RECENZII,botezuri:RECENZII,majorate:RECENZII,reels:RECENZII,corporate:RECENZII,studio:RECENZII};
+let tIdx=0,tTimer=null,curQuotes=[];
+const tQuote=document.getElementById('tQuote'),tName=document.getElementById('tName'),tDots=document.getElementById('tDots');
+function loadQuotes(key){
+  curQuotes=QUOTES[key]||[];
+  tDots.innerHTML='';
+  curQuotes.forEach((_,i)=>{
+    const d=document.createElement('button');
+    d.onclick=()=>{showQuote(i);restartT();};
+    tDots.appendChild(d);
+  });
+  tQuote.style.opacity=0;tName.style.opacity=0;
+  showQuote(0);restartT();
+}
+function showQuote(i){
+  tIdx=i;
+  tQuote.style.opacity=0;tName.style.opacity=0;
+  setTimeout(()=>{
+    if(!curQuotes[i])return;
+    tQuote.textContent=curQuotes[i].q+'”';
+    tName.textContent=curQuotes[i].n;
+    tQuote.style.opacity=1;tName.style.opacity=1;
+  },350);
+  [...tDots.children].forEach((d,j)=>d.classList.toggle('on',j===i));
+}
+function restartT(){
+  clearInterval(tTimer);
+  tTimer=setInterval(()=>showQuote((tIdx+1)%curQuotes.length),6000);
+}
+
+/* ================= preload imagini la hover ================= */
+const preloaded={};
+function preloadCat(key){
+  if(preloaded[key])return;
+  preloaded[key]=true;
+  (POOL[key]||[]).slice(0,14).forEach(p=>{const im=new Image();im.src=p;});
+}
+
+/* ================= formular rezervare ================= */
+document.getElementById('bookForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const f=e.target;
+  const subj=encodeURIComponent('Cerere ofertă — '+(f.tip.value||'eveniment'));
+  const body=encodeURIComponent(
+    'Nume: '+f.nume.value+
+    '\nTelefon: '+f.telefon.value+
+    '\nTip eveniment: '+f.tip.value+
+    '\nData: '+f.data.value+
+    '\nLocație: '+f.locatie.value+
+    '\n\nMesaj:\n'+f.mesaj.value
+  );
+  window.location.href='mailto:rawproductions.ro@gmail.com?subject='+subj+'&body='+body;
+  document.getElementById('fOk').classList.add('show');
+});
+
+/* ================= efect magnetic pe butoane ================= */
+const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+if(fine){
+  const magnetize=el=>{
+    el.addEventListener('mousemove',e=>{
+      const r=el.getBoundingClientRect();
+      const dx=e.clientX-(r.left+r.width/2), dy=e.clientY-(r.top+r.height/2);
+      el.style.transform=`translate(${dx*0.18}px,${dy*0.18}px)`;
+    });
+    el.addEventListener('mouseleave',()=>{
+      el.style.transition='transform .5s cubic-bezier(.2,.8,.2,1)';
+      el.style.transform='';
+      setTimeout(()=>el.style.transition='',500);
+    });
+  };
+  document.querySelectorAll('.nav-cta,.gold-btn,.lb-arr,.close-btn,.lb-x,.nav-link').forEach(magnetize);
+}
+
+/* ================= intro — doar la prima vizită ================= */
+(function(){
+  const intro=document.getElementById('intro');
+  let seen=false;
+  try{seen=localStorage.getItem('rawIntroSeen')==='1';}catch(e){}
+  if(seen){
+    intro.style.transition='none';
+    intro.classList.add('done');
+  }else{
+    setTimeout(()=>{
+      intro.classList.add('done');
+      try{localStorage.setItem('rawIntroSeen','1');}catch(e){}
+    },2600);
+  }
+})();
+</script>
+</body>
+</html>

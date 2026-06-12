@@ -1,0 +1,4 @@
+# Site static — fără build. Netlify servește fișierele direct din rădăcină.
+[build]
+  publish = "."
+  command = "echo 'site static, fara build'"
