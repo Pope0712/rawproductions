@@ -53,6 +53,27 @@ body{
   70%{transform:translate(6%,-4%)}90%{transform:translate(-4%,2%)}
 }
 
+/* ---------- acces restricționat ---------- */
+#gate{
+  position:fixed;inset:0;z-index:300;background:var(--bg);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;
+  padding:24px;transition:opacity .7s ease;
+}
+.gate-logo{width:min(300px,70vw);height:auto;margin-bottom:6px}
+.gate-t{font-family:var(--serif);font-style:italic;color:var(--ink-dim);font-size:16px}
+#gateForm{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+#gatePass{
+  background:transparent;border:1px solid var(--line);border-radius:999px;
+  color:var(--ink);font-family:var(--sans);font-size:14px;letter-spacing:.08em;
+  padding:13px 24px;outline:none;width:min(280px,70vw);text-align:center;
+  transition:border-color .3s;
+}
+#gatePass:focus{border-color:var(--gold)}
+.gate-err{
+  font-size:11px;letter-spacing:.25em;text-transform:uppercase;
+  color:#e06a7e;opacity:0;transition:opacity .3s;
+}
+
 /* ---------- intro ---------- */
 #intro{
   position:fixed;inset:0;z-index:100;background:var(--bg);
@@ -726,6 +747,17 @@ nav{
 <body>
 
 <div class="grain"></div>
+
+<!-- acces restricționat pe perioada lucrului (se elimină la lansare) -->
+<div id="gate">
+  <img class="gate-logo" src="logo.png" alt="RAW Productions">
+  <p class="gate-t">Site în lucru — acces restricționat</p>
+  <form id="gateForm" autocomplete="off">
+    <input id="gatePass" type="password" placeholder="Parola de acces" autocomplete="off">
+    <button class="gold-btn" type="submit">Intră</button>
+  </form>
+  <p class="gate-err" id="gateErr">Parolă incorectă</p>
+</div>
 
 
 <!-- intro -->
@@ -1711,6 +1743,25 @@ if(fine){
   };
   document.querySelectorAll('.nav-cta,.gold-btn,.lb-arr,.close-btn,.lb-x,.nav-link').forEach(magnetize);
 }
+
+/* ================= acces restricționat ================= */
+(function(){
+  const gate=document.getElementById('gate');
+  let ok=false;
+  try{ok=localStorage.getItem('rawGate')==='1';}catch(e){}
+  if(ok){gate.remove();return;}
+  document.getElementById('gateForm').addEventListener('submit',e=>{
+    e.preventDefault();
+    if(document.getElementById('gatePass').value==='rawproductions2023'){
+      try{localStorage.setItem('rawGate','1');}catch(err){}
+      gate.style.opacity='0';
+      setTimeout(()=>gate.remove(),700);
+    }else{
+      document.getElementById('gateErr').style.opacity='1';
+      document.getElementById('gatePass').value='';
+    }
+  });
+})();
 
 /* ================= intro — doar la prima vizită ================= */
 (function(){
