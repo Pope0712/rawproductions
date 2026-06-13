@@ -1813,8 +1813,10 @@ document.getElementById('bookForm').addEventListener('submit', async e => {
   okEl.style.color = 'var(--gold)';
 
   const params = {
-    from_name:      f.nume.value,
-    from_email:     f.email.value,
+    from_name:      f.nume.value,       // folosit de EmailJS pentru sender name
+    from_email:     f.email.value,      // folosit de EmailJS pentru routing (To Email)
+    client_name:    f.nume.value,       // variabilă în template body
+    client_email:   f.email.value,      // variabilă în template body
     telefon:        f.telefon.value    || '—',
     tip_eveniment:  f.tip.value,
     data_eveniment: f.data.value       || '—',
