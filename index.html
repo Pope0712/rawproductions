@@ -344,23 +344,18 @@ nav{
 .gold-btn:hover::before,.nav-cta:hover::before{transform:translateX(330%) skewX(-16deg)}
 
 /* reveal în Despre noi */
-.member,.gear>div,.a-stats .st{
+.member,.a-stats .st{
   opacity:0;transform:translateY(18px);
   transition:opacity .7s ease,transform .7s cubic-bezier(.2,.8,.2,1);
 }
-.overlay.open .member,.overlay.open .gear>div,.overlay.open .a-stats .st{opacity:1;transform:none}
+.overlay.open .member,.overlay.open .a-stats .st{opacity:1;transform:none}
 .member:nth-child(2){transition-delay:.12s}
 .member:nth-child(3){transition-delay:.24s}
-.gear>div:nth-child(2){transition-delay:.06s}
-.gear>div:nth-child(3){transition-delay:.12s}
-.gear>div:nth-child(4){transition-delay:.18s}
-.gear>div:nth-child(5){transition-delay:.24s}
-.gear>div:nth-child(6){transition-delay:.3s}
-.a-stats .st:nth-child(2){transition-delay:.1s}
-.a-stats .st:nth-child(3){transition-delay:.2s}
-.a-stats .st:nth-child(4){transition-delay:.3s}
-.a-stats .st:nth-child(5){transition-delay:.4s}
-.a-stats .st:nth-child(6){transition-delay:.5s}
+.a-stats .st:nth-child(2){transition-delay:.08s}
+.a-stats .st:nth-child(3){transition-delay:.16s}
+.a-stats .st:nth-child(4){transition-delay:.24s}
+.a-stats .st:nth-child(5){transition-delay:.32s}
+.a-stats .st:nth-child(6){transition-delay:.40s}
 
 /* ---------- următorul univers ---------- */
 .next-cat{
@@ -642,16 +637,28 @@ nav{
 }
 .team.t2{grid-template-columns:repeat(2,1fr);max-width:480px;margin-left:auto;margin-right:auto}
 .team.t2 .face{background-position:center top}
-.gear{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 40px;margin-top:30px;max-width:680px}
-.gear div{
-  display:flex;align-items:baseline;gap:14px;padding:14px 4px;
-  border-bottom:1px solid var(--line);
+.a-stats{
+  display:grid;grid-template-columns:repeat(6,1fr);gap:0;
+  margin-top:64px;
+  border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  padding:40px 0;
 }
-.gear b{font-weight:500;font-size:14px;letter-spacing:.06em;white-space:nowrap}
-.gear span{color:var(--ink-dim);font-weight:300;font-size:13px}
-.a-stats{display:flex;gap:60px;flex-wrap:wrap;margin-top:64px}
-.a-stats .st .num{font-family:var(--serif);font-size:clamp(36px,5vw,54px);color:var(--gold)}
-.a-stats .st .lab{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--ink-faint);margin-top:6px}
+.a-stats .st{
+  display:flex;flex-direction:column;align-items:center;
+  padding:12px 10px;position:relative;
+}
+.a-stats .st:not(:last-child)::after{
+  content:'';position:absolute;right:0;top:18%;bottom:18%;
+  width:1px;background:var(--line);
+}
+.a-stats .st .num{
+  font-family:var(--serif);font-size:clamp(32px,3.8vw,56px);
+  color:var(--gold);font-weight:400;line-height:1;
+}
+.a-stats .st .lab{
+  font-size:9px;letter-spacing:.24em;text-transform:uppercase;
+  color:var(--ink-faint);margin-top:10px;text-align:center;line-height:1.6;
+}
 
 /* ---------- buton WhatsApp ---------- */
 #waBtn{
@@ -764,8 +771,13 @@ nav{
   .grid.vgrid .tile{grid-column:span 2;aspect-ratio:16/9}
   .close-btn{top:18px;right:18px}
   .team{grid-template-columns:1fr 1fr}
-  .gear{grid-template-columns:1fr}
-  .a-stats{gap:34px}
+  .a-stats{grid-template-columns:repeat(3,1fr);padding:28px 0}
+  .a-stats .st:nth-child(3n)::after{display:none}
+}
+@media(max-width:400px){
+  .a-stats{grid-template-columns:repeat(2,1fr)}
+  .a-stats .st:nth-child(3n)::after{display:block}
+  .a-stats .st:nth-child(2n)::after{display:none}
 }
 </style>
 </head>
@@ -1122,16 +1134,7 @@ nav{
       </div>
     </div>
 
-    <p class="sec-label" style="--cat:#d4af7a">Cu ce lucrăm</p>
-    <div class="gear">
-      <div><b>Camere</b><span>Sony FX3 · Sony A7 IV</span></div>
-      <div><b>Obiective</b><span>G Master 24-70 · 85mm f/1.4</span></div>
-      <div><b>Dronă</b><span>DJI Mavic 3 Pro</span></div>
-      <div><b>Stabilizare</b><span>DJI RS 4 · slider motorizat</span></div>
-      <div><b>Lumini</b><span>Aputure 600d · panouri RGB</span></div>
-      <div><b>Audio</b><span>lavaliere wireless · recorder</span></div>
-    </div>
-
+    <p class="sec-label" style="--cat:#d4af7a">Cifrele noastre</p>
     <div class="a-stats">
       <div class="st"><p class="num">200</p><p class="lab">Evenimente capturate</p></div>
       <div class="st"><p class="num">350</p><p class="lab">Clienți fericiți</p></div>
