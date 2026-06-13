@@ -780,6 +780,7 @@ nav{
   .a-stats .st:nth-child(2n)::after{display:none}
 }
 </style>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -1007,6 +1008,10 @@ nav{
         <div class="f-field">
           <label for="fTel">Telefon</label>
           <input id="fTel" name="telefon" type="tel" placeholder="+40 ...">
+        </div>
+        <div class="f-field">
+          <label for="fEmail">Email <span style="color:var(--gold)">*</span></label>
+          <input id="fEmail" name="email" type="email" placeholder="adresa@email.com" required>
         </div>
         <div class="f-field">
           <label for="fTip">Tip eveniment</label>
@@ -1761,21 +1766,78 @@ function preloadCat(key){
   (POOL[key]||[]).slice(0,14).forEach(p=>{const im=new Image();im.src=p;});
 }
 
-/* ================= formular rezervare ================= */
-document.getElementById('bookForm').addEventListener('submit',e=>{
+/* ================= EmailJS — formular rezervare ================= */
+/* ----------------------------------------------------------------
+   SETUP (o singură dată, pe emailjs.com):
+   1. Creează cont → Add New Service → Gmail (rawproductions.ro@gmail.com)
+   2. Template "notificare_raw":
+      To: rawproductions.ro@gmail.com
+      Subiect: Cerere nouă — {{tip_eveniment}}
+      Corp: Nume: {{from_name}} | Email: {{from_email}} | Tel: {{telefon}}
+            Eveniment: {{tip_eveniment}} | Data: {{data_eveniment}}
+            Locație: {{locatie}} | Mesaj: {{mesaj}}
+   3. Template "confirmare_client":
+      To: {{from_email}}
+      Subiect: RAW Productions — Cererea ta pentru {{tip_eveniment}}
+      Corp: Bună {{from_name}}, am primit cererea! Oferta: {{pdf_link}}
+            Te contactăm în cel mai scurt timp.
+   4. Înlocuiește cele 4 constante de mai jos cu ID-urile tale.
+   ---------------------------------------------------------------- */
+const EJS_PUBLIC_KEY = 'PUNE_AICI_PUBLIC_KEY';
+const EJS_SERVICE_ID = 'PUNE_AICI_SERVICE_ID';
+const EJS_TPL_TEAM   = 'PUNE_AICI_TEMPLATE_NOTIF';
+const EJS_TPL_CLIENT = 'PUNE_AICI_TEMPLATE_CLIENT';
+
+const OFFER_PDFS = {
+  'Nuntă':          'https://rawproductions.ro/oferte/oferta-nunta.pdf',
+  'Botez':          'https://rawproductions.ro/oferte/oferta-botez.pdf',
+  'Majorat':        'https://rawproductions.ro/oferte/oferta-majorat.pdf',
+  'Absolvire':      'https://rawproductions.ro/oferte/oferta-majorat.pdf',
+  'Reels & Social': 'https://rawproductions.ro/oferte/oferta-reels.pdf',
+  'Corporate':      'https://rawproductions.ro/oferte/oferta-corporate.pdf',
+  'Ședință studio': 'https://rawproductions.ro/oferte/oferta-studio.pdf',
+  'Altceva':        'https://rawproductions.ro/oferte/oferta-generala.pdf',
+};
+
+emailjs.init(EJS_PUBLIC_KEY);
+
+document.getElementById('bookForm').addEventListener('submit', async e => {
   e.preventDefault();
-  const f=e.target;
-  const subj=encodeURIComponent('Cerere ofertă — '+(f.tip.value||'eveniment'));
-  const body=encodeURIComponent(
-    'Nume: '+f.nume.value+
-    '\nTelefon: '+f.telefon.value+
-    '\nTip eveniment: '+f.tip.value+
-    '\nData: '+f.data.value+
-    '\nLocație: '+f.locatie.value+
-    '\n\nMesaj:\n'+f.mesaj.value
-  );
-  window.location.href='mailto:rawproductions.ro@gmail.com?subject='+subj+'&body='+body;
-  document.getElementById('fOk').classList.add('show');
+  const f   = e.target;
+  const btn = f.querySelector('[type=submit]');
+  const okEl = document.getElementById('fOk');
+
+  btn.textContent = 'Se trimite...';
+  btn.disabled = true;
+  okEl.classList.remove('show');
+  okEl.style.color = 'var(--gold)';
+
+  const params = {
+    from_name:      f.nume.value,
+    from_email:     f.email.value,
+    telefon:        f.telefon.value    || '—',
+    tip_eveniment:  f.tip.value,
+    data_eveniment: f.data.value       || '—',
+    locatie:        f.locatie.value    || '—',
+    mesaj:          f.mesaj.value      || '—',
+    pdf_link:       OFFER_PDFS[f.tip.value] || OFFER_PDFS['Altceva'],
+  };
+
+  try {
+    await emailjs.send(EJS_SERVICE_ID, EJS_TPL_TEAM,   params);
+    await emailjs.send(EJS_SERVICE_ID, EJS_TPL_CLIENT, params);
+    okEl.textContent = 'Cererea a fost trimisă! Vei primi oferta pe email în câteva minute. ✦';
+    okEl.classList.add('show');
+    f.reset();
+  } catch(err) {
+    okEl.textContent = 'Ceva n-a mers — scrie-ne direct la rawproductions.ro@gmail.com';
+    okEl.style.color = '#e06a7e';
+    okEl.classList.add('show');
+    console.error('EmailJS error:', err);
+  } finally {
+    btn.textContent = 'Trimite cererea';
+    btn.disabled = false;
+  }
 });
 
 /* ================= efect magnetic pe butoane ================= */
