@@ -1593,23 +1593,36 @@ function openPacks(){
 }
 
 const about=document.getElementById('about');
-/* cifrele din statistici numără de la zero la deschidere */
+/* cifrele din statistici — counter animat declanșat când secțiunea devine vizibilă */
 const statEls=[...document.querySelectorAll('#about .a-stats .num')]
   .map(el=>({el,target:parseInt(el.textContent,10),suffix:el.textContent.replace(/^\d+/,'')}));
+let statsPlayed=false;
 function animateStats(){
-  const t0=performance.now(),dur=1400;
+  if(statsPlayed)return;
+  statsPlayed=true;
+  const t0=performance.now(),dur=2200;
   (function step(now){
     const t=Math.min(1,(now-t0)/dur);
     const e=1-Math.pow(1-t,3);
     statEls.forEach(s=>{s.el.textContent=Math.round(s.target*e)+s.suffix;});
-    if(t<1&&about.classList.contains('open'))requestAnimationFrame(step);
+    if(t<1)requestAnimationFrame(step);
   })(t0);
 }
+function resetStats(){
+  statsPlayed=false;
+  statEls.forEach(s=>{s.el.textContent='0'+s.suffix;});
+}
+/* observă când .a-stats intră în viewport-ul overlay-ului */
+const statsSection=document.querySelector('#about .a-stats');
+const statsObs=new IntersectionObserver(entries=>{
+  if(entries[0].isIntersecting)animateStats();
+},{root:about,threshold:0.25});
+statsObs.observe(statsSection);
 function openAbout(){
   closeOverlays(true);
   about.classList.add('open');
   about.scrollTop=0;
-  animateStats();
+  resetStats();
 }
 function closeOverlays(){
   gallery.classList.remove('open');
